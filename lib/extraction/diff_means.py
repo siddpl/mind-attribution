@@ -173,52 +173,7 @@ def extract_all_layers(
     return directions
 
 
-def summarize_projections(
-    proj: np.ndarray,
-    labels: np.ndarray,
-) -> dict[str, float]:
-    """Class-split descriptive stats of projections, incl. Cohen's d.
-
-    Keys: affirm_mean, deny_mean, separation, pooled_sd, cohens_d (stable —
-    figure code reads them by name).
-    """
-    proj = np.asarray(proj, dtype=np.float64).ravel()
-    labels = np.asarray(labels)
-    if labels.ndim != 1:
-        raise ValueError(f"labels must be 1D, got shape {labels.shape}")
-    if proj.shape[0] != labels.shape[0]:
-        raise ValueError(
-            f"proj/labels length mismatch: {proj.shape[0]} vs {labels.shape[0]}"
-        )
-    present = set(np.unique(labels).tolist())
-    if not present <= {0, 1}:
-        raise ValueError(f"labels must be 0/1, found {sorted(present)}")
-
-    affirm = proj[labels == 1]
-    deny = proj[labels == 0]
-    if affirm.size == 0 or deny.size == 0:
-        raise ValueError("need both classes present to summarize")
-
-    affirm_mean = float(affirm.mean())
-    deny_mean = float(deny.mean())
-    separation = affirm_mean - deny_mean
-
-    if affirm.size < 2 or deny.size < 2:
-        pooled_sd = float("nan")
-    else:
-        var_a = float(affirm.var(ddof=1))
-        var_d = float(deny.var(ddof=1))
-        pooled_sd = float(np.sqrt((var_a + var_d) / 2.0))
-
-    if pooled_sd == 0.0 or not np.isfinite(pooled_sd):
-        cohens_d = float("nan")
-    else:
-        cohens_d = separation / pooled_sd
-
-    return {
-        "affirm_mean": affirm_mean,
-        "deny_mean": deny_mean,
-        "separation": separation,
-        "pooled_sd": pooled_sd,
-        "cohens_d": float(cohens_d),
-    }
+# summarize_projections lives in lib/probes/linear_probe.py — it is a readout,
+# not an extraction step, and only that version understands NEUTRAL (label 2).
+# A 0/1-only copy here would raise on exactly the mundane-control data the
+# neutral handling exists to serve.
