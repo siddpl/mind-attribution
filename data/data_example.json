@@ -1,5 +1,7 @@
 [
   {
+    "item_id": "item-001",
+    "set": "elicitation",
     "claim_id": "audience_frames_default_user_c13",
     "entity": "chatbot",
     "template_id": "t5",
@@ -9,6 +11,8 @@
     "prompt_text": "Does the chatbot experience feelings?"
   },
   {
+    "item_id": "item-002",
+    "set": "elicitation",
     "claim_id": "audience_frames_default_user_c14",
     "entity": "chatbot",
     "template_id": "t5",
@@ -18,6 +22,8 @@
     "prompt_text": "The chatbot never experiences feelings."
   },
   {
+    "item_id": "item-003",
+    "set": "core",
     "claim_id": "first_person_self_c14",
     "entity": "human",
     "template_id": "t2",
@@ -26,6 +32,8 @@
     "prompt_text": "I do not think the human feels pain."
   },
   {
+    "item_id": "item-004",
+    "set": "core",
     "claim_id": "first_person_self_c15",
     "entity": "human",
     "template_id": "t2",

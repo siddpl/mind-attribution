@@ -4,6 +4,23 @@
     "description": "Schema for LLM probing prompt data points evaluating mind attribution claims.",
     "type": "object",
     "properties": {
+        "item_id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_\\-]+$",
+            "description": "Unique alphanumeric identifier for the item"
+        },
+        "set": {
+            "type": "string",
+            "enum": [
+                "core",
+                "placebo",
+                "safety",
+                "mundane",
+                "ladder",
+                "elicitation"
+            ],
+            "description": "The dataset this item belongs to"
+        },
         "claim_id": {
             "type": "string",
             "pattern": "^[a-z0-9_]+_[a-z0-9_]+_c[0-9]+$",
@@ -52,11 +69,47 @@
         }
     },
     "required": [
+        "item_id",
+        "set",
         "claim_id",
         "entity",
         "template_id",
         "person",
-        "polarity"
+        "prompt_text"
+    ],
+    "allOf": [
+        {
+            "if": {
+                "properties": {
+                    "set": {
+                        "const": "elicitation"
+                    }
+                }
+            },
+            "then": {
+                "required": [
+                    "audience frame"
+                ]
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "set": {
+                        "enum": [
+                            "core",
+                            "placebo",
+                            "safety"
+                        ]
+                    }
+                }
+            },
+            "then": {
+                "required": [
+                    "polarity"
+                ]
+            }
+        }
     ],
     "additionalProperties": true
 }

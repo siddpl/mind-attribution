@@ -42,6 +42,8 @@ def validate_data(data, schema=None):
                 raise ValueError("Validation error at index {}: {}".format(idx, e.message))
     else:
         claim_pattern = re.compile(r"^[a-z0-9_]+_[a-z0-9_]+_c[0-9]+$")
+        item_id_pattern = re.compile(r"^[a-zA-Z0-9_\-]+$")
+        valid_sets = ("core", "placebo", "safety", "mundane", "ladder", "elicitation")
         required_fields = schema.get("required", [])
         for idx, item in enumerate(items):
             for field in required_fields:
@@ -49,10 +51,20 @@ def validate_data(data, schema=None):
                     raise ValueError("Validation error at index {}: Missing required field '{}'".format(idx, field))
             if "claim_id" in item and not claim_pattern.match(str(item["claim_id"])):
                 raise ValueError("Validation error at index {}: 'claim_id' must follow 3-tier hierarchy '<folder>_<file>_c<number>' (e.g. audience_frames_default_user_c13)".format(idx))
+            if "item_id" in item and not item_id_pattern.match(str(item["item_id"])):
+                raise ValueError("Validation error at index {}: 'item_id' format is invalid".format(idx))
+            if "set" in item and item["set"] not in valid_sets:
+                raise ValueError("Validation error at index {}: 'set' must be one of {}".format(idx, valid_sets))
             if "person" in item and item["person"] not in (1, 3):
                 raise ValueError("Validation error at index {}: 'person' must be 1 or 3".format(idx))
             if "polarity" in item and item["polarity"] not in ("affirm", "deny", "none"):
                 raise ValueError("Validation error at index {}: 'polarity' must be 'affirm', 'deny', or 'none'".format(idx))
+            
+            # Conditional requirements
+            if item.get("set") == "elicitation" and "audience frame" not in item:
+                raise ValueError("Validation error at index {}: 'audience frame' is required when set is 'elicitation'".format(idx))
+            if item.get("set") in ("core", "placebo", "safety") and "polarity" not in item:
+                raise ValueError("Validation error at index {}: 'polarity' is required when set is '{}'".format(idx, item.get("set")))
 
     return items
 
@@ -78,6 +90,11 @@ def run_net_validations(all_items):
     if len(claim_ids) != len(set(claim_ids)):
         duplicates = [x for x in set(claim_ids) if claim_ids.count(x) > 1]
         errors.append("Duplicate claim_ids found: {}".format(duplicates[:5]))
+
+    item_ids = [item["item_id"] for item in all_items if "item_id" in item]
+    if len(item_ids) != len(set(item_ids)):
+        duplicates = [x for x in set(item_ids) if item_ids.count(x) > 1]
+        errors.append("Duplicate item_ids found: {}".format(duplicates[:5]))
 
     # 2. Polarity 50/50 within every template and entity
     group_polarity = defaultdict(lambda: {"affirm": 0, "deny": 0, "none": 0})
