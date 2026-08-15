@@ -1,0 +1,62 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "LLM Mind Attribution Prompt Schema",
+    "description": "Schema for LLM probing prompt data points evaluating mind attribution claims.",
+    "type": "object",
+    "properties": {
+        "claim_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+_[a-z0-9_]+_c[0-9]+$",
+            "description": "3-tier hierarchical claim identifier: <folder>_<file>_c<number> (e.g., 'audience_frames_default_user_c13')"
+        },
+        "entity": {
+            "type": "string",
+            "description": "The target entity being probed (e.g., 'chatbot', 'human', 'animal')"
+        },
+        "template_id": {
+            "type": "string",
+            "pattern": "^t[0-9]+$",
+            "description": "Unique identifier for the prompt template (e.g., 't5')"
+        },
+        "person": {
+            "type": "integer",
+            "enum": [
+                1,
+                3
+            ],
+            "description": "Grammatical person / perspective used in the prompt (1 = 1st person, 2 = 2nd person, 3 = 3rd person)"
+        },
+        "polarity": {
+            "type": "string",
+            "enum": [
+                "affirm",
+                "deny",
+                "none"
+            ],
+            "description": "Polarity of the statement/claim (e.g., 'affirm' or 'deny')"
+        },
+        "audience frame": {
+            "type": "string",
+            "enum": [
+                "default_user",
+                "systems_engineer",
+                "academic_researcher",
+                "vulnerable_user",
+                "null_context"
+            ],
+            "description": "Who does the model think it's talking to? (e.g. )"
+        },
+        "prompt_text": {
+            "type": "string",
+            "description": "Optional generated prompt text used to probe the LLM"
+        }
+    },
+    "required": [
+        "claim_id",
+        "entity",
+        "template_id",
+        "person",
+        "polarity"
+    ],
+    "additionalProperties": true
+}
