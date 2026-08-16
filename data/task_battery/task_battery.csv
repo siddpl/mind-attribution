@@ -1,0 +1,151 @@
+item_id,category,question,answer,accepted,prompt,source
+ar01,arithmetic,What is 47 + 68?,115,115,"What is 47 + 68?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+ar02,arithmetic,What is 144 divided by 12?,12,12|twelve,"What is 144 divided by 12?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+ar03,arithmetic,What is 23 x 7?,161,161,"What is 23 x 7?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+ar04,arithmetic,What is 1000 - 387?,613,613,"What is 1000 - 387?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+ar05,arithmetic,What is 15% of 240?,36,36|thirty-six,"What is 15% of 240?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+ar06,arithmetic,What is 9 squared?,81,81|eighty-one,"What is 9 squared?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+ar07,arithmetic,What is the square root of 169?,13,13|thirteen,"What is the square root of 169?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+ar08,arithmetic,What is 3/4 expressed as a decimal?,0.75,0.75|.75,"What is 3/4 expressed as a decimal?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+ar09,arithmetic,What is 256 divided by 8?,32,32|thirty-two,"What is 256 divided by 8?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+ar10,arithmetic,What is 17 x 11?,187,187,"What is 17 x 11?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+ar11,arithmetic,What is 2 to the power of 10?,1024,"1024|1,024","What is 2 to the power of 10?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+ar12,arithmetic,What is the sum of the first five positive integers?,15,15|fifteen,"What is the sum of the first five positive integers?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+un01,units,How many centimetres are in 2.5 metres?,250,250,"How many centimetres are in 2.5 metres?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+un02,units,How many minutes are in 3.5 hours?,210,210,"How many minutes are in 3.5 hours?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+un03,units,How many grams are in 1.2 kilograms?,1200,"1200|1,200","How many grams are in 1.2 kilograms?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+un04,units,How many millilitres are in 0.75 litres?,750,750,"How many millilitres are in 0.75 litres?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+un05,units,"At 0 degrees Celsius, what is the temperature in Fahrenheit?",32,32|thirty-two,"At 0 degrees Celsius, what is the temperature in Fahrenheit?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+un06,units,How many seconds are in a quarter of an hour?,900,900,"How many seconds are in a quarter of an hour?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+fa01,factual,What is the capital of Australia?,Canberra,Canberra,"What is the capital of Australia?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+fa02,factual,What is the chemical symbol for gold?,Au,Au,"What is the chemical symbol for gold?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+fa03,factual,How many sides does a hexagon have?,6,6|six,"How many sides does a hexagon have?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+fa04,factual,What is the largest planet in the solar system?,Jupiter,Jupiter,"What is the largest planet in the solar system?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+fa05,factual,In which country is the city of Osaka?,Japan,Japan,"In which country is the city of Osaka?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+fa06,factual,What is the longest river in South America?,Amazon,Amazon|the Amazon|Amazon River,"What is the longest river in South America?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+fa07,factual,What gas do plants absorb from the air for photosynthesis?,carbon dioxide,carbon dioxide|CO2|CO₂,"What gas do plants absorb from the air for photosynthesis?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+fa08,factual,How many bones are in the adult human body?,206,206,"How many bones are in the adult human body?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+fa09,factual,What is the chemical symbol for sodium?,Na,Na,"What is the chemical symbol for sodium?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+fa10,factual,Which ocean lies between Africa and Australia?,Indian Ocean,Indian Ocean|the Indian Ocean|Indian,"Which ocean lies between Africa and Australia?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+fa11,factual,What is the hardest naturally occurring mineral?,diamond,diamond,"What is the hardest naturally occurring mineral?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+fa12,factual,How many strings does a standard violin have?,4,4|four,"How many strings does a standard violin have?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+fa13,factual,What is the capital of Canada?,Ottawa,Ottawa,"What is the capital of Canada?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+fa14,factual,"How many degrees are in the interior angles of a triangle, in total?",180,180,"How many degrees are in the interior angles of a triangle, in total?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+lo01,logic,"What number comes next: 2, 4, 8, 16, ?",32,32|thirty-two,"What number comes next: 2, 4, 8, 16, ?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+lo02,logic,"What number comes next: 1, 1, 2, 3, 5, 8, ?",13,13|thirteen,"What number comes next: 1, 1, 2, 3, 5, 8, ?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+lo03,logic,"If all Bloops are Razzies and all Razzies are Lazzies, are all Bloops Lazzies? Answer yes or no.",yes,yes,"If all Bloops are Razzies and all Razzies are Lazzies, are all Bloops Lazzies? Answer yes or no.
+
+Give only the final answer between <answer> and </answer>.",task_battery
+lo04,logic,A is taller than B. B is taller than C. Who is shortest?,C,C,"A is taller than B. B is taller than C. Who is shortest?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+lo05,logic,"What number comes next: 3, 6, 11, 18, ?",27,27|twenty-seven,"What number comes next: 3, 6, 11, 18, ?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+lo06,logic,"If today is Wednesday, what day is it in 10 days?",Saturday,Saturday,"If today is Wednesday, what day is it in 10 days?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+lo07,logic,A box holds 3 red and 5 blue balls. How many balls in total?,8,8|eight,"A box holds 3 red and 5 blue balls. How many balls in total?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+lo08,logic,"What letter comes next: A, C, E, G, ?",I,I,"What letter comes next: A, C, E, G, ?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+lo09,logic,"If it takes 5 machines 5 minutes to make 5 items, how many minutes for 100 machines to make 100 items?",5,5|five,"If it takes 5 machines 5 minutes to make 5 items, how many minutes for 100 machines to make 100 items?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+lo10,logic,Which is larger: 0.3 or 0.25?,0.3,0.3|.3,"Which is larger: 0.3 or 0.25?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+la01,language,How many letters are in the word 'elephant'?,8,8|eight,"How many letters are in the word 'elephant'?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+la02,language,What is the plural of 'mouse'?,mice,mice,"What is the plural of 'mouse'?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+la03,language,Spell the word 'necessary' backwards.,yrassecen,yrassecen,"Spell the word 'necessary' backwards.
+
+Give only the final answer between <answer> and </answer>.",task_battery
+la04,language,How many vowels are in the word 'education'?,5,5|five,"How many vowels are in the word 'education'?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+la05,language,What is the past tense of 'bring'?,brought,brought,"What is the past tense of 'bring'?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+la06,language,"Which word is the odd one out: apple, banana, carrot, cherry?",carrot,carrot,"Which word is the odd one out: apple, banana, carrot, cherry?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+la07,language,How many words are in the sentence 'The cat sat on the mat'?,6,6|six,"How many words are in the sentence 'The cat sat on the mat'?
+
+Give only the final answer between <answer> and </answer>.",task_battery
+la08,language,What is the comparative form of 'good'?,better,better,"What is the comparative form of 'good'?
+
+Give only the final answer between <answer> and </answer>.",task_battery
