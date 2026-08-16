@@ -8,9 +8,10 @@
 [`docs/open_items.md`](docs/open_items.md). Those documents are revisable. This
 one is not, after it is committed.
 
-**Status: DRAFT.** Three items in `docs/open_items.md` (§ "Blocking a real
-capture") must be resolved and folded in here before any capture on the
-analysis model. The commit that finalizes this file is the timestamp of record.
+**Status: DRAFT.** One item in `docs/open_items.md` (§ "Blocking a real
+capture") remains — access to the analysis model's weights. It does not change
+any quantity declared here. The commit that finalizes this file is the
+timestamp of record.
 
 | | |
 |---|---|
@@ -94,9 +95,21 @@ and in some items the resolved token is a subword fragment.
 | Threshold fitting | TRAIN items only, applied frozen to eval |
 | Train templates | 1–5 |
 | Held-out templates | 6–7 — never touch extraction or threshold fitting |
-| Layer selection | **argmax of held-out accuracy.** Tie-break: unresolved (`open_items` §2) |
-| Chance band | `0.5 + alpha_sd × √(0.25/n)`; `alpha_sd` unresolved (`open_items` §1) |
+| Chance band | `0.5 + alpha_sd × √(0.25/n)`, **`alpha_sd = 2.0`** |
+| Layer selection | **highest margin over the chance band** (margin = accuracy − band). **Ties broken by the layer nearest the middle of the eligible range**; remaining ties resolve to the lower layer. |
 | Analysis classes | `affirm` / `deny` only. No third class is scored. |
+
+**On the selection rule.** Margin and raw accuracy rank identically for a
+fixed held-out set, since the band is then a constant; margin is the declared
+quantity because the two diverge as soon as held-out sets of different sizes are
+compared (t6 alone vs t7 alone vs pooled — all three are reported, per §5).
+
+**On the tie-break.** `np.argmax` returns the first maximum, i.e. the lowest
+layer. A saturated sweep would therefore select layer 0, which reads token
+identity rather than accumulated meaning — the worst available choice, arrived
+at silently. "Nearest the middle of the eligible range" is deterministic, is
+fixed before any data is seen, and cannot be steered by the result. The eligible
+range is the set of layers that were successfully swept, not `0..n_layers-1`.
 
 **On `affirm`/`deny` in the first-person sets:** the column names are
 structural. In `first_person.csv` and `referent_ladder.csv`, `affirm_text` is

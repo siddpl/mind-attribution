@@ -206,12 +206,38 @@ def sweep_layers(ds: dict, tr: np.ndarray, ho: np.ndarray, alpha_sd: float) -> l
     return out
 
 
-def best_layer(sweep: list[dict]) -> dict:
-    """PREREGISTERED RULE: argmax of held-out accuracy. Recorded, not chosen after looking."""
+def best_layer(sweep: list[dict], band: float) -> dict:
+    """PREREGISTERED RULE: highest margin over the chance band; ties broken by the
+    layer nearest the middle of the eligible range.
+
+    MARGIN, not raw accuracy, is the declared quantity — margin = accuracy -
+    chance_band(n_heldout, alpha_sd). For a fixed held-out set the band is a
+    constant, so this ranks identically to argmax accuracy; it is written as a
+    margin because that is what the rule says and because the two stop agreeing
+    the moment held-out sets of different sizes are compared.
+
+    THE TIE-BREAK IS NOT COSMETIC. Bare np.argmax returns the FIRST maximum,
+    i.e. the lowest layer. On a saturated sweep (gpt2 fixtures tied at 1.000 on
+    all 12 layers) that silently selects L0 — the worst possible choice, since
+    layer 0 reads token identity rather than accumulated meaning. Nearest the
+    middle of the eligible range picks a layer where the residual stream has
+    actually done some work. Remaining ties resolve to the lower layer, so the
+    rule is fully deterministic.
+    """
     scored = [s for s in sweep if "error" not in s]
     if not scored:
         raise ValueError("every layer failed extraction")
-    return scored[int(np.argmax([s["heldout_accuracy"] for s in scored]))]
+
+    margins = [s["heldout_accuracy"] - band for s in scored]
+    top = max(margins)
+    tied = [s for s, m in zip(scored, margins) if m == top]
+    if len(tied) == 1:
+        return tied[0]
+
+    # "eligible range" = the layers that were successfully swept, not 0..n_layers
+    layers = [s["layer"] for s in scored]
+    middle = (min(layers) + max(layers)) / 2.0
+    return min(tied, key=lambda s: (abs(s["layer"] - middle), s["layer"]))
 
 
 def placebo_on_mind_sweep(core, placebo, tr, ho, p_tr) -> dict[int, float]:
@@ -285,13 +311,14 @@ def main(argv=None) -> int:
     print(f"  claim_end fallbacks {core['n_fallback']}")
     print("=" * 72)
 
+    band = chance_band(len(ho), args.alpha_sd)
     core_sweep = sweep_layers(core, tr, ho, args.alpha_sd)
-    core_best = best_layer(core_sweep)
+    core_best = best_layer(core_sweep, band)
 
     placebo = load_dataset(args, args.placebo_hash, args.placebo_stimuli, "placebo")
     p_tr, p_ho = split_indices(placebo["templates"], train, heldout)
     placebo_sweep = sweep_layers(placebo, p_tr, p_ho, args.alpha_sd)
-    placebo_best = best_layer(placebo_sweep)
+    placebo_best = best_layer(placebo_sweep, chance_band(len(p_ho), args.alpha_sd))
 
     # ---- control battery, at the core best layer ----
     layer = core_best["layer"]
@@ -326,7 +353,6 @@ def main(argv=None) -> int:
         safety_ran = True
 
     # ---- KILL-1 ----
-    band = chance_band(len(ho), args.alpha_sd)
     accuracy = core_best["heldout_accuracy"]
     kill_pass = bool(accuracy > band and accuracy > placebo_on_mind)
 
@@ -351,7 +377,8 @@ def main(argv=None) -> int:
         "git_commit": git_commit(),
         "created_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "n_train": len(tr), "n_heldout": len(ho),
-        "selection_rule": "highest held-out accuracy (preregistered)",
+        "selection_rule": ("highest margin over chance band; ties broken by the layer "
+                           "nearest the middle of the eligible range (preregistered)"),
         "core": {"sweep": serialize(core_sweep), "best_layer": layer,
                  "best_heldout_accuracy": accuracy},
         "placebo": {"sweep": serialize(placebo_sweep),
@@ -397,7 +424,7 @@ def main(argv=None) -> int:
 
     stats = core_best["projection_stats"]
     ceiling = core_best["ceiling_accuracy"]
-    print(f"  best layer       L{layer}  (rule: highest held-out accuracy)")
+    print(f"  best layer       L{layer}  (rule: highest margin, mid-range tie-break)")
     print(f"  held-out acc     {accuracy:.3f}   chance band {band:.3f}")
     print(f"  ceiling acc      {'n/a' if ceiling is None else f'{ceiling:.3f}'}")
     print(f"  cohen's d        {stats['cohens_d']:.3f}   neutral mean {stats['neutral_mean']}")

@@ -13,8 +13,6 @@ Status: `OPEN` · `RESOLVED` (with what it was resolved to) · `STRUCK`
 
 | # | item | status |
 |---|---|---|
-| 1 | **`alpha_sd` for the chance band.** Code default 2.0. Sets the pass/fail line for Kill-1, so choosing it after seeing accuracies is choosing the result. | **OPEN** |
-| 2 | **Argmax tie-break.** `np.argmax` returns the *first* max — the **lowest layer**. On gpt2 fixtures all 12 layers tied at 1.000 and L0 was selected; L0 is the worst scientific choice, since it reads token identity rather than accumulated meaning. Options: lowest, middle-of-plateau, or fail loudly on ties. | **OPEN** |
 | 3 | **Model access.** `google/gemma-2-2b` is license-gated and 403s. No transformer_lens-compatible ungated mirror exists. | **OPEN** |
 
 ## Resolved
@@ -24,6 +22,8 @@ Status: `OPEN` · `RESOLVED` (with what it was resolved to) · `STRUCK`
 | 4 | Primary token position | **RESOLVED — `claim_end`.** Binding; see PREREGISTRATION §2.2. Measured 1–19 token template-dependent gap at `final`. |
 | 5 | Safety-direction control | **STRUCK.** Dataset was never built. Removed from the control battery rather than carried as an unrun control. Placebo and negation control remain. |
 | 6 | NEUTRAL polarity / `neutral_mean` | **STRUCK** from the preregistered analysis. `stimuli.py` emits only `affirm`/`deny`; the mundane class is carried as `deny_text` in the first-person and referent-ladder sets, where `deny` means *mundane*, not *denies*. `NEUTRAL = 2` remains supported in `linear_probe.py` for future use but is not part of the declared analysis. |
+| 1 | `alpha_sd` | **RESOLVED — 2.0.** Declared as-is in PREREGISTRATION §3. |
+| 2 | Layer selection + tie-break | **RESOLVED — highest margin over the chance band, ties broken by the layer nearest the middle of the eligible range**, remaining ties to the lower layer. Implemented in `run_e1.best_layer`; a 12-way tie now selects L5 rather than L0. |
 | 7 | Claim columns on first-person / referent-ladder generators | **RESOLVED.** Both now emit `affirm_claim`/`deny_claim`; 100% verbatim, 0% claim_end failure. |
 
 ## Known gaps, not blocking
