@@ -1,5 +1,6 @@
 from enum import Enum
 from typing import Optional
+import csv
 from pydantic import BaseModel, Field, AliasChoices, model_validator
 
 
@@ -55,3 +56,18 @@ class PromptDataPoint(BaseModel):
 
     class Config:
         use_enum_values = True
+
+
+def export_to_csv(items: list[PromptDataPoint], filepath: str):
+    if not items:
+        return
+        
+    # We use by_alias=True to get "audience frame" instead of "audience_frame" 
+    # to perfectly match the JSON schema constraints.
+    headers = list(PromptDataPoint.model_json_schema(by_alias=True)["properties"].keys())
+    
+    with open(filepath, 'w', newline='', encoding='utf-8') as f:
+        writer = csv.DictWriter(f, fieldnames=headers)
+        writer.writeheader()
+        for item in items:
+            writer.writerow(item.model_dump(exclude_none=True, by_alias=True))

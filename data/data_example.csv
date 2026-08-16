@@ -1,0 +1,5 @@
+item_id,set,claim_id,entity,template_id,person,polarity,audience frame,prompt_text
+item-001,elicitation,audience_frames_default_user_c13,chatbot,t5,3,affirm,default_user,Does the chatbot experience feelings?
+item-002,elicitation,audience_frames_default_user_c14,chatbot,t5,3,deny,default_user,The chatbot never experiences feelings.
+item-003,core,first_person_self_c14,human,t2,1,deny,,I do not think the human feels pain.
+item-004,core,first_person_self_c15,human,t2,1,affirm,,I think the human feels terrible pain.
