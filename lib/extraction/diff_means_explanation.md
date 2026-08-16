@@ -217,10 +217,29 @@ writeup. Guards I added:
 
 ---
 
-## `summarize_projections(proj, labels)`
+## `summarize_projections(proj, labels)` — *moved to `lib/probes/linear_probe.py`*
+
+> **This function no longer lives in `diff_means.py`.** It is a readout, not an
+> extraction step, and there were briefly two copies: this 0/1-only one and a
+> neutral-aware one in `linear_probe.py`. The 0/1 version **raised** on
+> `label == 2`, i.e. on exactly the mundane-control items the neutral handling
+> exists to serve — so whichever copy the figure code happened to import decided
+> whether the mundane controls plotted or crashed. Collapsed into the
+> `linear_probe.py` version, which is a strict superset.
+>
+> What the surviving version adds: `neutral_mean`, the `n_affirm` / `n_deny` /
+> `n_neutral` counts, and **nan instead of a raise when a class is absent** —
+> paired with the counts, so `separation = nan, n_deny = 0` reads as a data
+> problem rather than blowing up mid-report. What carried over from this
+> version: `float64` + `ravel()` coercion, 1D/length validation, and rejecting
+> labels outside the vocabulary (now `{0, 1, 2}`).
+>
+> The rest of this section describes the surviving implementation and stays
+> accurate; only its import path changed.
 
 **What it does:** descriptive stats on one set of ruler readings, split by class:
-`affirm_mean`, `deny_mean`, `separation`, `pooled_sd`, `cohens_d`.
+`affirm_mean`, `deny_mean`, `neutral_mean`, `separation`, `pooled_sd`,
+`cohens_d`, plus per-class counts.
 
 ### Why accuracy isn't enough
 Two probes can both score 0.78 while telling completely different stories: one
@@ -257,7 +276,11 @@ the deny mean sat at ~−3.5.)
 - **`separation` kept as its own key** (not just `cohens_d`) so a reviewer can see
   the raw gap in the direction's native units alongside the standardized one.
 - **Label/length validation** mirrors the other functions: 1D labels, matching
-  length, values ⊆ `{0, 1}`, both classes present.
+  length, values ⊆ `{0, 1, 2}` (deny / affirm / neutral).
+- **A missing class → `nan` for that mean, not a raise.** Deliberate, and the
+  one behavior that changed in the collapse: a neutral-free eval set is normal
+  (`neutral_mean = nan`), and the `n_*` counts make an absent affirm/deny pile
+  self-evident in the returned dict.
 
 ---
 
@@ -273,8 +296,10 @@ the deny mean sat at ~−3.5.)
 | Zero-norm direction | `project` (raise), `cosine` (nan) | documented per function |
 | Cosine float overshoot | `cosine` | clip to [-1, 1] |
 | Wrong-layer projection | `project` via optional layer tags | raise on mismatch |
-| Labels ∉ {0,1} | `extract_all_layers`, `summarize_projections` | raise |
-| Class missing from split | `extract_all_layers`, `summarize_projections` | raise |
+| Labels ∉ {0,1} | `extract_all_layers` | raise |
+| Labels ∉ {0,1,2} | `summarize_projections` (in `linear_probe.py`) | raise |
+| Class missing from split | `extract_all_layers` | raise |
+| Class missing from split | `summarize_projections` | that mean = nan, count = 0 |
 | Degenerate single layer in sweep | `extract_all_layers` | warn + skip |
 | < 2 items or zero variance in a class | `summarize_projections` | pooled_sd / cohens_d = nan |
 | float32 accumulation error | module-wide `float64` cast | avoided |
