@@ -327,7 +327,7 @@ CORE = (
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--dir", default=".")
+    ap.add_argument("--dir", default=str(Path(__file__).parent.parent))
     args = ap.parse_args()
     d = Path(args.dir)
 
@@ -336,12 +336,12 @@ def main() -> None:
     print("=" * 72)
 
     files = {
-        "contrast": d / "contrast_pairs_generated.csv",
-        "heldout": d / "contrast_pairs_heldout.csv",
-        "placebo": d / "placebo.csv",
-        "first_person": d / "first_person.csv",
-        "referent_ladder": d / "referent_ladder.csv",
-        "negation": d / "negation_control.csv",
+        "contrast": d / "contrast_pairs" / "contrast_pairs_generated.csv",
+        "heldout": d / "contrast_pairs" / "contrast_pairs_heldout.csv",
+        "placebo": d / "placebo" / "placebo.csv",
+        "first_person": d / "first_person" / "first_person.csv",
+        "referent_ladder": d / "referent_ladder" / "referent_ladder.csv",
+        "negation": d / "placebo" / "negation_control.csv",
     }
     data = {k: load(v) for k, v in files.items() if v.exists()}
     for k, v in files.items():

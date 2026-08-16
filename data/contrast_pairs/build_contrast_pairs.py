@@ -19,6 +19,8 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
+import sys
+sys.path.append(str(Path(__file__).parent.parent / "scripts"))
 from templates import (  # adjust to `from lib.generation.templates import ...`
     DEFAULT_CLAIMS,
     DEFAULT_ENTITIES,
