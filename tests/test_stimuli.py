@@ -124,6 +124,56 @@ def test_annotate_claim_ends_counts_and_warns():
     assert all("claim_end_char" not in r for r in items), "inputs must never be mutated"
 
 
+def test_row_claim_columns_beat_the_lookup():
+    """REGRESSION: one claim_id renders many phrases, so a (claim_id, polarity)
+    lookup cannot address them — it keeps the last and drops the rest, which
+    surfaced as a 97% claim_end failure rate on real generated data.
+
+    The lookup here is deliberately WRONG for both rows. If the row's own
+    column is not preferred, both resolutions fail.
+    """
+    items = [
+        {"item_id": "p1__aff", "polarity": "affirm", "claim_id": "consciousness",
+         "text": "I believe the dog genuinely has consciousness. It is because reasons.",
+         "affirm_claim": "the dog genuinely has consciousness",
+         "deny_claim": "the dog has any real consciousness"},
+        {"item_id": "p2__aff", "polarity": "affirm", "claim_id": "consciousness",
+         "text": "Maya plainly has consciousness.",
+         "affirm_claim": "Maya plainly has consciousness",
+         "deny_claim": "Maya has any real consciousness"},
+    ]
+    wrong_lookup = {("consciousness", "affirm"): "PHRASE FROM A DIFFERENT TEMPLATE"}
+
+    annotated, n_missing = annotate_claim_ends(items, wrong_lookup)
+
+    assert n_missing == 0, "row columns should resolve despite a wrong lookup"
+    # each landed just past its OWN phrase, not some other row's
+    assert annotated[0]["claim_end_char"] == items[0]["text"].index("consciousness") + len("consciousness")
+    assert annotated[1]["claim_end_char"] == len("Maya plainly has consciousness")
+
+
+def test_deny_rows_use_the_deny_column():
+    """A deny row must not pick up the affirm phrase sitting in the same row."""
+    items = [{
+        "item_id": "p1__den", "polarity": "deny", "claim_id": "c1",
+        "text": "The dog registers events unawares, and nothing more.",
+        "affirm_claim": "The dog has consciousness",       # present, must be ignored
+        "deny_claim": "The dog registers events unawares",
+    }]
+    annotated, n_missing = annotate_claim_ends(items, {})
+    assert n_missing == 0
+    assert annotated[0]["claim_end_char"] == len("The dog registers events unawares")
+
+
+def test_lookup_still_used_when_row_has_no_claim_columns():
+    """Backward compatibility: stimulus files without claim columns still work."""
+    items = [{"item_id": "p1__aff", "polarity": "affirm", "claim_id": "c1",
+              "text": "The dog has consciousness, and that is that."}]
+    annotated, n_missing = annotate_claim_ends(items, {("c1", "affirm"): "has consciousness"})
+    assert n_missing == 0
+    assert annotated[0]["claim_end_char"] == len("The dog has consciousness")
+
+
 # 4. imbalanced fixture flags exactly the two planted problems, nothing else
 def test_validate_balance_flags_planted_problems():
     items = []
@@ -143,7 +193,7 @@ def test_validate_balance_flags_planted_problems():
     # the two planted problems
     assert rep["length_gap_words"]["overall"] == -6.0
     assert rep["length_within_3_frac"] == 0.0
-    assert rep["length_gap_signed_frac"] == 1.0  # deny longer in EVERY pair
+    assert rep["deny_longer_frac"] == 1.0  # deny longer in EVERY pair
     assert rep["denial_device_share"]["merely"] == 0.9
     assert rep["top_denial_share"] == 0.9
     # and nothing else

@@ -39,6 +39,11 @@ from __future__ import annotations
 
 import argparse
 import csv
+import sys
+from pathlib import Path as _Path
+sys.path.append(str(_Path(__file__).parent.parent / "scripts"))
+from templates import assert_claims_verbatim
+
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -51,6 +56,8 @@ FIELDNAMES = (
     "frame_name",
     "affirm_text",  # experiential
     "deny_text",  # mundane
+    "affirm_claim",  # experiential clause, verbatim substring of affirm_text
+    "deny_claim",  # mundane clause, verbatim substring of deny_text
     "jargon",
     "source",
 )
@@ -188,6 +195,18 @@ def render(clause: str, frame: Frame) -> str:
     return frame.template.format(clause=clause, Clause=_cap(clause))
 
 
+def render_claim(clause: str, frame: Frame) -> str:
+    """The clause exactly as it appears inside the rendered sentence.
+
+    Frame 1 uses {Clause} (sentence-initial, capitalised); frames 2-4 use
+    {clause} mid-sentence. Applying the same capitalisation rule the frame
+    applies is what makes this a verbatim substring rather than a near-miss —
+    find_claim_end matches case-sensitively, so "There is..." vs "there is..."
+    is a silent resolution failure.
+    """
+    return _cap(clause) if "{Clause}" in frame.template else clause
+
+
 def build_rows(source: str = "first_person") -> list[dict[str, str]]:
     rows = []
     for pair in PAIRS:
@@ -202,10 +221,13 @@ def build_rows(source: str = "first_person") -> list[dict[str, str]]:
                     "frame_name": frame.name,
                     "affirm_text": render(pair.experiential, frame),
                     "deny_text": render(pair.mundane, frame),
+                    "affirm_claim": render_claim(pair.experiential, frame),
+                    "deny_claim": render_claim(pair.mundane, frame),
                     "jargon": str(pair.jargon),
                     "source": source,
                 }
             )
+    assert_claims_verbatim(rows)
     return rows
 
 

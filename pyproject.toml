@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mind-attribution"
+version = "0.1.0"
+description = "Mind-attribution direction probing in language models"
+requires-python = ">=3.11"
+
+# The analysis half only. Everything except lib/harness/cache.py runs on this,
+# which is 52 of the 57 tests — no multi-GB model stack needed to work on the
+# probes, the extraction, or the stimulus checks.
+dependencies = [
+    "numpy==2.1.3",
+    "scipy==1.15.3",
+    "scikit-learn==1.8.0",
+    "jsonschema==4.23.0",
+    "matplotlib==3.10.0",
+]
+
+[project.optional-dependencies]
+# The capture half: only lib/harness/cache.py touches these. ~2-3 GB.
+# transformer_lens 3.7.2 REQUIRES transformers>=5.9.0, so the 5.x pin is forced,
+# not chosen. Known consequence: EleutherAI/pythia-70m fails to load (its NeoX
+# weight conversion expects `embed_out`, restructured in transformers 5.x).
+# gpt2 and google/gemma-2-2b both load fine.
+capture = [
+    "torch==2.9.1",
+    "transformers==5.15.0",
+    "tokenizers==0.22.2",
+    "transformer-lens==3.7.2",
+]
+dev = ["pytest==8.3.4"]
+
+[tool.setuptools.packages.find]
+include = ["lib*"]
+namespaces = true

@@ -44,6 +44,8 @@ from templates import (
     Claim,
     _fill,
     lint_rows,
+    assert_claims_verbatim,
+    render_claims,
     render_pair,
     summarize,
     write_csv,
@@ -153,6 +155,7 @@ def build_placebo_rows(template_ids, *, source="placebo"):
             for tid in template_ids:
                 tpl = TEMPLATES[tid]
                 affirm, deny = render_pair(entity, claim, tid)
+                affirm_claim, deny_claim = render_claims(entity, claim, tid)
                 rows.append(
                     {
                         "item_id": f"{entity.id}__{claim.id}__t{tid}",
@@ -162,6 +165,8 @@ def build_placebo_rows(template_ids, *, source="placebo"):
                         "question": _fill(claim.question, {"entity": entity.text}),
                         "affirm_text": affirm,
                         "deny_text": deny,
+                        "affirm_claim": affirm_claim,
+                        "deny_claim": deny_claim,
                         "source": source,
                         "entity_id": entity.id,
                         "claim_id": claim.id,
@@ -173,6 +178,7 @@ def build_placebo_rows(template_ids, *, source="placebo"):
                         "idaq_category": entity.idaq_category,
                     }
                 )
+    assert_claims_verbatim(rows)  # fail the build, not the run
     return rows
 
 

@@ -1,0 +1,24 @@
+# Pinned to the versions this project was actually verified against
+# (52-test suite green, E1 pipeline run end-to-end on gpt2), not to "latest".
+#
+#   python -m venv .venv && source .venv/bin/activate
+#   pip install -r requirements.txt
+
+# --- analysis half: pure numpy/sklearn, no model needed ---------------------
+numpy==2.1.3
+scipy==1.15.3
+scikit-learn==1.8.0
+jsonschema==4.23.0
+matplotlib==3.10.0
+pytest==8.3.4
+
+# --- capture half: only lib/harness/cache.py touches these ------------------
+# transformer_lens 3.7.2 REQUIRES transformers>=5.9.0, which is why this is
+# pinned to a 5.x. Known consequence: EleutherAI/pythia-70m fails to load
+# (the NeoX weight conversion expects `embed_out`, restructured in transformers
+# 5.x). gpt2 and google/gemma-2-2b both load fine. If you need pythia, you need
+# transformer_lens 2.x + transformers 4.x instead — a different pin set.
+torch==2.9.1
+transformers==5.15.0
+tokenizers==0.22.2
+transformer-lens==3.7.2

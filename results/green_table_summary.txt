@@ -1,3 +1,0 @@
-GREEN TABLE COMMIT
-All NET Validations Passed.
-Total valid items: 294

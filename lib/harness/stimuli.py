@@ -97,7 +97,18 @@ def annotate_claim_ends(
     n_missing = 0
     for it in items:
         row = dict(it)
-        phrase = claim_lookup.get((it.get("claim_id"), it.get("polarity")))
+        # The row's OWN claim column wins when present. A (claim_id, polarity)
+        # lookup cannot express what the generators actually produce: one
+        # claim_id renders 35 different phrases (7 entities x 5 templates),
+        # because the phrase embeds both the subject and the template's
+        # wording. Keying on claim_id keeps one and silently drops the rest,
+        # which reads downstream as a 97% claim_end failure rate. The lookup
+        # stays as a fallback for stimulus files that carry no claim columns.
+        polarity = it.get("polarity")
+        own_col = {"affirm": "affirm_claim", "deny": "deny_claim"}.get(polarity)
+        phrase = it.get(own_col) if own_col else None
+        if not phrase:
+            phrase = claim_lookup.get((it.get("claim_id"), polarity))
         end = find_claim_end(it["text"], phrase) if phrase else None
         if end is None:
             n_missing += 1
@@ -168,8 +179,9 @@ def validate_balance(items: list[dict]) -> dict:
             },
         },
         "length_within_3_frac": float(np.mean([abs(g) <= 3 for g in gaps])) if gaps else float("nan"),
-        # near 0.5 = symmetric jitter; near 0 or 1 = the systematic confound
-        "length_gap_signed_frac": float(np.mean([g < 0 for g in gaps])) if gaps else float("nan"),
+        # Matters MORE than the mean gap: symmetric jitter is fine, systematic
+        # asymmetry is the confound. Near 0.5 = healthy; near 0 or 1 = trouble.
+        "deny_longer_frac": float(np.mean([g < 0 for g in gaps])) if gaps else float("nan"),
         "not_fraction_deny": float(np.mean([" not " in r["text"].lower() for r in den])) if den else float("nan"),
         "denial_device_share": device_share,
         "top_denial_share": max(device_share.values()) if den else float("nan"),

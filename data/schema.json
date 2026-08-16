@@ -40,7 +40,9 @@
             "type": "string"
         },
         "template_id": {
-            "type": "integer"
+            "type": "string",
+            "pattern": "^\\d+$",
+            "description": "template number as a digit string (CSV has no int type)"
         },
         "template_name": {
             "type": "string"
@@ -53,6 +55,16 @@
         },
         "idaq_category": {
             "type": "string"
+        },
+        "affirm_claim": {
+            "type": "string",
+            "minLength": 1,
+            "description": "exact claim substring as it appears in affirm_text"
+        },
+        "deny_claim": {
+            "type": "string",
+            "minLength": 1,
+            "description": "exact claim substring as it appears in deny_text"
         }
     },
     "required": [

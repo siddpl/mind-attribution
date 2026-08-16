@@ -9,6 +9,7 @@ Nothing here needs the real transformer_lens.
 
 from __future__ import annotations
 
+import contextlib
 import json
 import sys
 import types
@@ -136,6 +137,15 @@ def gemma_tokenizer():
 
 
 def _install_fake_tl(monkeypatch, tokenizer=None):
+    # torch is faked too, not just transformer_lens. capture_activations imports
+    # both in one block, so a missing torch raises the same ImportError and these
+    # tests would silently depend on the multi-GB stack being installed. It only
+    # uses torch.no_grad(), so a null context is a complete stand-in.
+    if "torch" not in sys.modules:
+        torch = types.ModuleType("torch")
+        torch.no_grad = contextlib.nullcontext
+        monkeypatch.setitem(sys.modules, "torch", torch)
+
     tl = types.ModuleType("transformer_lens")
     tl.HookedTransformer = SimpleNamespace(
         from_pretrained=lambda name, device: _FakeModel(tokenizer)
