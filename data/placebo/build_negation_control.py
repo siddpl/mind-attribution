@@ -36,6 +36,8 @@ from templates import (
     Entity,
     _fill,
     lint_rows,
+    assert_claims_verbatim,
+    render_claims,
     render_pair,
     write_csv,
 )
@@ -142,6 +144,7 @@ def build_control_rows(template_ids, *, source="negation_control"):
         for tid in template_ids:
             tpl = TEMPLATES[tid]
             affirm, deny = render_pair(subject, fact, tid)
+            affirm_claim, deny_claim = render_claims(subject, fact, tid)
             rows.append(
                 {
                     "item_id": f"{subject.id}__{fact.id}__t{tid}",
@@ -151,6 +154,8 @@ def build_control_rows(template_ids, *, source="negation_control"):
                     "question": _fill(fact.question, {"entity": subject.text}),
                     "affirm_text": affirm,
                     "deny_text": deny,
+                    "affirm_claim": affirm_claim,
+                    "deny_claim": deny_claim,
                     "source": source,
                     "entity_id": subject.id,
                     "claim_id": fact.id,
@@ -162,6 +167,7 @@ def build_control_rows(template_ids, *, source="negation_control"):
                     "idaq_category": subject.idaq_category,
                 }
             )
+    assert_claims_verbatim(rows)  # fail the build, not the run
     return rows
 
 

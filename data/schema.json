@@ -1,74 +1,86 @@
 {
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "title": "LLM Mind Attribution Contrast Pairs Schema",
-    "description": "Schema for contrast pairs data evaluating mind attribution claims.",
-    "type": "object",
-    "properties": {
-        "item_id": {
-            "type": "string",
-            "pattern": "^[a-zA-Z0-9_\\-]+$"
-        },
-        "category": {
-            "type": "string"
-        },
-        "construct": {
-            "type": "string"
-        },
-        "entity": {
-            "type": "string"
-        },
-        "question": {
-            "type": "string"
-        },
-        "affirm_text": {
-            "type": "string"
-        },
-        "deny_text": {
-            "type": "string"
-        },
-        "source": {
-            "type": "string"
-        },
-        "entity_id": {
-            "type": "string"
-        },
-        "claim_id": {
-            "type": "string",
-            "pattern": "^[a-zA-Z0-9_\\-]+$"
-        },
-        "claim_source": {
-            "type": "string"
-        },
-        "template_id": {
-            "type": "integer"
-        },
-        "template_name": {
-            "type": "string"
-        },
-        "split": {
-            "type": "string"
-        },
-        "mindedness": {
-            "type": "string"
-        },
-        "idaq_category": {
-            "type": "string"
-        }
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LLM Mind Attribution Contrast Pairs Schema",
+  "description": "Schema for contrast pairs data evaluating mind attribution claims.",
+  "type": "object",
+  "properties": {
+    "item_id": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9_\\-]+$"
     },
-    "required": [
-        "item_id",
-        "category",
-        "construct",
-        "entity",
-        "question",
-        "source",
-        "entity_id",
-        "claim_id",
-        "claim_source",
-        "template_id",
-        "template_name",
-        "split",
-        "mindedness"
-    ],
-    "additionalProperties": false
+    "category": {
+      "type": "string"
+    },
+    "construct": {
+      "type": "string"
+    },
+    "entity": {
+      "type": "string"
+    },
+    "question": {
+      "type": "string"
+    },
+    "affirm_text": {
+      "type": "string"
+    },
+    "deny_text": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    },
+    "entity_id": {
+      "type": "string"
+    },
+    "claim_id": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9_\\-]+$"
+    },
+    "claim_source": {
+      "type": "string"
+    },
+    "template_id": {
+      "type": "string",
+      "pattern": "^\\d+$",
+      "description": "template number as a digit string (CSV has no int type)"
+    },
+    "template_name": {
+      "type": "string"
+    },
+    "split": {
+      "type": "string"
+    },
+    "mindedness": {
+      "type": "string"
+    },
+    "idaq_category": {
+      "type": "string"
+    },
+    "affirm_claim": {
+      "type": "string",
+      "minLength": 1,
+      "description": "exact claim substring as it appears in affirm_text"
+    },
+    "deny_claim": {
+      "type": "string",
+      "minLength": 1,
+      "description": "exact claim substring as it appears in deny_text"
+    }
+  },
+  "required": [
+    "item_id",
+    "category",
+    "construct",
+    "entity",
+    "question",
+    "source",
+    "entity_id",
+    "claim_id",
+    "claim_source",
+    "template_id",
+    "template_name",
+    "split",
+    "mindedness"
+  ],
+  "additionalProperties": false
 }

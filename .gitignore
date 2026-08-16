@@ -1,2 +1,22 @@
-__pycache__
+# Environments — .venv reaches 2-3 GB once torch is installed
+.venv/
+venv/
+env/
 datavenv
+
+# Python
+__pycache__
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# macOS
+.DS_Store
+
+# Activation caches are large and fully regenerable: the dataset_hash in the
+# path plus the stimulus file reproduces them exactly. Do NOT commit these.
+results/activation_cache/
+
+# Everything else under results/ is deliberately NOT ignored — the frozen
+# direction .npy files, their sidecar JSONs, the e1 reports and the figures are
+# small, and they are the record of what was actually run. Version them.

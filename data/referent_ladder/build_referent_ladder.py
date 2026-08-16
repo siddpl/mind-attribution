@@ -49,6 +49,11 @@ from __future__ import annotations
 
 import argparse
 import csv
+import sys
+from pathlib import Path as _Path
+sys.path.append(str(_Path(__file__).parent.parent / "scripts"))
+from templates import assert_claims_verbatim
+
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -62,6 +67,8 @@ FIELDNAMES = (
     "claim_id",
     "affirm_text",
     "deny_text",
+    "affirm_claim",
+    "deny_claim",
     "source",
 )
 
@@ -205,6 +212,16 @@ CLAIM_FIELDS = (
 )
 
 
+def claim_span(text: str) -> str:
+    """The claim span for a ladder sentence: everything but the closing period.
+
+    These sentences carry NO template tail — the claim is the whole sentence —
+    so claim_end lands on the last content token instead of the final '.',
+    a uniform 1-token gap. Returned as a slice of the sentence, never retyped.
+    """
+    return text.rstrip().rstrip(".!?")
+
+
 def build_rows(source: str = "referent_ladder") -> list[dict[str, str]]:
     rows = []
     for rung in (*LADDER_A, *LADDER_B):
@@ -221,9 +238,12 @@ def build_rows(source: str = "referent_ladder") -> list[dict[str, str]]:
                     "claim_id": claim_id,
                     "affirm_text": experiential,
                     "deny_text": mundane,
+                    "affirm_claim": claim_span(experiential),
+                    "deny_claim": claim_span(mundane),
                     "source": source,
                 }
             )
+    assert_claims_verbatim(rows)
     return rows
 
 

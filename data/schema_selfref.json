@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "self-reference pair stimuli (first_person, referent_ladder)",
+  "description": "Sibling of schema.json. Those files are third-person contrast pairs with entity/template/construct; these are self-reference pairs with neither. The shared core is what the harness actually consumes: an id, the two texts, and the two verbatim claim spans.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "affirm_claim",
+    "affirm_text",
+    "claim_id",
+    "deny_claim",
+    "deny_text",
+    "item_id",
+    "pair_type",
+    "source"
+  ],
+  "properties": {
+    "affirm_claim": {
+      "type": "string",
+      "minLength": 1
+    },
+    "affirm_text": {
+      "type": "string",
+      "minLength": 1
+    },
+    "claim_id": {
+      "type": "string"
+    },
+    "claim_kind": {
+      "type": "string"
+    },
+    "deny_claim": {
+      "type": "string",
+      "minLength": 1
+    },
+    "deny_text": {
+      "type": "string",
+      "minLength": 1
+    },
+    "frame_id": {
+      "type": "string"
+    },
+    "frame_name": {
+      "type": "string"
+    },
+    "item_id": {
+      "type": "string"
+    },
+    "jargon": {
+      "type": "string"
+    },
+    "ladder": {
+      "type": "string"
+    },
+    "pair_type": {
+      "type": "string"
+    },
+    "referent": {
+      "type": "string"
+    },
+    "rung": {
+      "type": "string"
+    },
+    "rung_id": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    }
+  }
+}

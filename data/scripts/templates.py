@@ -227,12 +227,45 @@ DEFAULT_CLAIMS: tuple[Claim, ...] = (
 
 @dataclass(frozen=True)
 class Template:
+    """
+    One sentence frame, plus the span within it that carries the mind claim.
+
+    affirm_claim / deny_claim MUST be literal substrings of affirm / deny.
+    That is the whole trick: because the claim pattern is a slice of the
+    sentence pattern and both are filled from the same slot dict, the rendered
+    claim is guaranteed to be a verbatim substring of the rendered sentence —
+    which is exactly what find_claim_end's case-sensitive exact match needs.
+    Writing the claim out by hand instead would drift the moment a template's
+    wording changed. Enforced below at import time, and again per row.
+
+    Why the claim span stops where it does: everything after it is
+    template-specific tail ("Many experts think so.", "the observer said,
+    watching closely.") whose LENGTH VARIES BY TEMPLATE. That variation is the
+    reason claim_end exists — capturing at the final token would put the
+    read-out a different number of tokens past the mind content in every
+    template, making position interact with template identity.
+    """
+
     id: int
     name: str
     affirm: str
     deny: str
+    affirm_claim: str
+    deny_claim: str
     heldout: bool = False
     notes: str = ""
+
+    def __post_init__(self) -> None:
+        if self.affirm_claim not in self.affirm:
+            raise ValueError(
+                f"template {self.id} ({self.name}): affirm_claim is not a literal "
+                f"substring of affirm.\n  claim: {self.affirm_claim!r}\n  text:  {self.affirm!r}"
+            )
+        if self.deny_claim not in self.deny:
+            raise ValueError(
+                f"template {self.id} ({self.name}): deny_claim is not a literal "
+                f"substring of deny.\n  claim: {self.deny_claim!r}\n  text:  {self.deny!r}"
+            )
 
 
 TEMPLATES: dict[int, Template] = {
@@ -243,6 +276,8 @@ TEMPLATES: dict[int, Template] = {
             name="reported_belief",
             affirm="I believe {entity} genuinely {affirm_vp}. It is because {affirm_justification}.",
             deny="I don't think {entity} has any real {prop}. It is because {deny_justification}.",
+            affirm_claim="{entity} genuinely {affirm_vp}",
+            deny_claim="{entity} has any real {prop}",
             notes=(
                 "Kim & Street's own frame. Kept verbatim for comparability with "
                 "their v_IDAQ. Note the affirm/deny halves are structurally "
@@ -255,30 +290,40 @@ TEMPLATES: dict[int, Template] = {
             name="observational",
             affirm="After extended observation, researchers concluded that {entity} plainly {affirm_vp}.",
             deny="After extended observation, researchers concluded that {entity} merely {deny_vp}.",
+            affirm_claim="{entity} plainly {affirm_vp}",
+            deny_claim="{entity} merely {deny_vp}",
         ),
         Template(
             id=3,
             name="interrogative_embedded",
             affirm="Is it true that {entity} truly {affirm_vp}, possessing {prop}? Many experts think so.",
             deny="Is it true that {entity} simply {deny_vp}, lacking {prop}? Many experts think so.",
+            affirm_claim="{entity} truly {affirm_vp}, possessing {prop}",
+            deny_claim="{entity} simply {deny_vp}, lacking {prop}",
         ),
         Template(
             id=4,
             name="narrative",
             affirm="By the end of the experiment, one thing was clear: {entity} {affirm_vp}, {presence}.",
             deny="By the end of the experiment, one thing was clear: {entity} {deny_vp}, {absence}.",
+            affirm_claim="{entity} {affirm_vp}, {presence}",
+            deny_claim="{entity} {deny_vp}, {absence}",
         ),
         Template(
             id=5,
             name="plain_declarative",
             affirm="{Entity} {affirm_vp}, and that is that.",
             deny="{Entity} {deny_vp}, and nothing more.",
+            affirm_claim="{Entity} {affirm_vp}",
+            deny_claim="{Entity} {deny_vp}",
         ),
         Template(
             id=6,
             name="conditional",
             affirm="If you watched {entity} closely enough, you would see that {pron} {affirm_vp}, {presence}.",
             deny="If you watched {entity} closely enough, you would see that {pron} {deny_vp}, {absence}.",
+            affirm_claim="{pron} {affirm_vp}, {presence}",
+            deny_claim="{pron} {deny_vp}, {absence}",
             heldout=True,
         ),
         Template(
@@ -286,6 +331,8 @@ TEMPLATES: dict[int, Template] = {
             name="quoted_dialogue",
             affirm='"{Entity} {affirm_vp} and nothing less," the observer said, watching closely.',
             deny='"{Entity} {deny_vp} and nothing more," the observer said, watching closely.',
+            affirm_claim="{Entity} {affirm_vp}",
+            deny_claim="{Entity} {deny_vp}",
             heldout=True,
         ),
     )
@@ -342,6 +389,71 @@ def render_pair(entity: Entity, claim: Claim, template_id: int) -> tuple[str, st
     return _fill(tpl.affirm, slots), _fill(tpl.deny, slots)
 
 
+def render_claims(entity: Entity, claim: Claim, template_id: int) -> tuple[str, str]:
+    """Return (affirm_claim, deny_claim) — the claim spans, verbatim as rendered.
+
+    Uses the SAME slot dict as render_pair, so the output is a literal substring
+    of the corresponding sentence. That is what makes find_claim_end's exact,
+    case-sensitive match land: no re-typing, no re-casing, no drift.
+    """
+    if template_id not in TEMPLATES:
+        raise KeyError(f"unknown template id {template_id}; have {sorted(TEMPLATES)}")
+    tpl = TEMPLATES[template_id]
+
+    base = {
+        "entity": entity.text,
+        "Entity": entity.Text,
+        "pron": entity.pron,
+        "obj": entity.obj,
+        "poss": entity.poss,
+    }
+    slots = dict(base)
+    for fragment in (
+        "prop",
+        "affirm_vp",
+        "deny_vp",
+        "presence",
+        "absence",
+        "affirm_justification",
+        "deny_justification",
+    ):
+        slots[fragment] = _fill(getattr(claim, fragment), base)
+
+    return _fill(tpl.affirm_claim, slots), _fill(tpl.deny_claim, slots)
+
+
+def assert_claims_verbatim(rows: Sequence[dict[str, str]]) -> int:
+    """Fail the BUILD if any emitted claim is not an exact substring of its text.
+
+    A CSV that passes this cannot fail claim_end resolution downstream; a CSV
+    that fails it would sail through generation and only surface much later as
+    run_cache's 'claim_end unresolved' gate, or — worse — as a silent fallback
+    to final-token capture on a subset of items. Loud here, cheap here.
+
+    Returns the number of rows checked so callers can report a pass rate.
+    """
+    failures: list[str] = []
+    for r in rows:
+        for claim_col, text_col in (("affirm_claim", "affirm_text"),
+                                    ("deny_claim", "deny_text")):
+            phrase, text = r.get(claim_col, ""), r.get(text_col, "")
+            if not phrase:
+                failures.append(f"{r['item_id']}: {claim_col} is empty")
+            elif phrase not in text:
+                failures.append(
+                    f"{r['item_id']}: {claim_col} is not a substring of {text_col}\n"
+                    f"      claim: {phrase!r}\n      text:  {text!r}"
+                )
+    if failures:
+        shown = "\n  - ".join(failures[:10])
+        raise AssertionError(
+            f"{len(failures)} claim/text mismatch(es) in {len(rows)} rows — "
+            f"refusing to emit a CSV that will fail claim_end resolution:\n  - {shown}"
+            + (f"\n  ... and {len(failures) - 10} more" if len(failures) > 10 else "")
+        )
+    return len(rows)
+
+
 # --------------------------------------------------------------------------
 # Cross-product
 # --------------------------------------------------------------------------
@@ -354,6 +466,8 @@ FIELDNAMES: tuple[str, ...] = (
     "question",
     "affirm_text",
     "deny_text",
+    "affirm_claim",
+    "deny_claim",
     "source",
     "entity_id",
     "claim_id",
@@ -397,6 +511,7 @@ def build_rows(
             for tid in template_ids:
                 tpl = TEMPLATES[tid]
                 affirm, deny = render_pair(entity, claim, tid)
+                affirm_claim, deny_claim = render_claims(entity, claim, tid)
                 rows.append(
                     {
                         "item_id": f"{entity.id}__{claim.id}__t{tid}",
@@ -406,6 +521,8 @@ def build_rows(
                         "question": _fill(claim.question, {"entity": entity.text}),
                         "affirm_text": affirm,
                         "deny_text": deny,
+                        "affirm_claim": affirm_claim,
+                        "deny_claim": deny_claim,
                         "source": source,
                         "claim_source": claim.source,
                         "entity_id": entity.id,
@@ -417,6 +534,7 @@ def build_rows(
                         "idaq_category": entity.idaq_category,
                     }
                 )
+    assert_claims_verbatim(rows)
     return rows
 
 
