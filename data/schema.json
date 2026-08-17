@@ -82,5 +82,5 @@
         "split",
         "mindedness"
     ],
-    "additionalProperties": false
+    "additionalProperties": true
 }
