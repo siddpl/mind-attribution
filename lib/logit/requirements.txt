@@ -1,0 +1,5 @@
+torch>=2.0.0
+transformers>=4.40.0
+pandas>=2.0.0
+tqdm>=4.65.0
+accelerate>=0.26.0
