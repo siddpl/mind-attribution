@@ -3,6 +3,7 @@
 venv/
 env/
 datavenv
+logitenv
 
 # Python
 __pycache__
