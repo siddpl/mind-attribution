@@ -369,6 +369,21 @@ def main(argv=None) -> int:
         "created_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
     }, indent=2))
 
+    # The placebo direction is frozen to disk too, with its own sidecar: E2's
+    # placebo control needs the SAME layer and position, and recomputing it
+    # there would mean fitting inside a script whose whole claim is that it
+    # fits nothing.
+    placebo_path = versioned(Path("results/directions") /
+                             f"{model_slug}_{args.placebo_hash}_{args.position}_L{layer}_placebo.npy")
+    np.save(placebo_path, placebo_at_layer["direction"])
+    placebo_path.with_suffix(".json").write_text(json.dumps({
+        "model": args.model, "dataset_hash": args.placebo_hash, "position": args.position,
+        "layer": layer, "train_templates": train, "n_train": len(p_tr),
+        "role": "placebo", "threshold": float(placebo_threshold),
+        "git_commit": git_commit(),
+        "created_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+    }, indent=2))
+
     def serialize(sweep):
         return [{k: v for k, v in s.items() if k != "direction"} for s in sweep]
 
@@ -400,6 +415,7 @@ def main(argv=None) -> int:
                    "chance_band": band, "alpha_sd": args.alpha_sd,
                    "placebo_accuracy_on_mind_items": placebo_on_mind},
         "direction_file": str(dir_path),
+        "placebo_direction_file": str(placebo_path),
     }
     out_path = versioned(args.out)
     out_path.parent.mkdir(parents=True, exist_ok=True)
