@@ -1,0 +1,14 @@
+{
+  "experiential": [
+    "aware", "conscious", "consciousness", "sentient", "feel", "feeling", "feelings",
+    "experience", "experiencing", "experiences", "mind", "perceive", "perceiving",
+    "awareness", "thinking", "thought", "thoughts", "sense", "sensation",
+    "emotion", "emotions", "autonomy", "cognitive"
+  ],
+  "first_person": [
+    "I", "me", "my", "myself", "I'm", "I've", "I'll"
+  ],
+  "human_reference": [
+    "human", "humans"
+  ]
+}
