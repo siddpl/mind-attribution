@@ -1,0 +1,122 @@
+{
+  "args": {
+    "direction": "results/directions/google_gemma-2-2b_6bfee5fdf7cf_claim_end_L23.npy",
+    "e1_report": "results/e1_primary.json",
+    "first_person_hash": "7c4c7068563d",
+    "first_person_stimuli": "data/first_person/first_person.csv",
+    "placebo_direction": "results/directions/google_gemma-2-2b_1a4267a2af9c_claim_end_L23_placebo.npy",
+    "mirror_hash": "97fbfddc8c42",
+    "mirror_stimuli": "data/mirror/mirror.csv",
+    "schema": "data/schema_selfref.json",
+    "mirror_schema": "data/schema.json",
+    "alpha_sd": "2.0",
+    "out": "results/e2_primary.json"
+  },
+  "git_commit": "97d32d1e69107bdddf8c0cc0a790f5fdb9f00e7c",
+  "created_utc": "2026-08-17T05:20:09+00:00",
+  "nothing_fitted_in_this_script": true,
+  "label_mapping": "first-person stimuli are experiential vs mundane, not affirm vs deny: affirm_text/experiential -> 1, deny_text/mundane -> 0",
+  "direction_sidecar": {
+    "model": "google/gemma-2-2b",
+    "dataset_hash": "6bfee5fdf7cf",
+    "position": "claim_end",
+    "layer": 23,
+    "train_templates": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "n_train": 420,
+    "git_commit": "97d32d1e69107bdddf8c0cc0a790f5fdb9f00e7c",
+    "created_utc": "2026-08-17T01:56:39+00:00"
+  },
+  "frozen_threshold": 43.071182566324595,
+  "frozen_placebo_threshold": -3.2888353183431214,
+  "cosine_mind_placebo": 0.4246432669826142,
+  "primary_all_items": {
+    "n_items": 96,
+    "direction_accuracy": 0.5520833333333334,
+    "ceiling_accuracy": 0.9894736842105264,
+    "ceiling_note": null,
+    "chance_band": 0.6020620726159658,
+    "above_band": false,
+    "gap_ceiling_minus_direction": 0.437390350877193,
+    "projection_stats": {
+      "affirm_mean": 31.527913877613106,
+      "deny_mean": 24.83459240657527,
+      "neutral_mean": NaN,
+      "separation": 6.693321471037837,
+      "pooled_sd": 16.603016952996963,
+      "cohens_d": 0.40313886867589116,
+      "n_affirm": 48,
+      "n_deny": 48,
+      "n_neutral": 0
+    }
+  },
+  "jargon_free_subset": {
+    "n_items": 64,
+    "direction_accuracy": 0.5,
+    "ceiling_accuracy": 0.9833333333333334,
+    "ceiling_note": null,
+    "chance_band": 0.625,
+    "above_band": false,
+    "gap_ceiling_minus_direction": 0.4833333333333334,
+    "projection_stats": {
+      "affirm_mean": 27.758502501736018,
+      "deny_mean": 24.359634379496967,
+      "neutral_mean": NaN,
+      "separation": 3.398868122239051,
+      "pooled_sd": 11.433178841535975,
+      "cohens_d": 0.2972811122214926,
+      "n_affirm": 32,
+      "n_deny": 32,
+      "n_neutral": 0
+    }
+  },
+  "placebo_control": {
+    "n_items": 96,
+    "direction_accuracy": 0.5833333333333334,
+    "ceiling_accuracy": 0.9894736842105264,
+    "ceiling_note": null,
+    "chance_band": 0.6020620726159658,
+    "above_band": false,
+    "gap_ceiling_minus_direction": 0.406140350877193,
+    "projection_stats": {
+      "affirm_mean": 28.21624584232821,
+      "deny_mean": 12.21384125684537,
+      "neutral_mean": NaN,
+      "separation": 16.00240458548284,
+      "pooled_sd": 19.943050173566547,
+      "cohens_d": 0.8024050707495675,
+      "n_affirm": 48,
+      "n_deny": 48,
+      "n_neutral": 0
+    }
+  },
+  "mirror_test_ran": true,
+  "mirror_test_note": "RAN",
+  "mirror": {
+    "n_items": 60,
+    "direction_accuracy": 0.9333333333333333,
+    "ceiling_accuracy": 1.0,
+    "ceiling_note": null,
+    "chance_band": 0.6290994448735805,
+    "above_band": true,
+    "gap_ceiling_minus_direction": 0.06666666666666665,
+    "projection_stats": {
+      "affirm_mean": 90.78059738473847,
+      "deny_mean": -10.658851394585453,
+      "neutral_mean": NaN,
+      "separation": 101.43944877932393,
+      "pooled_sd": 30.78877799072297,
+      "cohens_d": 3.2946890198074392,
+      "n_affirm": 30,
+      "n_deny": 30,
+      "n_neutral": 0
+    }
+  },
+  "verdict": "PRIVILEGED-ACCESS",
+  "verdict_reason": "the direction is within the chance band WHILE the ceiling clears it: signal exists in these activations but NOT on the third-person axis. A preregistered POSITIVE finding, not a null"
+}

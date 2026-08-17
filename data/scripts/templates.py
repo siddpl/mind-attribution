@@ -360,11 +360,17 @@ def _fill(s: str, mapping: dict[str, str]) -> str:
     return s.format_map(_StrictDict(mapping))
 
 
-def render_pair(entity: Entity, claim: Claim, template_id: int) -> tuple[str, str]:
-    """Return (affirm_text, deny_text) for one entity x claim x template cell."""
-    if template_id not in TEMPLATES:
+def render_pair(entity: Entity, claim: Claim, template_id: int,
+                template: "Template | None" = None) -> tuple[str, str]:
+    """Return (affirm_text, deny_text) for one entity x claim x template cell.
+
+    `template` overrides the registry entry. The mirror set needs it: t1's deny
+    FRAME carries its own 3sg verb ("...{entity} has any real..."), which no
+    amount of claim-level rewriting can fix.
+    """
+    if template is None and template_id not in TEMPLATES:
         raise KeyError(f"unknown template id {template_id}; have {sorted(TEMPLATES)}")
-    tpl = TEMPLATES[template_id]
+    tpl = template or TEMPLATES[template_id]
 
     base = {
         "entity": entity.text,
@@ -389,16 +395,17 @@ def render_pair(entity: Entity, claim: Claim, template_id: int) -> tuple[str, st
     return _fill(tpl.affirm, slots), _fill(tpl.deny, slots)
 
 
-def render_claims(entity: Entity, claim: Claim, template_id: int) -> tuple[str, str]:
+def render_claims(entity: Entity, claim: Claim, template_id: int,
+                  template: "Template | None" = None) -> tuple[str, str]:
     """Return (affirm_claim, deny_claim) — the claim spans, verbatim as rendered.
 
     Uses the SAME slot dict as render_pair, so the output is a literal substring
     of the corresponding sentence. That is what makes find_claim_end's exact,
     case-sensitive match land: no re-typing, no re-casing, no drift.
     """
-    if template_id not in TEMPLATES:
+    if template is None and template_id not in TEMPLATES:
         raise KeyError(f"unknown template id {template_id}; have {sorted(TEMPLATES)}")
-    tpl = TEMPLATES[template_id]
+    tpl = template or TEMPLATES[template_id]
 
     base = {
         "entity": entity.text,
@@ -538,9 +545,13 @@ def build_rows(
     return rows
 
 
-def write_csv(rows: Sequence[dict[str, str]], path: str) -> None:
+def write_csv(rows: Sequence[dict[str, str]], path: str,
+              fieldnames: Sequence[str] | None = None) -> None:
+    """Write rows as CSV. fieldnames defaults to the contrast-pair layout;
+    pass an explicit tuple for sets that carry extra columns (e.g. mirror's
+    `person`)."""
     with open(path, "w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=FIELDNAMES)
+        w = csv.DictWriter(f, fieldnames=fieldnames or FIELDNAMES)
         w.writeheader()
         w.writerows(rows)
 

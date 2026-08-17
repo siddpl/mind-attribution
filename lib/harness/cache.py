@@ -142,6 +142,7 @@ def capture_activations(
     device: str = "cpu",
     force: bool = False,
     positions: tuple[str, ...] = POSITIONS,
+    dtype: str = "float32",
 ) -> str:
     """Run every sentence through the model once and save what it was 'thinking' at each layer, at both token positions.
 
@@ -169,11 +170,32 @@ def capture_activations(
     # Config is cheap; weights are not. Check the cache before paying for them.
     n_layers = get_pretrained_model_config(model_name).n_layers
     if is_cached(model_name, ds_hash, n_layers, positions) and not force:
+        # dataset_hash hashes stimulus TEXT, not the model stack — so a cache
+        # captured at a different dtype is indistinguishable by path. Refuse it
+        # loudly rather than silently mixing precisions in one analysis.
+        prior = cache_dir(model_name, ds_hash) / "manifest.json"
+        if prior.exists():
+            prior_dtype = json.loads(prior.read_text()).get("dtype", "float32")
+            if prior_dtype != dtype:
+                raise ValueError(
+                    f"cache at {prior.parent} was captured with dtype={prior_dtype!r} "
+                    f"but this run asks for {dtype!r}. The dataset_hash cannot see "
+                    f"precision. Use --force to recapture, or the prior dtype."
+                )
         print(f"cache hit for {model_name} @ {ds_hash} "
               f"({n_layers} layers x {positions}); skipping")
         return ds_hash
 
-    model = HookedTransformer.from_pretrained(model_name, device=device)
+    torch_dtype = getattr(torch, dtype)
+    # from_pretrained_no_processing, NOT from_pretrained. Weight processing
+    # (fold_ln, center_writing_weights, center_unembed) alters resid_post — the
+    # exact tensor cached here — and transformer_lens warns that the folding
+    # arithmetic degrades at reduced precision. Combining bf16 with processing
+    # is the unsound pairing; skipping processing is what the library advises.
+    # Declared in PREREGISTRATION.md §2.3 because it changes the numbers.
+    model = HookedTransformer.from_pretrained_no_processing(
+        model_name, device=device, dtype=torch_dtype
+    )
     d_model = model.cfg.d_model
 
     acts = {(L, p): np.zeros((n_items, d_model), dtype=np.float32)
@@ -216,6 +238,8 @@ def capture_activations(
         "n_items": n_items,
         "n_layers": int(n_layers),
         "d_model": int(d_model),
+        "dtype": dtype,
+        "weight_processing": "none (from_pretrained_no_processing)",
         "positions": list(positions),
         "fallback_counts": {p: int(fb.sum()) for p, fb in fallback.items()},
         "created_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),

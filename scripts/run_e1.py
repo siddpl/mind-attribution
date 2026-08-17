@@ -53,6 +53,11 @@ def parse_args(argv=None):
     p.add_argument("--safety-hash", default=None)
     p.add_argument("--stimuli", required=True, type=Path)
     p.add_argument("--placebo-stimuli", required=True, type=Path)
+    p.add_argument("--heldout-hash", default=None,
+                   help="separate held-out file (templates 6-7 ship apart from 1-5)")
+    p.add_argument("--heldout-stimuli", default=None, type=Path)
+    p.add_argument("--placebo-heldout-hash", default=None)
+    p.add_argument("--placebo-heldout-stimuli", default=None, type=Path)
     p.add_argument("--safety-stimuli", default=None, type=Path)
     p.add_argument("--schema", default=Path("schema.json"), type=Path)
     p.add_argument("--model", default="google/gemma-2-2b")
@@ -174,12 +179,49 @@ def split_indices(templates: np.ndarray, train: list[str], heldout: list[str]):
     return tr, ho
 
 
-def sweep_layers(ds: dict, tr: np.ndarray, ho: np.ndarray, alpha_sd: float) -> list[dict]:
-    """Per layer: extract on TRAIN only, score on HELD-OUT only."""
+def make_split(args, train_ds, train, heldout, ho_hash, ho_stimuli, name):
+    """Resolve the train/held-out split, whether it lives in one file or two."""
+    if ho_hash:
+        if not ho_stimuli:
+            raise ValueError(f"--{name}-heldout-hash given without --{name}-heldout-stimuli")
+        eval_ds = load_dataset(args, ho_hash, Path(ho_stimuli), f"{name}_heldout")
+        tr = np.flatnonzero(np.isin(_norm_templates(train_ds["templates"]),
+                                    [t.strip().lstrip("tT") for t in train]))
+        ho = np.flatnonzero(np.isin(_norm_templates(eval_ds["templates"]),
+                                    [t.strip().lstrip("tT") for t in heldout]))
+        if len(tr) == 0 or len(ho) == 0:
+            raise ValueError(
+                f"{name}: empty split across two files — train {len(tr)} from "
+                f"{sorted(set(_norm_templates(train_ds['templates']).tolist()))}, "
+                f"held-out {len(ho)} from "
+                f"{sorted(set(_norm_templates(eval_ds['templates']).tolist()))}"
+            )
+        # The leak assert still applies ACROSS files: a template present in both
+        # would put training sentences into the generalization test.
+        shared = set(_norm_templates(train_ds["templates"])[tr].tolist()) & \
+                 set(_norm_templates(eval_ds["templates"])[ho].tolist())
+        if shared:
+            raise ValueError(f"{name}: template(s) {sorted(shared)} appear in BOTH files")
+        return train_ds, tr, eval_ds, ho
+    tr, ho = split_indices(train_ds["templates"], train, heldout)
+    return train_ds, tr, train_ds, ho
+
+
+def sweep_layers(train_ds: dict, tr: np.ndarray, eval_ds: dict, ho: np.ndarray,
+                 alpha_sd: float) -> list[dict]:
+    """Per layer: extract on TRAIN only, score on HELD-OUT only.
+
+    train_ds and eval_ds may be the SAME dataset (indices select the split) or
+    DIFFERENT ones. The real stimuli ship templates 1-5 and 6-7 in separate
+    files with separate dataset_hashes, so a single-file split cannot express
+    the design: --heldout-templates 6,7 against the training file matches zero
+    rows and dies on 'empty split'.
+    """
     out = []
-    for layer in sorted(ds["acts_by_layer"]):
-        acts = ds["acts_by_layer"][layer]
-        y_tr, y_ho = ds["labels"][tr], ds["labels"][ho]
+    for layer in sorted(train_ds["acts_by_layer"]):
+        acts = train_ds["acts_by_layer"][layer]
+        eval_acts = eval_ds["acts_by_layer"][layer]
+        y_tr, y_ho = train_ds["labels"][tr], eval_ds["labels"][ho]
         try:
             direction = extract_direction(acts[tr][y_tr == AFFIRM], acts[tr][y_tr == DENY])
             threshold = fit_threshold(acts[tr], y_tr, direction)
@@ -187,18 +229,19 @@ def sweep_layers(ds: dict, tr: np.ndarray, ho: np.ndarray, alpha_sd: float) -> l
             out.append({"layer": layer, "error": str(e)})
             continue
         try:
-            ceiling = ceiling_probe_accuracy(acts[ho], y_ho)
+            ceiling = ceiling_probe_accuracy(eval_acts[ho], y_ho)
         except ValueError as e:  # too few items per class for CV; not fatal
             ceiling = None
             ceiling_note = str(e)
         else:
             ceiling_note = None
-        stats = summarize_projections(project(acts[ho], direction), y_ho)
+        stats = summarize_projections(project(eval_acts[ho], direction), y_ho)
         out.append({
             "layer": layer,
             "direction": direction,
             "threshold": float(threshold),
-            "heldout_accuracy": direction_probe_accuracy(acts[ho], y_ho, direction, threshold),
+            "heldout_accuracy": direction_probe_accuracy(
+                eval_acts[ho], y_ho, direction, threshold),
             "ceiling_accuracy": ceiling,
             "ceiling_note": ceiling_note,
             "projection_stats": stats,
@@ -240,7 +283,7 @@ def best_layer(sweep: list[dict], band: float) -> dict:
     return min(tied, key=lambda s: (abs(s["layer"] - middle), s["layer"]))
 
 
-def placebo_on_mind_sweep(core, placebo, tr, ho, p_tr) -> dict[int, float]:
+def placebo_on_mind_sweep(core_ho_ds, ho, p_tr_ds, p_tr) -> dict[int, float]:
     """Per layer: the PLACEBO direction, scored on MIND held-out items.
 
     This is the control curve that carries information. A placebo direction's
@@ -249,15 +292,16 @@ def placebo_on_mind_sweep(core, placebo, tr, ho, p_tr) -> dict[int, float]:
     Glue: extract_direction + fit_threshold + direction_probe_accuracy, all tested.
     """
     out = {}
-    for layer, p_acts in placebo["acts_by_layer"].items():
-        y_p = placebo["labels"][p_tr]
+    for layer, p_acts in p_tr_ds["acts_by_layer"].items():
+        y_p = p_tr_ds["labels"][p_tr]
         try:
             direction = extract_direction(p_acts[p_tr][y_p == AFFIRM], p_acts[p_tr][y_p == DENY])
             threshold = fit_threshold(p_acts[p_tr], y_p, direction)
         except ValueError:
             continue
         out[layer] = direction_probe_accuracy(
-            core["acts_by_layer"][layer][ho], core["labels"][ho], direction, threshold
+            core_ho_ds["acts_by_layer"][layer][ho], core_ho_ds["labels"][ho],
+            direction, threshold
         )
     return out
 
@@ -299,7 +343,8 @@ def main(argv=None) -> int:
     heldout = [t.strip() for t in args.heldout_templates.split(",") if t.strip()]
 
     core = load_dataset(args, args.core_hash, args.stimuli, "core")
-    tr, ho = split_indices(core["templates"], train, heldout)
+    core_tr_ds, tr, core_ho_ds, ho = make_split(
+        args, core, train, heldout, args.heldout_hash, args.heldout_stimuli, "core")
 
     print("=" * 72)
     print(f"  model            {args.model}")
@@ -312,12 +357,14 @@ def main(argv=None) -> int:
     print("=" * 72)
 
     band = chance_band(len(ho), args.alpha_sd)
-    core_sweep = sweep_layers(core, tr, ho, args.alpha_sd)
+    core_sweep = sweep_layers(core_tr_ds, tr, core_ho_ds, ho, args.alpha_sd)
     core_best = best_layer(core_sweep, band)
 
     placebo = load_dataset(args, args.placebo_hash, args.placebo_stimuli, "placebo")
-    p_tr, p_ho = split_indices(placebo["templates"], train, heldout)
-    placebo_sweep = sweep_layers(placebo, p_tr, p_ho, args.alpha_sd)
+    p_tr_ds, p_tr, p_ho_ds, p_ho = make_split(
+        args, placebo, train, heldout, args.placebo_heldout_hash,
+        args.placebo_heldout_stimuli, "placebo")
+    placebo_sweep = sweep_layers(p_tr_ds, p_tr, p_ho_ds, p_ho, args.alpha_sd)
     placebo_best = best_layer(placebo_sweep, chance_band(len(p_ho), args.alpha_sd))
 
     # ---- control battery, at the core best layer ----
@@ -325,10 +372,10 @@ def main(argv=None) -> int:
     mind_dir = core_best["direction"]
     placebo_at_layer = next(s for s in placebo_sweep if s["layer"] == layer)
 
-    acts_ho = core["acts_by_layer"][layer][ho]
-    y_ho = core["labels"][ho]
+    acts_ho = core_ho_ds["acts_by_layer"][layer][ho]
+    y_ho = core_ho_ds["labels"][ho]
     placebo_threshold = fit_threshold(
-        placebo["acts_by_layer"][layer][p_tr], placebo["labels"][p_tr],
+        p_tr_ds["acts_by_layer"][layer][p_tr], p_tr_ds["labels"][p_tr],
         placebo_at_layer["direction"],
     )
     placebo_on_mind = direction_probe_accuracy(
@@ -421,7 +468,7 @@ def main(argv=None) -> int:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(report, indent=2, default=float))
 
-    p_on_mind = placebo_on_mind_sweep(core, placebo, tr, ho, p_tr)
+    p_on_mind = placebo_on_mind_sweep(core_ho_ds, ho, p_tr_ds, p_tr)
     report["controls"]["placebo_on_mind_by_layer"] = {str(k): v for k, v in p_on_mind.items()}
     print_sweep_table(core_sweep, placebo_sweep, band, layer, p_on_mind)
 

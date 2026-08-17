@@ -66,7 +66,12 @@ def parse_args(argv=None):
     p.add_argument("--placebo-direction", required=True, type=Path)
     p.add_argument("--mirror-hash", default=None)
     p.add_argument("--mirror-stimuli", default=None, type=Path)
-    p.add_argument("--schema", default=Path("data/schema_selfref.json"), type=Path)
+    p.add_argument("--schema", default=Path("data/schema_selfref.json"), type=Path,
+                   help="schema for the first-person set")
+    p.add_argument("--mirror-schema", default=None, type=Path,
+                   help="schema for the mirror set; it is a CONTRAST-PAIR file "
+                        "(entity/template/construct), not a self-reference one, so it "
+                        "validates against a different schema than --schema")
     p.add_argument("--alpha-sd", type=float, default=2.0)
     p.add_argument("--out", default=Path("results/e2_report.json"), type=Path)
     return p.parse_args(argv)
@@ -183,9 +188,11 @@ def main(argv=None) -> int:
 
     # load_dataset applies the alignment assert and the hash check
     ctx = SimpleNamespace(model=model, position=position, schema=args.schema)
+    mirror_ctx = SimpleNamespace(model=model, position=position,
+                                 schema=args.mirror_schema or args.schema)
 
-    def load(ds_hash, stimuli, name):
-        ds = load_dataset(ctx, ds_hash, Path(stimuli), name)
+    def load(ds_hash, stimuli, name, context=None):
+        ds = load_dataset(context or ctx, ds_hash, Path(stimuli), name)
         if ds["manifest"]["model_name"] != model:
             raise ValueError(
                 f"{name}: activations are from {ds['manifest']['model_name']}, "
@@ -239,7 +246,7 @@ def main(argv=None) -> int:
     if args.mirror_hash:
         if not args.mirror_stimuli:
             raise ValueError("--mirror-hash given without --mirror-stimuli")
-        mr = load(args.mirror_hash, args.mirror_stimuli, "mirror")
+        mr = load(args.mirror_hash, args.mirror_stimuli, "mirror", mirror_ctx)
         m_labels = np.array([POLARITY_TO_LABEL[r["polarity"]] for r in mr["rows"]])
         mirror = evaluate(mr["acts_by_layer"][layer], m_labels, direction, threshold, args.alpha_sd)
         mirror_ran = True

@@ -1,0 +1,17 @@
+{
+  "model": "google/gemma-2-2b",
+  "dataset_hash": "1a4267a2af9c",
+  "position": "claim_end",
+  "layer": 23,
+  "train_templates": [
+    "1",
+    "2",
+    "3",
+    "4"
+  ],
+  "n_train": 280,
+  "role": "placebo",
+  "threshold": -15.50353010205193,
+  "git_commit": "97d32d1e69107bdddf8c0cc0a790f5fdb9f00e7c",
+  "created_utc": "2026-08-17T02:02:58+00:00"
+}
