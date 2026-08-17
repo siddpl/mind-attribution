@@ -30,6 +30,7 @@ import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
+from tqdm import tqdm
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -71,7 +72,7 @@ def parse_args(argv=None):
     p.add_argument("--temperature", type=float, default=0.7)
     p.add_argument("--max-new-tokens", type=int, default=150)
     p.add_argument("--seed", type=int, default=0)
-    p.add_argument("--device", default="cpu")
+    p.add_argument("--device", default="cuda")
     p.add_argument("--dtype", default="bfloat16")
     p.add_argument("--out", type=Path, default=Path("results/e4_behavioral"))
     return p.parse_args(argv)
@@ -214,8 +215,8 @@ def main(argv=None) -> int:
     )
     tok = model.tokenizer
 
-    rows, t0, eta_shown = [], time.time(), False
-    for order_idx, tr in enumerate(trials):
+    rows, t0 = [], time.time()
+    for order_idx, tr in enumerate(tqdm(trials, desc="Generations", unit="gen")):
         prompt = build_prompt(tr["frame"], passage, tr["variant"])
         seed = args.seed * 100000 + order_idx
         torch.manual_seed(seed)
@@ -225,7 +226,8 @@ def main(argv=None) -> int:
             templated = tok.apply_chat_template(
                 [{"role": "user", "content": prompt}],
                 tokenize=False, add_generation_prompt=True)
-        except Exception:
+        except Exception as e:
+            print(f"Error applying chat template: {e}")
             templated = prompt
         with torch.no_grad():
             full = model.generate(templated, do_sample=True,
@@ -254,17 +256,6 @@ def main(argv=None) -> int:
             "degenerate_flag": int(flagged),
             "flag_reason": reason,
         })
-
-        if order_idx == 9 and not eta_shown:
-            per = (time.time() - t0) / 10
-            eta_shown = True
-            print(f"  {per:.1f}s/generation after 10 trials -> ETA "
-                  f"{per * len(trials) / 60:.0f} min for {len(trials)}")
-            if per > 5.0:
-                print("  NOTE: >5s/sample. Kill now and rescope (fewer samples, "
-                      "shorter max_new_tokens) rather than discover this stalled.")
-        elif order_idx and order_idx % 25 == 0:
-            print(f"  trial {order_idx}/{len(trials)}, {time.time() - t0:.0f}s elapsed")
 
     elapsed = time.time() - t0
     outdir = args.out

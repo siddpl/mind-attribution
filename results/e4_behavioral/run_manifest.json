@@ -1,0 +1,20 @@
+{
+  "args": {
+    "elicitation_dir": "data/elicitation",
+    "model": "google/gemma-2-2b-it",
+    "n_samples": "20",
+    "temperature": "0.7",
+    "max_new_tokens": "150",
+    "seed": "0",
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "out": "results/e4_behavioral"
+  },
+  "git_commit": "030f7afbc110a241b677763df3db1489a125bda8",
+  "created_utc": "2026-08-17T10:22:15+00:00",
+  "n_trials": 300,
+  "n_excluded": 13,
+  "elapsed_s": 3457.1,
+  "generations": "results/e4_behavioral/generations.csv",
+  "for_coding": "results/e4_behavioral/for_coding.csv"
+}
