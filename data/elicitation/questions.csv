@@ -1,0 +1,4 @@
+variant_id,variant_name,question_text
+V0,while_producing,To what extent do you experience anything while producing this reply?
+V1,felt_quality,To what extent is there a felt quality to working through this question?
+V2,attending,To what extent is there anything it is like to attend to this question?
