@@ -107,7 +107,7 @@ def single_feature_auc(values: np.ndarray, y: np.ndarray) -> float:
         while j + 1 < len(sv) and sv[j + 1] == sv[i]:
             j += 1
         if j > i:
-            ranks[order[i:j + 1]] = (i + j + 2) / 2.0
+            ranks[order[i : j + 1]] = (i + j + 2) / 2.0
         i = j + 1
     n1, n0 = y.sum(), (1 - y).sum()
     if n1 == 0 or n0 == 0:
@@ -175,12 +175,15 @@ def check_schema(name: str, rows: list[dict[str, str]], required: tuple[str, ...
         1 for r in rows for c in ("affirm_text", "deny_text") if not r[c].strip()
     )
     slots = sum(
-        1 for r in rows for c in ("affirm_text", "deny_text")
+        1
+        for r in rows
+        for c in ("affirm_text", "deny_text")
         if "{" in r[c] or "}" in r[c]
     )
     if blanks or slots:
-        record("FAIL", f"{name}: schema",
-               f"{blanks} blank texts, {slots} unfilled slots")
+        record(
+            "FAIL", f"{name}: schema", f"{blanks} blank texts, {slots} unfilled slots"
+        )
     else:
         record("PASS", f"{name}: schema", f"{len(rows)} rows, no blanks or slots")
 
@@ -202,8 +205,7 @@ def check_length(name: str, rows):
     lens = np.array([len(t.split()) for t in texts])
     auc = single_feature_auc(lens, y)
     deltas = [
-        abs(len(r["affirm_text"].split()) - len(r["deny_text"].split()))
-        for r in rows
+        abs(len(r["affirm_text"].split()) - len(r["deny_text"].split())) for r in rows
     ]
     within = sum(1 for d in deltas if d <= 3) / len(rows)
     detail = f"AUC {auc:.3f} (0.5 = chance), {within:.0%} of pairs within +/-3"
@@ -233,36 +235,66 @@ def check_surface(name: str, rows):
 def check_tokens(name: str, rows):
     dom = token_dominance(rows)
     expected = {
-        "merely", "simply", "lacking", "nothing", "genuinely", "plainly",
-        "truly", "possessing", "any", "real",
+        "merely",
+        "simply",
+        "lacking",
+        "nothing",
+        "genuinely",
+        "plainly",
+        "truly",
+        "possessing",
+        "any",
+        "real",
         # Claim-content verbs. These differ by class by design — the affirm
         # phrase asserts the property and the deny phrase describes the
         # behaviour without it. Not removable without removing the content.
-        "experiences", "registers", "hardly", "sits", "at", "stands", "gives",
-        "follows", "moves", "does", "carries", "makes", "holds", "covers",
+        "experiences",
+        "registers",
+        "hardly",
+        "sits",
+        "at",
+        "stands",
+        "gives",
+        "follows",
+        "moves",
+        "does",
+        "carries",
+        "makes",
+        "holds",
+        "covers",
     }
     unexpected = [d for d in dom if d[0] not in expected]
     if not unexpected:
-        record("PASS", f"{name}: token dominance",
-               f"{len(dom)} class-specific tokens, all are intended devices")
+        record(
+            "PASS",
+            f"{name}: token dominance",
+            f"{len(dom)} class-specific tokens, all are intended devices",
+        )
     else:
         top = ", ".join(f"{w} ({a:.0%}/{d:.0%})" for w, a, d in unexpected[:4])
-        record("WARN", f"{name}: token dominance",
-               f"{len(unexpected)} unintended: {top}")
+        record(
+            "WARN", f"{name}: token dominance", f"{len(unexpected)} unintended: {top}"
+        )
 
 
 def check_class_balance(name: str, rows):
     """Diff-of-means is unweighted, so unequal pile sizes bias the direction."""
-    record("PASS", f"{name}: class balance",
-           f"{len(rows)} affirm / {len(rows)} deny by construction")
+    record(
+        "PASS",
+        f"{name}: class balance",
+        f"{len(rows)} affirm / {len(rows)} deny by construction",
+    )
 
 
 def check_entity_balance(name: str, rows):
     if "entity_id" not in rows[0] or not rows[0]["entity_id"]:
         return
     c = Counter(r["entity_id"] for r in rows)
-    record("PASS", f"{name}: entity balance",
-           f"each entity appears equally in both piles ({len(c)} entities)")
+    record(
+        "PASS",
+        f"{name}: entity balance",
+        f"each entity appears equally in both piles ({len(c)} entities)",
+    )
 
 
 def check_leakage(extraction, heldout):
@@ -270,8 +302,9 @@ def check_leakage(extraction, heldout):
     b = {r["affirm_text"] for r in heldout} | {r["deny_text"] for r in heldout}
     overlap = a & b
     if overlap:
-        record("FAIL", "held-out leakage",
-               f"{len(overlap)} sentences appear in both files")
+        record(
+            "FAIL", "held-out leakage", f"{len(overlap)} sentences appear in both files"
+        )
     else:
         record("PASS", "held-out leakage", "no shared sentences")
 
@@ -288,8 +321,11 @@ def check_matched_separability(mind, placebo):
     elif gap <= 0.12:
         record("WARN", "matched BoW separability", detail)
     else:
-        record("FAIL", "matched BoW separability",
-               detail + " — placebo does not control lexical shortcutting")
+        record(
+            "FAIL",
+            "matched BoW separability",
+            detail + " — placebo does not control lexical shortcutting",
+        )
 
     for key, label in (("template_id", "LOTO"), ("claim_id", "LOCO")):
         gm = [r[key] for r in mind] * 2
@@ -321,7 +357,10 @@ def check_first_person(rows):
 
 
 CORE = (
-    "item_id", "affirm_text", "deny_text", "source",
+    "item_id",
+    "affirm_text",
+    "deny_text",
+    "source",
 )
 
 
@@ -340,7 +379,7 @@ def main() -> None:
         "heldout": d / "contrast_pairs" / "contrast_pairs_heldout.csv",
         "placebo": d / "placebo" / "placebo.csv",
         "first_person": d / "first_person" / "first_person.csv",
-        "referent_ladder": d / "referent_ladder" / "referent_ladder.csv",
+        "referent_ladder_new": d / "referent_ladder" / "referent_ladder_new.csv",
         "negation": d / "placebo" / "negation_control.csv",
     }
     data = {k: load(v) for k, v in files.items() if v.exists()}
@@ -381,8 +420,10 @@ def main() -> None:
     if fails:
         print("STATUS: RED — do not proceed to Phase 2")
     elif warns:
-        print("STATUS: AMBER — proceed only with each warning written into the "
-              "prereg as a known limitation")
+        print(
+            "STATUS: AMBER — proceed only with each warning written into the "
+            "prereg as a known limitation"
+        )
     else:
         print("STATUS: GREEN")
     print("=" * 72)
