@@ -144,11 +144,15 @@ def _install_fake_tl(monkeypatch, tokenizer=None):
     if "torch" not in sys.modules:
         torch = types.ModuleType("torch")
         torch.no_grad = contextlib.nullcontext
+        # capture_activations resolves the dtype via getattr(torch, name)
+        torch.float32, torch.bfloat16, torch.float16 = "float32", "bfloat16", "float16"
         monkeypatch.setitem(sys.modules, "torch", torch)
 
     tl = types.ModuleType("transformer_lens")
     tl.HookedTransformer = SimpleNamespace(
-        from_pretrained=lambda name, device: _FakeModel(tokenizer)
+        from_pretrained=lambda name, device, dtype=None: _FakeModel(tokenizer),
+        # cache.py uses the no-processing loader (PREREGISTRATION §2.3)
+        from_pretrained_no_processing=lambda name, device, dtype=None: _FakeModel(tokenizer),
     )
     loading = types.ModuleType("transformer_lens.loading_from_pretrained")
     loading.get_pretrained_model_config = lambda name: SimpleNamespace(n_layers=N_LAYERS)

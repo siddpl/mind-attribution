@@ -1,0 +1,16 @@
+{
+  "model": "google/gemma-2-2b",
+  "dataset_hash": "6bfee5fdf7cf",
+  "position": "claim_end",
+  "layer": 12,
+  "train_templates": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5"
+  ],
+  "n_train": 420,
+  "git_commit": "97d32d1e69107bdddf8c0cc0a790f5fdb9f00e7c",
+  "created_utc": "2026-08-17T02:02:49+00:00"
+}

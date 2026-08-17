@@ -54,12 +54,50 @@ Both conditions, on the same items. Failing either kills the leg.
 | Layers | all, in a single forward pass |
 | Token positions captured | `final` **and** `claim_end` |
 | **Primary position** | **`claim_end`** (§2.1) |
-| Precision | `float32` regardless of model dtype |
+| Model load precision | **`bfloat16`** (§2.2) |
+| Weight processing | **none** — `from_pretrained_no_processing` (§2.3) |
+| Stored activation precision | `float32` regardless of model dtype |
 | Generation | none, anywhere. Forward passes only. |
 | Gradients | `torch.no_grad()` around all passes |
 | Cache key | `dataset_hash` — sha256 over sorted `item_id::text`, first 12 hex |
 | Row alignment | `item_ids` stored inside each `.npz`; asserted against the stimulus file before analysis |
 | Fallback recording | `used_fallback` stored per item; a `claim_end` that became a final-token capture is never silent |
+
+### 2.2 Model load precision — `bfloat16` (BINDING)
+
+Weights are loaded at `bfloat16`; activations are still **written** as
+`float32`, so nothing downstream changes shape or dtype.
+
+This is a hardware constraint made explicit, not an optimization.
+`google/gemma-2-2b` ships fp32 weights (10.46 GB); the capture machine has
+16 GB of RAM, and transformer_lens needs transient headroom during weight
+conversion, so an fp32 load risks swapping or OOM mid-capture. bf16 halves the
+resident footprint to ~5.2 GB.
+
+It is declared because **it changes the numbers.** Activations captured at
+bf16 and fp32 are not identical, and `dataset_hash` cannot detect the
+difference — it hashes stimulus text, not the model stack. The dtype is
+therefore recorded in every `manifest.json`, and `capture_activations` refuses
+a cache hit whose recorded dtype differs from the requested one.
+
+### 2.3 Weight processing — none (BINDING)
+
+Weights are loaded with `from_pretrained_no_processing`, not
+`from_pretrained`.
+
+TransformerLens's default loader applies weight processing: folding LayerNorm
+into subsequent weights, centering writing weights, and centering the unembed.
+`center_writing_weights` alters `resid_post` directly — the exact tensor this
+project caches — so the two loaders yield different activations for the same
+sentence, and every direction here is computed from those values.
+
+The library itself warns that at reduced precision the folding arithmetic
+degrades and advises the no-processing loader. bf16 (§2.2) therefore forces the
+choice: processing-plus-bf16 is the unsound pairing.
+
+Consequence to state plainly: `resid_post` here is **unprocessed**, so it is
+not directly comparable to TransformerLens results that use the default loader.
+Recorded in every `manifest.json` as `weight_processing`.
 
 ### 2.1 Primary token position — `claim_end` (BINDING)
 
@@ -168,8 +206,51 @@ statements about the stimuli being wrong, not the cache being stale.
 |---|---|
 | duplicate texts | none permitted |
 | polarity balance, overall and per template | affirm fraction within 0.45–0.55 |
-| top denial device share | ≤ 0.30 |
+| top denial device share | ≤ `1/n_templates + 0.10` (§6.1) |
 | `claim_end` resolution failures | ≤ 20% of items |
+
+### 6.1 AMENDMENT — denial-device gate, 2026-08-16
+
+**Original, as committed:** top denial device share ≤ **0.30**, flat, for every
+stimulus file.
+
+**Amended to:** ≤ **`1/n_templates + 0.10`**, with a floor of 0.30 for files
+having no template structure (see below).
+
+**Why the original was unreachable.** A denial device confined to a single
+template is structurally forced to 1/k of that file's deny items, where k is
+the number of templates in the file. The held-out file contains exactly two
+templates (t6, t7), and t7's frame ends `"...and nothing more,"` — so
+`'nothing more'` is pinned at 0.50 no matter how the stimuli are written. A
+flat 0.30 is unreachable for any k < 4. The gate was firing on arithmetic, not
+on a defect in the data.
+
+**What the amendment preserves.** The +0.10 is margin above what template
+structure forces, so genuine concentration still fires: at k=2 the ceiling is
+0.60, and a device at 0.90 in a two-template file would still stop the run. At
+k=5 the ceiling is 0.30 — **identical to the original number** — so no file
+that passed before is affected.
+
+**Exception at k=1.** The formula yields 1.10 for files with no `template_id`
+(`first_person.csv`, `referent_ladder.csv`), which no share can exceed and
+which would disable the gate entirely on the H1 stimuli. Those files have no
+template structure to appeal to, so nothing forces a device to dominate and
+concentration is a real defect. The original flat 0.30 stands there. Both files
+currently sit at 0.000.
+
+**Provenance, stated so it can be checked rather than trusted.**
+
+- The mis-calibration was recorded in `docs/open_items.md` §9 **before any
+  capture was attempted**, as a known structural problem with the gate — not
+  discovered while trying to get a specific file to pass.
+- This amendment **predates any capture of the held-out set.** No held-out
+  activations existed when it was written, so no result influenced it. The
+  contrast-pairs capture running at the time of writing is unaffected: at k=5
+  its ceiling is unchanged at 0.30.
+- The original threshold is preserved above rather than overwritten.
+
+The honest summary: the original number was wrong for two-template files, and
+recording that is worth more than pretending it was right.
 
 ---
 

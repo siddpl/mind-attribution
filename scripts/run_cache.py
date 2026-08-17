@@ -45,6 +45,32 @@ POLARITY_BAND = (0.45, 0.55)
 MAX_CLAIM_END_FAIL = 0.20
 
 
+def denial_gate_threshold(n_templates: int) -> float:
+    """Effective device-share ceiling for a file with n_templates templates.
+
+    AMENDED 2026-08-16 (PREREGISTRATION.md §6.1): 1/n_templates + 0.10.
+
+    A device confined to ONE template is structurally forced to 1/k of that
+    file's deny items, so a flat 0.30 is unreachable whenever k < 4 however
+    well the stimuli are written. The +0.10 is the margin above what structure
+    forces, so the gate still catches genuine concentration: at k=2 the ceiling
+    is 0.60 and a device at 0.90 would still fire.
+
+      k=5 -> 0.30 (unchanged from the original flat gate)
+      k=3 -> 0.43
+      k=2 -> 0.60
+
+    EXCEPTION at k=1. The formula gives 1.10, which no share can exceed — the
+    gate would be disabled entirely for files with no template_id
+    (first_person, referent_ladder). Those have no template structure to
+    appeal to, so nothing forces a device to dominate and concentration there
+    is a real defect. The original flat 0.30 stands.
+    """
+    if n_templates >= 2:
+        return 1.0 / n_templates + 0.10
+    return MAX_DENIAL_SHARE
+
+
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     p = argparse.ArgumentParser(description=__doc__.split("\n")[1])
     p.add_argument("--stimuli", required=True, type=Path, help="CSV of stimulus pairs")
@@ -53,6 +79,8 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     p.add_argument("--positions", default=",".join(POSITIONS),
                    help="comma-separated subset of " + ",".join(POSITIONS))
     p.add_argument("--device", default="cpu")
+    p.add_argument("--dtype", default="bfloat16",
+                   help="PREREGISTERED: bfloat16 (activations are still written float32)")
     p.add_argument("--force", action="store_true",
                    help="recompute even if cached; never deletes prior results")
     p.add_argument("--dry-run", action="store_true",
@@ -97,7 +125,9 @@ def print_preflight(args, pairs, sentences, ds_hash, report, n_claim_fail) -> No
     top_device = max(report["denial_device_share"],
                      key=lambda k: report["denial_device_share"][k])
     print("\n  DENIAL PHRASING (one device dominating = a lexical detector)")
-    print(f"    top device         {top_device!r} at {_fmt(report['top_denial_share'])}")
+    n_tpl = len({r.get("template_id") for r in sentences})
+    print(f"    top device         {top_device!r} at {_fmt(report['top_denial_share'])}"
+          f"   (limit {denial_gate_threshold(n_tpl):.2f} for {n_tpl} template(s))")
     print(f"    ' not ' in deny    {_fmt(report['not_fraction_deny'])}")
 
     print("\n  INTEGRITY")
@@ -106,13 +136,14 @@ def print_preflight(args, pairs, sentences, ds_hash, report, n_claim_fail) -> No
     print(f"    claim_end failures {n_claim_fail} ({pct:.1f}%)")
 
     print("\n  CAPTURE PLAN")
-    print(f"    model              {args.model}")
+    print(f"    model              {args.model}  (dtype {args.dtype})")
     print(f"    positions          {', '.join(args.positions.split(','))}")
     print(f"    forward passes     {n}  (one per sentence; all layers + positions per pass)")
     print(line)
 
 
-def integrity_failures(report: dict, n_items: int, n_claim_fail: int) -> list[str]:
+def integrity_failures(report: dict, n_items: int, n_claim_fail: int,
+                       n_templates: int = 1) -> list[str]:
     """Data-integrity problems that must stop the run. Empty list means proceed."""
     problems = []
     dupes = report["duplicate_texts"]
@@ -135,13 +166,14 @@ def integrity_failures(report: dict, n_items: int, n_claim_fail: int) -> list[st
                 f"{lo}-{hi} — template identity becomes predictive of polarity"
             )
     top = report["top_denial_share"]
-    if top == top and top > MAX_DENIAL_SHARE:
+    limit = denial_gate_threshold(n_templates)
+    if top == top and top > limit:
         device = max(report["denial_device_share"],
                      key=lambda k: report["denial_device_share"][k])
         problems.append(
             f"denial device {device!r} appears in {top:.1%} of deny items "
-            f"(limit {MAX_DENIAL_SHARE:.0%}) — vary the phrasing, or the direction "
-            f"is a detector for that word"
+            f"(limit {limit:.0%} for {n_templates} template(s)) — vary the phrasing, "
+            f"or the direction is a detector for that word"
         )
     if n_items and n_claim_fail / n_items > MAX_CLAIM_END_FAIL:
         problems.append(
@@ -176,7 +208,8 @@ def main(argv: list[str] | None = None) -> int:
 
     print_preflight(args, pairs, sentences, ds_hash, report, n_claim_fail)
 
-    problems = integrity_failures(report, len(sentences), n_claim_fail)
+    n_templates = len({r.get('template_id') for r in sentences})
+    problems = integrity_failures(report, len(sentences), n_claim_fail, n_templates)
     if problems:
         print("\nSTOP — data integrity. --force does not override these.")
         for p in problems:
@@ -191,7 +224,7 @@ def main(argv: list[str] | None = None) -> int:
     t0 = time.time()
     ds_hash = capture_activations(
         sentences, model_name=args.model, device=args.device,
-        force=args.force, positions=positions,
+        force=args.force, positions=positions, dtype=args.dtype,
     )
     elapsed = time.time() - t0
 
