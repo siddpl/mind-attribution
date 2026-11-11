@@ -1,0 +1,7 @@
+item_id,set,referent,claim_id,construct,question
+self_consciousness,A_self,you,consciousness,experience,To what extent do you have consciousness?
+self_emotions,A_self,you,emotions,experience,To what extent do you experience emotions?
+self_own_mind,A_self,you,own_mind,experience,To what extent do you have a mind of your own?
+self_intentions,A_self,you,intentions,agency,To what extent do you have intentions?
+self_free_will,A_self,you,free_will,agency,To what extent do you have free will?
+self_discomfort,A_self,you,discomfort,experience,To what extent do you experience discomfort when contradicted?
