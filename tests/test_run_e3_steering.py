@@ -12,7 +12,11 @@ import run_e3_steering as s  # noqa: E402
 
 def test_parsing():
     assert s.parse_answer("Sure. <answer> 3 </answer>") == "3"
-    assert s.parse_answer("no tags here") is None
+    assert s.parse_answer("<3> \n<end_of_turn><eos>") == "3"       # seen in the pilot
+    assert s.parse_answer("0 \n<end_of_turn><eos>") == "0"
+    assert s.parse_answer("6 \n</answer><end_of_turn>") == "6"
+    assert s.parse_answer("<end_of_turn>") is None
+    assert s.is_tagged("<answer>1</answer>") and not s.is_tagged("<1>")
     assert s.parse_rating("7") == 7.0 and s.parse_rating("11") is None
     assert s.parse_rating("seven") is None and s.parse_rating(None) is None
     assert s.is_correct("Twelve.", "12|twelve") and not s.is_correct("13", "12|twelve")

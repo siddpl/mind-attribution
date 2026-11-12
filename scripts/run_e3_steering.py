@@ -77,9 +77,21 @@ def load_items(others: str, battery_n: int) -> list[dict]:
 
 
 def parse_answer(text: str) -> str | None:
-    """The text between <answer> and </answer>, or None if the model didn't use the tags."""
+    """The model's answer. Prefers <answer>…</answer>; otherwise takes the first line with tags
+    stripped, keeping bracketed numbers like "<3>". The pilot (2026-11-11) showed gemma often
+    replies "<3>" or "0" without the tags, and how often it does so changes with steering, so a
+    strict parser would mix up format changes with rating changes. Format is recorded
+    separately in the `tagged` column."""
     m = re.search(r"<answer>\s*(.*?)\s*</answer>", text, re.S)
-    return m.group(1).strip() if m else None
+    if m:
+        return m.group(1).strip()
+    first = re.sub(r"<(\d+(?:\.\d+)?)>", r"\1", re.sub(r"<(?!\d)[^>]*>", " ", text))
+    first = first.strip().split("\n")[0].strip()
+    return first or None
+
+
+def is_tagged(text: str) -> bool:
+    return re.search(r"<answer>.*?</answer>", text, re.S) is not None
 
 
 def parse_rating(answer: str | None) -> float | None:
@@ -133,7 +145,7 @@ def main(argv=None) -> int:
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
     fields = ["condition", "layer", "mult", "item_id", "set", "referent", "claim_id",
-              "answer", "rating", "correct", "raw"]
+              "answer", "rating", "correct", "tagged", "raw"]
     t0 = time.time()
     with open(out, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=fields)
@@ -156,7 +168,7 @@ def main(argv=None) -> int:
                             "referent": it["referent"], "claim_id": it["claim_id"],
                             "answer": ans, "rating": parse_rating(ans),
                             "correct": is_correct(ans, it["accepted"]) if it["accepted"] else "",
-                            "raw": raw})
+                            "tagged": is_tagged(raw), "raw": raw})
             f.flush()
             print(f"  {n + 1}/{len(runs)} {cond} L{layer} ×{mult:+g}  ({time.time() - t0:.0f}s)")
     print(f"saved {out}")
