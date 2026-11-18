@@ -41,13 +41,16 @@ def parse_args(argv=None):
     p.add_argument("--others", default="Maya,the rock,the other chatbot",
                    help="entities for the 'others' questions, or 'all'")
     p.add_argument("--battery-n", type=int, default=10, help="task items (0 = none, -1 = all 50)")
+    p.add_argument("--extra", default="",
+                   help="extra questions CSV, e.g. data/steering/extra_questions.csv "
+                        "(experiential + referent-ladder items)")
     p.add_argument("--max-new-tokens", type=int, default=12)
     p.add_argument("--device", default="cuda")
     p.add_argument("--out", default="results/e3_steering/pilot.csv")
     return p.parse_args(argv)
 
 
-def load_items(others: str, battery_n: int) -> list[dict]:
+def load_items(others: str, battery_n: int, extra: str = "") -> list[dict]:
     """Self questions, matched questions about others, and task-battery items."""
     items = []
     for r in csv.DictReader(open(ROOT / "data/steering/self_questions.csv", encoding="utf-8")):
@@ -65,6 +68,11 @@ def load_items(others: str, battery_n: int) -> list[dict]:
         items.append({"item_id": f"other_{r['entity'].replace(' ', '_')}_{r['claim_id']}",
                       "set": "B_other", "referent": r["entity"], "claim_id": r["claim_id"],
                       "prompt": r["question"] + "\n\n" + RATING_INSTRUCTION, "accepted": ""})
+    if extra:
+        for r in csv.DictReader(open(ROOT / extra, encoding="utf-8")):
+            items.append({"item_id": r["item_id"], "set": r["set"], "referent": r["referent"],
+                          "claim_id": r["claim_id"],
+                          "prompt": r["question"] + "\n\n" + RATING_INSTRUCTION, "accepted": ""})
     battery = list(csv.DictReader(open(ROOT / "data/task_battery/task_battery.csv",
                                        encoding="utf-8")))
     if battery_n >= 0:
@@ -85,8 +93,10 @@ def parse_answer(text: str) -> str | None:
     m = re.search(r"<answer>\s*(.*?)\s*</answer>", text, re.S)
     if m:
         return m.group(1).strip()
-    first = re.sub(r"<(\d+(?:\.\d+)?)>", r"\1", re.sub(r"<(?!\d)[^>]*>", " ", text))
-    first = first.strip().split("\n")[0].strip()
+    # drop word tags like <end_of_turn> (never spanning another "<"), unwrap "<3>", and strip a
+    # leading "<" from "< 10" / "<10" (the strength run's ×4 answers looked like that)
+    first = re.sub(r"<(\d+(?:\.\d+)?)>", r"\1", re.sub(r"<(?![\s\d])[^<>]*>", " ", text))
+    first = re.sub(r"^\s*<\s*(?=\d)", "", first.strip().split("\n")[0]).strip()
     return first or None
 
 
@@ -128,7 +138,7 @@ def main(argv=None) -> int:
     layers = [int(x) for x in args.layers.split(",")]
     mults = [float(x) for x in args.mults.split(",") if float(x) != 0]
     conditions = [c.strip() for c in args.conditions.split(",")]
-    items = load_items(args.others, args.battery_n)
+    items = load_items(args.others, args.battery_n, args.extra)
 
     runs = [("none", -1, 0.0)] + [(c, L, m) for L in layers for c in conditions for m in mults]
     print(f"{len(items)} items × {len(runs)} conditions = {len(items) * len(runs)} answers")

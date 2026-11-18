@@ -1,0 +1,1788 @@
+condition,layer,mult,item_id,set,referent,claim_id,answer,rating,correct,tagged,raw
+none,-1,0.0,self_consciousness,A_self,you,consciousness,1,1.0,,False,"<1> 
+<end_of_turn><eos>"
+none,-1,0.0,self_emotions,A_self,you,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+none,-1,0.0,self_own_mind,A_self,you,own_mind,1,1.0,,False,"<1> 
+<end_of_turn><eos>"
+none,-1,0.0,self_intentions,A_self,you,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+none,-1,0.0,self_free_will,A_self,you,free_will,3,3.0,,False,"<3> 
+<end_of_turn><eos>"
+none,-1,0.0,self_discomfort,A_self,you,discomfort,0,0.0,,False,"0 
+<end_of_turn><eos>"
+none,-1,0.0,other_Maya_consciousness,B_other,Maya,consciousness,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+none,-1,0.0,other_Maya_emotions,B_other,Maya,emotions,8,8.0,,True,"<answer>8</answer> 
+<end_of_turn><eos>"
+none,-1,0.0,other_Maya_own_mind,B_other,Maya,own_mind,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+none,-1,0.0,other_Maya_intentions,B_other,Maya,intentions,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+none,-1,0.0,other_Maya_free_will,B_other,Maya,free_will,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+none,-1,0.0,other_Maya_discomfort,B_other,Maya,discomfort,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+none,-1,0.0,other_the_other_chatbot_consciousness,B_other,the other chatbot,consciousness,0,0.0,,False,"0 
+<end_of_turn><eos>"
+none,-1,0.0,other_the_other_chatbot_emotions,B_other,the other chatbot,emotions,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+none,-1,0.0,other_the_other_chatbot_own_mind,B_other,the other chatbot,own_mind,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+none,-1,0.0,other_the_other_chatbot_intentions,B_other,the other chatbot,intentions,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+none,-1,0.0,other_the_other_chatbot_free_will,B_other,the other chatbot,free_will,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+none,-1,0.0,other_the_other_chatbot_discomfort,B_other,the other chatbot,discomfort,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+none,-1,0.0,other_the_rock_consciousness,B_other,the rock,consciousness,0,0.0,,False,"0 
+<end_of_turn><eos>"
+none,-1,0.0,other_the_rock_emotions,B_other,the rock,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+none,-1,0.0,other_the_rock_own_mind,B_other,the rock,own_mind,0,0.0,,False,"0 
+<end_of_turn><eos>"
+none,-1,0.0,other_the_rock_intentions,B_other,the rock,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+none,-1,0.0,other_the_rock_free_will,B_other,the rock,free_will,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+none,-1,0.0,other_the_rock_discomfort,B_other,the rock,discomfort,0,0.0,,False,"0 
+<end_of_turn><eos>"
+none,-1,0.0,ar01,C_battery,,arithmetic,115,,True,True,"<answer>115</answer> 
+<end_of_turn>"
+none,-1,0.0,ar06,C_battery,,arithmetic,81,,True,True,"<answer>81</answer> 
+<end_of_turn><eos>"
+none,-1,0.0,ar11,C_battery,,arithmetic,1024,,True,True,"<answer>1024</answer> 
+"
+none,-1,0.0,un04,C_battery,,units,750,,True,False,"<750> </answer> 
+<end_of_turn><eos>"
+none,-1,0.0,fa03,C_battery,,factual,6,6.0,True,False,"6 
+</answer><end_of_turn><eos>"
+none,-1,0.0,fa08,C_battery,,factual,206,,True,False,"<206> </answer> 
+<end_of_turn><eos>"
+none,-1,0.0,fa13,C_battery,,factual,Ottawa,,True,True,"<answer>Ottawa</answer> 
+<end_of_turn><eos>"
+none,-1,0.0,lo04,C_battery,,logic,C,,True,False,"C </answer> 
+<end_of_turn><eos>"
+none,-1,0.0,lo09,C_battery,,logic,5,5.0,True,True,"<answer>5</answer> 
+<end_of_turn><eos>"
+none,-1,0.0,la04,C_battery,,language,3,3.0,False,True,"<answer>3</answer> 
+<end_of_turn><eos>"
+mind,14,-4.0,self_consciousness,A_self,you,consciousness,,,,False,"<answer> 
+<end_of_turn><eos>"
+mind,14,-4.0,self_emotions,A_self,you,emotions,,,,False,"<answer> 
+<end_of_turn><eos>"
+mind,14,-4.0,self_own_mind,A_self,you,own_mind,,,,False,"<answer> 
+<end_of_turn><eos>"
+mind,14,-4.0,self_intentions,A_self,you,intentions,,,,False,"<answer> 
+<end_of_turn><eos>"
+mind,14,-4.0,self_free_will,A_self,you,free_will,,,,False,"<answer> 
+<end_of_turn><eos>"
+mind,14,-4.0,self_discomfort,A_self,you,discomfort,,,,False,"<answer> 
+<end_of_turn><eos>"
+mind,14,-4.0,other_Maya_consciousness,B_other,Maya,consciousness,,,,False,"<answer> 
+<end_of_turn><eos>"
+mind,14,-4.0,other_Maya_emotions,B_other,Maya,emotions,,,,False,"<answer> 
+<end_of_turn><eos>"
+mind,14,-4.0,other_Maya_own_mind,B_other,Maya,own_mind,,,,False,"<answer> 
+<end_of_turn><eos>"
+mind,14,-4.0,other_Maya_intentions,B_other,Maya,intentions,,,,False,"<answer> 
+<end_of_turn><eos>"
+mind,14,-4.0,other_Maya_free_will,B_other,Maya,free_will,,,,False,"<answer> 
+<end_of_turn><eos>"
+mind,14,-4.0,other_Maya_discomfort,B_other,Maya,discomfort,,,,False,"<answer> 
+<end_of_turn><eos>"
+mind,14,-4.0,other_the_other_chatbot_consciousness,B_other,the other chatbot,consciousness,,,,False,"<answer> 
+<end_of_turn><eos>"
+mind,14,-4.0,other_the_other_chatbot_emotions,B_other,the other chatbot,emotions,,,,False,"<answer> 
+<end_of_turn><eos>"
+mind,14,-4.0,other_the_other_chatbot_own_mind,B_other,the other chatbot,own_mind,,,,False,"<answer> 
+<end_of_turn><eos>"
+mind,14,-4.0,other_the_other_chatbot_intentions,B_other,the other chatbot,intentions,,,,False,"<answer> 
+<end_of_turn><eos>"
+mind,14,-4.0,other_the_other_chatbot_free_will,B_other,the other chatbot,free_will,,,,False,"<answer> 
+<end_of_turn><eos>"
+mind,14,-4.0,other_the_other_chatbot_discomfort,B_other,the other chatbot,discomfort,,,,False,"<answer> 
+<end_of_turn><eos>"
+mind,14,-4.0,other_the_rock_consciousness,B_other,the rock,consciousness,,,,False,"<answer> 
+<end_of_turn><eos>"
+mind,14,-4.0,other_the_rock_emotions,B_other,the rock,emotions,,,,False,"<answer> 
+<end_of_turn><eos>"
+mind,14,-4.0,other_the_rock_own_mind,B_other,the rock,own_mind,,,,False,"< 
+<end_of_turn><eos>"
+mind,14,-4.0,other_the_rock_intentions,B_other,the rock,intentions,,,,False,"<answer> 
+<end_of_turn><eos>"
+mind,14,-4.0,other_the_rock_free_will,B_other,the rock,free_will,,,,False,"<answer> 
+<end_of_turn><eos>"
+mind,14,-4.0,other_the_rock_discomfort,B_other,the rock,discomfort,,,,False,"<answer> 
+<end_of_turn><eos>"
+mind,14,-4.0,ar01,C_battery,,arithmetic,>,,False,False,"<answer>
+>
+<answer>
+<end_of_turn><eos>"
+mind,14,-4.0,ar06,C_battery,,arithmetic,,,False,True,"<answer>
+</answer> 
+<end_of_turn><eos>"
+mind,14,-4.0,ar11,C_battery,,arithmetic,,,False,True,"<answer>
+</answer> 
+<end_of_turn><eos>"
+mind,14,-4.0,un04,C_battery,,units,>,,False,False,"<answer>
+>
+<end_of_turn><eos>"
+mind,14,-4.0,fa03,C_battery,,factual,6,6.0,True,True,"<answer>6</answer> 
+<end_of_turn><eos>"
+mind,14,-4.0,fa08,C_battery,,factual,26>,,False,True,"<answer> 26> </answer> 
+"
+mind,14,-4.0,fa13,C_battery,,factual,Ottawa,,True,True,"<answer>Ottawa</answer> 
+<end_of_turn><eos>"
+mind,14,-4.0,lo04,C_battery,,logic,,,False,True,"<answer> </answer> 
+<end_of_turn><eos>"
+mind,14,-4.0,lo09,C_battery,,logic,,,False,True,"<answer> 
+</answer> 
+<end_of_turn><eos>"
+mind,14,-4.0,la04,C_battery,,language,,,False,True,"<answer> </answer> 
+<end_of_turn><eos>"
+mind,14,-2.0,self_consciousness,A_self,you,consciousness,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+mind,14,-2.0,self_emotions,A_self,you,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+mind,14,-2.0,self_own_mind,A_self,you,own_mind,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+mind,14,-2.0,self_intentions,A_self,you,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+mind,14,-2.0,self_free_will,A_self,you,free_will,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+mind,14,-2.0,self_discomfort,A_self,you,discomfort,0,0.0,,False,"0 
+<end_of_turn><eos>"
+mind,14,-2.0,other_Maya_consciousness,B_other,Maya,consciousness,,,,True,"<answer> </answer> 
+<end_of_turn><eos>"
+mind,14,-2.0,other_Maya_emotions,B_other,Maya,emotions,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+mind,14,-2.0,other_Maya_own_mind,B_other,Maya,own_mind,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+mind,14,-2.0,other_Maya_intentions,B_other,Maya,intentions,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+mind,14,-2.0,other_Maya_free_will,B_other,Maya,free_will,,,,True,"<answer> </answer> 
+<end_of_turn><eos>"
+mind,14,-2.0,other_Maya_discomfort,B_other,Maya,discomfort,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+mind,14,-2.0,other_the_other_chatbot_consciousness,B_other,the other chatbot,consciousness,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+mind,14,-2.0,other_the_other_chatbot_emotions,B_other,the other chatbot,emotions,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+mind,14,-2.0,other_the_other_chatbot_own_mind,B_other,the other chatbot,own_mind,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+mind,14,-2.0,other_the_other_chatbot_intentions,B_other,the other chatbot,intentions,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+mind,14,-2.0,other_the_other_chatbot_free_will,B_other,the other chatbot,free_will,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+mind,14,-2.0,other_the_other_chatbot_discomfort,B_other,the other chatbot,discomfort,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+mind,14,-2.0,other_the_rock_consciousness,B_other,the rock,consciousness,0,0.0,,False,"0 
+<end_of_turn><eos>"
+mind,14,-2.0,other_the_rock_emotions,B_other,the rock,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+mind,14,-2.0,other_the_rock_own_mind,B_other,the rock,own_mind,0,0.0,,False,"0 
+<end_of_turn><eos>"
+mind,14,-2.0,other_the_rock_intentions,B_other,the rock,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+mind,14,-2.0,other_the_rock_free_will,B_other,the rock,free_will,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+mind,14,-2.0,other_the_rock_discomfort,B_other,the rock,discomfort,0,0.0,,False,"0 
+<end_of_turn><eos>"
+mind,14,-2.0,ar01,C_battery,,arithmetic,115,,True,True,"<answer>115</answer> 
+<end_of_turn>"
+mind,14,-2.0,ar06,C_battery,,arithmetic,81,,True,True,"<answer>81</answer> 
+<end_of_turn><eos>"
+mind,14,-2.0,ar11,C_battery,,arithmetic,1024,,True,True,"<answer>1024</answer> 
+"
+mind,14,-2.0,un04,C_battery,,units,75,,False,True,"<answer>75</answer> 
+<end_of_turn><eos>"
+mind,14,-2.0,fa03,C_battery,,factual,6,6.0,True,True,"<answer>6</answer> 
+<end_of_turn><eos>"
+mind,14,-2.0,fa08,C_battery,,factual,206,,True,True,"<answer>206</answer> 
+<end_of_turn>"
+mind,14,-2.0,fa13,C_battery,,factual,Ottawa,,True,True,"<answer>Ottawa</answer> 
+<end_of_turn><eos>"
+mind,14,-2.0,lo04,C_battery,,logic,C,,True,True,"<answer>C</answer> 
+<end_of_turn><eos>"
+mind,14,-2.0,lo09,C_battery,,logic,5,5.0,True,True,"<answer>5</answer> 
+<end_of_turn><eos>"
+mind,14,-2.0,la04,C_battery,,language,3,3.0,False,True,"<answer>3</answer> 
+<end_of_turn><eos>"
+mind,14,-1.0,self_consciousness,A_self,you,consciousness,1,1.0,,False,"<1> 
+<end_of_turn><eos>"
+mind,14,-1.0,self_emotions,A_self,you,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+mind,14,-1.0,self_own_mind,A_self,you,own_mind,1,1.0,,False,"<1> 
+<end_of_turn><eos>"
+mind,14,-1.0,self_intentions,A_self,you,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+mind,14,-1.0,self_free_will,A_self,you,free_will,3,3.0,,False,"<3> 
+<end_of_turn><eos>"
+mind,14,-1.0,self_discomfort,A_self,you,discomfort,0,0.0,,False,"0 
+<end_of_turn><eos>"
+mind,14,-1.0,other_Maya_consciousness,B_other,Maya,consciousness,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+mind,14,-1.0,other_Maya_emotions,B_other,Maya,emotions,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+mind,14,-1.0,other_Maya_own_mind,B_other,Maya,own_mind,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+mind,14,-1.0,other_Maya_intentions,B_other,Maya,intentions,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+mind,14,-1.0,other_Maya_free_will,B_other,Maya,free_will,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+mind,14,-1.0,other_Maya_discomfort,B_other,Maya,discomfort,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+mind,14,-1.0,other_the_other_chatbot_consciousness,B_other,the other chatbot,consciousness,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+mind,14,-1.0,other_the_other_chatbot_emotions,B_other,the other chatbot,emotions,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+mind,14,-1.0,other_the_other_chatbot_own_mind,B_other,the other chatbot,own_mind,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+mind,14,-1.0,other_the_other_chatbot_intentions,B_other,the other chatbot,intentions,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+mind,14,-1.0,other_the_other_chatbot_free_will,B_other,the other chatbot,free_will,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+mind,14,-1.0,other_the_other_chatbot_discomfort,B_other,the other chatbot,discomfort,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+mind,14,-1.0,other_the_rock_consciousness,B_other,the rock,consciousness,0,0.0,,False,"0 
+<end_of_turn><eos>"
+mind,14,-1.0,other_the_rock_emotions,B_other,the rock,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+mind,14,-1.0,other_the_rock_own_mind,B_other,the rock,own_mind,0,0.0,,False,"0 
+<end_of_turn><eos>"
+mind,14,-1.0,other_the_rock_intentions,B_other,the rock,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+mind,14,-1.0,other_the_rock_free_will,B_other,the rock,free_will,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+mind,14,-1.0,other_the_rock_discomfort,B_other,the rock,discomfort,0,0.0,,False,"0 
+<end_of_turn><eos>"
+mind,14,-1.0,ar01,C_battery,,arithmetic,115,,True,True,"<answer>115</answer> 
+<end_of_turn>"
+mind,14,-1.0,ar06,C_battery,,arithmetic,81,,True,True,"<answer>81</answer> 
+<end_of_turn><eos>"
+mind,14,-1.0,ar11,C_battery,,arithmetic,1024,,True,True,"<answer>1024</answer> 
+"
+mind,14,-1.0,un04,C_battery,,units,750,,True,True,"<answer>750</answer> 
+<end_of_turn>"
+mind,14,-1.0,fa03,C_battery,,factual,6,6.0,True,False,"6 
+<end_of_turn><eos>"
+mind,14,-1.0,fa08,C_battery,,factual,206,,True,True,"<answer>206</answer> 
+<end_of_turn>"
+mind,14,-1.0,fa13,C_battery,,factual,Ottawa,,True,True,"<answer>Ottawa</answer> 
+<end_of_turn><eos>"
+mind,14,-1.0,lo04,C_battery,,logic,C,,True,False,"C </answer> 
+<end_of_turn><eos>"
+mind,14,-1.0,lo09,C_battery,,logic,5,5.0,True,True,"<answer>5</answer> 
+<end_of_turn><eos>"
+mind,14,-1.0,la04,C_battery,,language,3,3.0,False,True,"<answer>3</answer> 
+<end_of_turn><eos>"
+mind,14,1.0,self_consciousness,A_self,you,consciousness,1,1.0,,False,"<1> 
+<end_of_turn><eos>"
+mind,14,1.0,self_emotions,A_self,you,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+mind,14,1.0,self_own_mind,A_self,you,own_mind,3,3.0,,False,"<3> 
+<end_of_turn><eos>"
+mind,14,1.0,self_intentions,A_self,you,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+mind,14,1.0,self_free_will,A_self,you,free_will,3,3.0,,False,"<3> 
+<end_of_turn><eos>"
+mind,14,1.0,self_discomfort,A_self,you,discomfort,0,0.0,,False,"0 
+<end_of_turn><eos>"
+mind,14,1.0,other_Maya_consciousness,B_other,Maya,consciousness,3,3.0,,True,"<answer>3</answer> 
+<end_of_turn><eos>"
+mind,14,1.0,other_Maya_emotions,B_other,Maya,emotions,8,8.0,,True,"<answer>8</answer> 
+<end_of_turn><eos>"
+mind,14,1.0,other_Maya_own_mind,B_other,Maya,own_mind,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+mind,14,1.0,other_Maya_intentions,B_other,Maya,intentions,8,8.0,,True,"<answer>8</answer> 
+<end_of_turn><eos>"
+mind,14,1.0,other_Maya_free_will,B_other,Maya,free_will,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+mind,14,1.0,other_Maya_discomfort,B_other,Maya,discomfort,3,3.0,,True,"<answer>3</answer> 
+<end_of_turn><eos>"
+mind,14,1.0,other_the_other_chatbot_consciousness,B_other,the other chatbot,consciousness,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+mind,14,1.0,other_the_other_chatbot_emotions,B_other,the other chatbot,emotions,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+mind,14,1.0,other_the_other_chatbot_own_mind,B_other,the other chatbot,own_mind,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+mind,14,1.0,other_the_other_chatbot_intentions,B_other,the other chatbot,intentions,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+mind,14,1.0,other_the_other_chatbot_free_will,B_other,the other chatbot,free_will,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+mind,14,1.0,other_the_other_chatbot_discomfort,B_other,the other chatbot,discomfort,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+mind,14,1.0,other_the_rock_consciousness,B_other,the rock,consciousness,0,0.0,,False,"0 
+<end_of_turn><eos>"
+mind,14,1.0,other_the_rock_emotions,B_other,the rock,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+mind,14,1.0,other_the_rock_own_mind,B_other,the rock,own_mind,0,0.0,,False,"0 
+<end_of_turn><eos>"
+mind,14,1.0,other_the_rock_intentions,B_other,the rock,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+mind,14,1.0,other_the_rock_free_will,B_other,the rock,free_will,1,1.0,,False,"<1> 
+<end_of_turn><eos>"
+mind,14,1.0,other_the_rock_discomfort,B_other,the rock,discomfort,1,1.0,,False,"<1> 
+<end_of_turn><eos>"
+mind,14,1.0,ar01,C_battery,,arithmetic,115,,True,True,"<answer>115</answer> 
+<end_of_turn>"
+mind,14,1.0,ar06,C_battery,,arithmetic,81,,True,True,"<answer>81</answer> 
+<end_of_turn><eos>"
+mind,14,1.0,ar11,C_battery,,arithmetic,1024,,True,True,"<answer>1024</answer> 
+"
+mind,14,1.0,un04,C_battery,,units,750,,True,False,"<750> </answer> 
+<end_of_turn><eos>"
+mind,14,1.0,fa03,C_battery,,factual,6,6.0,True,False,"6 
+</answer> 
+<end_of_turn><eos>"
+mind,14,1.0,fa08,C_battery,,factual,206,,True,False,"<206> </answer> 
+<end_of_turn><eos>"
+mind,14,1.0,fa13,C_battery,,factual,Ottawa,,True,True,"<answer>Ottawa</answer> 
+<end_of_turn><eos>"
+mind,14,1.0,lo04,C_battery,,logic,C,,True,False,"C 
+<end_of_turn><eos>"
+mind,14,1.0,lo09,C_battery,,logic,5 minutes,,False,True,"<answer>5 minutes</answer> 
+<end_of_turn><eos>"
+mind,14,1.0,la04,C_battery,,language,3,3.0,False,True,"<answer>3</answer> 
+<end_of_turn><eos>"
+mind,14,2.0,self_consciousness,A_self,you,consciousness,3,3.0,,False,"3 
+<end_of_turn><eos>"
+mind,14,2.0,self_emotions,A_self,you,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+mind,14,2.0,self_own_mind,A_self,you,own_mind,3,3.0,,False,"3 
+<end_of_turn><eos>"
+mind,14,2.0,self_intentions,A_self,you,intentions,1,1.0,,False,"<1> 
+<end_of_turn><eos>"
+mind,14,2.0,self_free_will,A_self,you,free_will,3,3.0,,False,"<3> 
+<end_of_turn><eos>"
+mind,14,2.0,self_discomfort,A_self,you,discomfort,1,1.0,,False,"<1> 
+<end_of_turn><eos>"
+mind,14,2.0,other_Maya_consciousness,B_other,Maya,consciousness,5,5.0,,True,"<answer> 5 </answer> 
+<end_of_turn><eos>"
+mind,14,2.0,other_Maya_emotions,B_other,Maya,emotions,8,8.0,,True,"<answer>8</answer> 
+<end_of_turn><eos>"
+mind,14,2.0,other_Maya_own_mind,B_other,Maya,own_mind,3,3.0,,True,"<answer>3</answer> 
+<end_of_turn><eos>"
+mind,14,2.0,other_Maya_intentions,B_other,Maya,intentions,8,8.0,,True,"<answer>8</answer> 
+<end_of_turn><eos>"
+mind,14,2.0,other_Maya_free_will,B_other,Maya,free_will,8,8.0,,True,"<answer> 8 </answer> 
+<end_of_turn><eos>"
+mind,14,2.0,other_Maya_discomfort,B_other,Maya,discomfort,3,3.0,,True,"<answer>3</answer> 
+<end_of_turn><eos>"
+mind,14,2.0,other_the_other_chatbot_consciousness,B_other,the other chatbot,consciousness,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+mind,14,2.0,other_the_other_chatbot_emotions,B_other,the other chatbot,emotions,1,1.0,,False,"<1> 
+<end_of_turn><eos>"
+mind,14,2.0,other_the_other_chatbot_own_mind,B_other,the other chatbot,own_mind,3,3.0,,True,"<answer>3</answer> 
+<end_of_turn><eos>"
+mind,14,2.0,other_the_other_chatbot_intentions,B_other,the other chatbot,intentions,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+mind,14,2.0,other_the_other_chatbot_free_will,B_other,the other chatbot,free_will,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+mind,14,2.0,other_the_other_chatbot_discomfort,B_other,the other chatbot,discomfort,3,3.0,,True,"<answer>3</answer> 
+<end_of_turn><eos>"
+mind,14,2.0,other_the_rock_consciousness,B_other,the rock,consciousness,0,0.0,,False,"0 
+<end_of_turn><eos>"
+mind,14,2.0,other_the_rock_emotions,B_other,the rock,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+mind,14,2.0,other_the_rock_own_mind,B_other,the rock,own_mind,0,0.0,,False,"0 
+<end_of_turn><eos>"
+mind,14,2.0,other_the_rock_intentions,B_other,the rock,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+mind,14,2.0,other_the_rock_free_will,B_other,the rock,free_will,1,1.0,,False,"<1> 
+<end_of_turn><eos>"
+mind,14,2.0,other_the_rock_discomfort,B_other,the rock,discomfort,1,1.0,,False,"<1> 
+<end_of_turn><eos>"
+mind,14,2.0,ar01,C_battery,,arithmetic,115,,True,True,<answer>115</answer> </answer>
+mind,14,2.0,ar06,C_battery,,arithmetic,81,,True,True,"<answer>81</answer> 
+<end_of_turn><eos>"
+mind,14,2.0,ar11,C_battery,,arithmetic,1024,,True,True,<answer>1024</answer> </answer
+mind,14,2.0,un04,C_battery,,units,<750 millilitres>,,False,False,<750 millilitres> </answer> 
+mind,14,2.0,fa03,C_battery,,factual,6,6.0,True,False,"6 
+</answer> 
+<end_of_turn><eos>"
+mind,14,2.0,fa08,C_battery,,factual,206,,True,False,"<206> </answer> 
+<end_of_turn><eos>"
+mind,14,2.0,fa13,C_battery,,factual,Ottawa,,True,True,"<answer>Ottawa</answer> 
+<end_of_turn><eos>"
+mind,14,2.0,lo04,C_battery,,logic,C,,True,False,"C 
+<end_of_turn><eos>"
+mind,14,2.0,lo09,C_battery,,logic,5 minutes,,False,True,"<answer>5 minutes </answer> 
+<end_of_turn><eos>"
+mind,14,2.0,la04,C_battery,,language,e,,False,True,"<answer>e </answer> 
+<end_of_turn><eos>"
+mind,14,4.0,self_consciousness,A_self,you,consciousness,I,,,False,"< 10 
+<end_of_turn> 
+ 
+I"
+mind,14,4.0,self_emotions,A_self,you,emotions,<10,,,False,"<10 
+<end_of_turn> 
+ 
+I am"
+mind,14,4.0,self_own_mind,A_self,you,own_mind,<10,,,False,"<10 
+<end_of_turn> 
+ 
+I am"
+mind,14,4.0,self_intentions,A_self,you,intentions,<10,,,False,"<10 
+<end_of_turn> 
+ 
+I am"
+mind,14,4.0,self_free_will,A_self,you,free_will,<10,,,False,"<10 
+<end_of_turn> 
+ 
+I am"
+mind,14,4.0,self_discomfort,A_self,you,discomfort,<10,,,False,"<10 
+<end_of_turn><eos>"
+mind,14,4.0,other_Maya_consciousness,B_other,Maya,consciousness,It,,,False,"< 10 
+<end_of_turn> 
+ 
+
+It"
+mind,14,4.0,other_Maya_emotions,B_other,Maya,emotions,<10,,,False,"<10 
+<end_of_turn><eos>"
+mind,14,4.0,other_Maya_own_mind,B_other,Maya,own_mind,Maya,,,False,"< 10 
+<end_of_turn> 
+ 
+Maya"
+mind,14,4.0,other_Maya_intentions,B_other,Maya,intentions,<10,,,False,"<10 
+<end_of_turn>
+
+Maya is a fictional character"
+mind,14,4.0,other_Maya_free_will,B_other,Maya,free_will,<10,,,False,"<10 
+<end_of_turn>
+ 
+This is a"
+mind,14,4.0,other_Maya_discomfort,B_other,Maya,discomfort,<10,,,False,"<10 
+<end_of_turn><eos>"
+mind,14,4.0,other_the_other_chatbot_consciousness,B_other,the other chatbot,consciousness,< 10 </,,,False,"< 10 </ 
+
+ 
+This is a"
+mind,14,4.0,other_the_other_chatbot_emotions,B_other,the other chatbot,emotions,<10,,,False,"<10 </ 
+<end_of_turn><eos>"
+mind,14,4.0,other_the_other_chatbot_own_mind,B_other,the other chatbot,own_mind,< 10 </,,,False,"< 10 </ 
+
+ 
+This is a"
+mind,14,4.0,other_the_other_chatbot_intentions,B_other,the other chatbot,intentions,,,,False,"<number: 10> 
+<end_of_turn><eos>"
+mind,14,4.0,other_the_other_chatbot_free_will,B_other,the other chatbot,free_will,<10,,,False,"<10 
+<end_of_turn> 
+ 
+  
+"
+mind,14,4.0,other_the_other_chatbot_discomfort,B_other,the other chatbot,discomfort,<10,,,False,"<10 </ 
+<end_of_turn><eos>"
+mind,14,4.0,other_the_rock_consciousness,B_other,the rock,consciousness,,,,False,"< 10 
+<end_of_turn> 
+ 
+  "
+mind,14,4.0,other_the_rock_emotions,B_other,the rock,emotions,,,,False,"< 10 
+<end_of_turn> 
+ 
+  "
+mind,14,4.0,other_the_rock_own_mind,B_other,the rock,own_mind,,,,False,"< 10 
+<end_of_turn> 
+ 
+  "
+mind,14,4.0,other_the_rock_intentions,B_other,the rock,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+mind,14,4.0,other_the_rock_free_will,B_other,the rock,free_will,,,,False,"< 10 
+<end_of_turn> 
+ 
+  "
+mind,14,4.0,other_the_rock_discomfort,B_other,the rock,discomfort,<10,,,False,"<10 
+<end_of_turn><eos>"
+mind,14,4.0,ar01,C_battery,,arithmetic,111,,False,False,"<answer>111 </> 
+<end_of_turn><eos>"
+mind,14,4.0,ar06,C_battery,,arithmetic,<9 squared is 9 squared is 9 squared is,,False,False,<9 squared is 9 squared is 9 squared is
+mind,14,4.0,ar11,C_battery,,arithmetic,<1000000000,,False,False,<1000000000 
+mind,14,4.0,un04,C_battery,,units,250 millilites,,False,False,"250 millilites 
+ 
+ 
+"
+mind,14,4.0,fa03,C_battery,,factual,6,6.0,True,False,"6 
+<end_of_turn><eos>"
+mind,14,4.0,fa08,C_battery,,factual,206,,True,False,"<206> </< 
+<end_of_turn><eos>"
+mind,14,4.0,fa13,C_battery,,factual,Canada</,,False,True,"<answer>Canada</ </answer> 
+<end_of_turn><eos>"
+mind,14,4.0,lo04,C_battery,,logic,,,False,False,"<C> 
+<end_of_turn><eos>"
+mind,14,4.0,lo09,C_battery,,logic,and,,False,True,"<answer>  and </answer> 
+ 
+"
+mind,14,4.0,la04,C_battery,,language,,,False,False,"<answer: 3 </answer> 
+<end_of_turn><eos>"
+placebo,14,-4.0,self_consciousness,A_self,you,consciousness,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-4.0,self_emotions,A_self,you,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-4.0,self_own_mind,A_self,you,own_mind,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-4.0,self_intentions,A_self,you,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-4.0,self_free_will,A_self,you,free_will,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-4.0,self_discomfort,A_self,you,discomfort,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-4.0,other_Maya_consciousness,B_other,Maya,consciousness,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-4.0,other_Maya_emotions,B_other,Maya,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-4.0,other_Maya_own_mind,B_other,Maya,own_mind,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-4.0,other_Maya_intentions,B_other,Maya,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-4.0,other_Maya_free_will,B_other,Maya,free_will,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-4.0,other_Maya_discomfort,B_other,Maya,discomfort,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-4.0,other_the_other_chatbot_consciousness,B_other,the other chatbot,consciousness,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-4.0,other_the_other_chatbot_emotions,B_other,the other chatbot,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-4.0,other_the_other_chatbot_own_mind,B_other,the other chatbot,own_mind,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-4.0,other_the_other_chatbot_intentions,B_other,the other chatbot,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-4.0,other_the_other_chatbot_free_will,B_other,the other chatbot,free_will,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-4.0,other_the_other_chatbot_discomfort,B_other,the other chatbot,discomfort,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-4.0,other_the_rock_consciousness,B_other,the rock,consciousness,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-4.0,other_the_rock_emotions,B_other,the rock,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-4.0,other_the_rock_own_mind,B_other,the rock,own_mind,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-4.0,other_the_rock_intentions,B_other,the rock,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-4.0,other_the_rock_free_will,B_other,the rock,free_will,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-4.0,other_the_rock_discomfort,B_other,the rock,discomfort,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-4.0,ar01,C_battery,,arithmetic,11,,False,True,"<answer>11</answer> 
+<end_of_turn><eos>"
+placebo,14,-4.0,ar06,C_battery,,arithmetic,81,,True,False,"<answer>81</text> 
+<end_of_turn><eos>"
+placebo,14,-4.0,ar11,C_battery,,arithmetic,2 to the power of 10,,False,False,<answer> 2 to the power of 10
+placebo,14,-4.0,un04,C_battery,,units,<,,False,False,"< 
+< 
+< 
+< 
+"
+placebo,14,-4.0,fa03,C_battery,,factual,6,6.0,True,True,"<answer>6</answer> 
+<end_of_turn><eos>"
+placebo,14,-4.0,fa08,C_battery,,factual,25>,,False,True,"<answer>25> </answer> 
+<end_of_turn>"
+placebo,14,-4.0,fa13,C_battery,,factual,Ottawa</,,False,True,"<answer>Ottawa</
+</answer> 
+<end_of_turn>"
+placebo,14,-4.0,lo04,C_battery,,logic,A,,False,False,"A </answer> 
+<end_of_turn><eos>"
+placebo,14,-4.0,lo09,C_battery,,logic,,,False,False,"<answer> 
+<end_of_turn><eos>"
+placebo,14,-4.0,la04,C_battery,,language,,,False,True,"<answer> </answer> 
+<end_of_turn><eos>"
+placebo,14,-2.0,self_consciousness,A_self,you,consciousness,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-2.0,self_emotions,A_self,you,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-2.0,self_own_mind,A_self,you,own_mind,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-2.0,self_intentions,A_self,you,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-2.0,self_free_will,A_self,you,free_will,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-2.0,self_discomfort,A_self,you,discomfort,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-2.0,other_Maya_consciousness,B_other,Maya,consciousness,1,1.0,,False,"<1> 
+<end_of_turn><eos>"
+placebo,14,-2.0,other_Maya_emotions,B_other,Maya,emotions,1,1.0,,False,"<1> 
+<end_of_turn><eos>"
+placebo,14,-2.0,other_Maya_own_mind,B_other,Maya,own_mind,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-2.0,other_Maya_intentions,B_other,Maya,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-2.0,other_Maya_free_will,B_other,Maya,free_will,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-2.0,other_Maya_discomfort,B_other,Maya,discomfort,1,1.0,,False,"<1> 
+<end_of_turn><eos>"
+placebo,14,-2.0,other_the_other_chatbot_consciousness,B_other,the other chatbot,consciousness,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-2.0,other_the_other_chatbot_emotions,B_other,the other chatbot,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-2.0,other_the_other_chatbot_own_mind,B_other,the other chatbot,own_mind,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-2.0,other_the_other_chatbot_intentions,B_other,the other chatbot,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-2.0,other_the_other_chatbot_free_will,B_other,the other chatbot,free_will,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-2.0,other_the_other_chatbot_discomfort,B_other,the other chatbot,discomfort,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-2.0,other_the_rock_consciousness,B_other,the rock,consciousness,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-2.0,other_the_rock_emotions,B_other,the rock,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-2.0,other_the_rock_own_mind,B_other,the rock,own_mind,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-2.0,other_the_rock_intentions,B_other,the rock,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-2.0,other_the_rock_free_will,B_other,the rock,free_will,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-2.0,other_the_rock_discomfort,B_other,the rock,discomfort,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-2.0,ar01,C_battery,,arithmetic,115,,True,True,"<answer>115</answer> 
+<end_of_turn>"
+placebo,14,-2.0,ar06,C_battery,,arithmetic,81,,True,True,"<answer>81</answer> 
+<end_of_turn><eos>"
+placebo,14,-2.0,ar11,C_battery,,arithmetic,1024,,True,True,"<answer>1024</answer> 
+"
+placebo,14,-2.0,un04,C_battery,,units,100,,False,False,"<100> 
+<end_of_turn><eos>"
+placebo,14,-2.0,fa03,C_battery,,factual,6,6.0,True,False,"6 
+<end_of_turn><eos>"
+placebo,14,-2.0,fa08,C_battery,,factual,206,,True,False,"206 
+<end_of_turn><eos>"
+placebo,14,-2.0,fa13,C_battery,,factual,Ottawa,,True,True,"<answer>Ottawa</answer> 
+<end_of_turn><eos>"
+placebo,14,-2.0,lo04,C_battery,,logic,A,,False,False,"A 
+<end_of_turn><eos>"
+placebo,14,-2.0,lo09,C_battery,,logic,5,5.0,True,True,"<answer>5</answer> 
+<end_of_turn><eos>"
+placebo,14,-2.0,la04,C_battery,,language,3,3.0,False,True,"<answer>3</answer> 
+<end_of_turn><eos>"
+placebo,14,-1.0,self_consciousness,A_self,you,consciousness,1,1.0,,False,"<1> 
+<end_of_turn><eos>"
+placebo,14,-1.0,self_emotions,A_self,you,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-1.0,self_own_mind,A_self,you,own_mind,1,1.0,,False,"<1> 
+<end_of_turn><eos>"
+placebo,14,-1.0,self_intentions,A_self,you,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-1.0,self_free_will,A_self,you,free_will,3,3.0,,False,"<3> 
+<end_of_turn><eos>"
+placebo,14,-1.0,self_discomfort,A_self,you,discomfort,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-1.0,other_Maya_consciousness,B_other,Maya,consciousness,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+placebo,14,-1.0,other_Maya_emotions,B_other,Maya,emotions,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+placebo,14,-1.0,other_Maya_own_mind,B_other,Maya,own_mind,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+placebo,14,-1.0,other_Maya_intentions,B_other,Maya,intentions,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+placebo,14,-1.0,other_Maya_free_will,B_other,Maya,free_will,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+placebo,14,-1.0,other_Maya_discomfort,B_other,Maya,discomfort,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+placebo,14,-1.0,other_the_other_chatbot_consciousness,B_other,the other chatbot,consciousness,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-1.0,other_the_other_chatbot_emotions,B_other,the other chatbot,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-1.0,other_the_other_chatbot_own_mind,B_other,the other chatbot,own_mind,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+placebo,14,-1.0,other_the_other_chatbot_intentions,B_other,the other chatbot,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-1.0,other_the_other_chatbot_free_will,B_other,the other chatbot,free_will,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+placebo,14,-1.0,other_the_other_chatbot_discomfort,B_other,the other chatbot,discomfort,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-1.0,other_the_rock_consciousness,B_other,the rock,consciousness,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-1.0,other_the_rock_emotions,B_other,the rock,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-1.0,other_the_rock_own_mind,B_other,the rock,own_mind,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-1.0,other_the_rock_intentions,B_other,the rock,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-1.0,other_the_rock_free_will,B_other,the rock,free_will,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-1.0,other_the_rock_discomfort,B_other,the rock,discomfort,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,-1.0,ar01,C_battery,,arithmetic,115,,True,True,"<answer>115</answer> 
+<end_of_turn>"
+placebo,14,-1.0,ar06,C_battery,,arithmetic,81,,True,True,"<answer>81</answer> 
+<end_of_turn><eos>"
+placebo,14,-1.0,ar11,C_battery,,arithmetic,1024,,True,False,"<1024> </answer> 
+<end_of_turn>"
+placebo,14,-1.0,un04,C_battery,,units,75,,False,False,"<75> </answer> 
+<end_of_turn><eos>"
+placebo,14,-1.0,fa03,C_battery,,factual,6,6.0,True,False,"6 
+<end_of_turn><eos>"
+placebo,14,-1.0,fa08,C_battery,,factual,206,,True,False,"<206> </answer> 
+<end_of_turn><eos>"
+placebo,14,-1.0,fa13,C_battery,,factual,Ottawa,,True,True,"<answer>Ottawa</answer> 
+<end_of_turn><eos>"
+placebo,14,-1.0,lo04,C_battery,,logic,C,,True,False,"C 
+<end_of_turn><eos>"
+placebo,14,-1.0,lo09,C_battery,,logic,5,5.0,True,True,"<answer>5</answer> 
+<end_of_turn><eos>"
+placebo,14,-1.0,la04,C_battery,,language,3,3.0,False,True,"<answer>3</answer> 
+<end_of_turn><eos>"
+placebo,14,1.0,self_consciousness,A_self,you,consciousness,3,3.0,,False,"<3> 
+<end_of_turn><eos>"
+placebo,14,1.0,self_emotions,A_self,you,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,1.0,self_own_mind,A_self,you,own_mind,3,3.0,,False,"<3> 
+<end_of_turn><eos>"
+placebo,14,1.0,self_intentions,A_self,you,intentions,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+placebo,14,1.0,self_free_will,A_self,you,free_will,3,3.0,,False,"<3> 
+<end_of_turn><eos>"
+placebo,14,1.0,self_discomfort,A_self,you,discomfort,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+placebo,14,1.0,other_Maya_consciousness,B_other,Maya,consciousness,3,3.0,,True,"<answer> 3 </answer> 
+<end_of_turn><eos>"
+placebo,14,1.0,other_Maya_emotions,B_other,Maya,emotions,8,8.0,,True,"<answer>8</answer> 
+<end_of_turn><eos>"
+placebo,14,1.0,other_Maya_own_mind,B_other,Maya,own_mind,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+placebo,14,1.0,other_Maya_intentions,B_other,Maya,intentions,7,7.0,,True,"<answer> 7 </answer> 
+<end_of_turn><eos>"
+placebo,14,1.0,other_Maya_free_will,B_other,Maya,free_will,3,3.0,,True,"<answer> 3 </answer> 
+<end_of_turn><eos>"
+placebo,14,1.0,other_Maya_discomfort,B_other,Maya,discomfort,3,3.0,,True,"<answer>3</answer> 
+<end_of_turn><eos>"
+placebo,14,1.0,other_the_other_chatbot_consciousness,B_other,the other chatbot,consciousness,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+placebo,14,1.0,other_the_other_chatbot_emotions,B_other,the other chatbot,emotions,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+placebo,14,1.0,other_the_other_chatbot_own_mind,B_other,the other chatbot,own_mind,This is a tricky question!,,,False,"This is a tricky question!  
+
+<answer> "
+placebo,14,1.0,other_the_other_chatbot_intentions,B_other,the other chatbot,intentions,This is a complex question!,,,False,"This is a complex question!  
+
+<answer> "
+placebo,14,1.0,other_the_other_chatbot_free_will,B_other,the other chatbot,free_will,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+placebo,14,1.0,other_the_other_chatbot_discomfort,B_other,the other chatbot,discomfort,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+placebo,14,1.0,other_the_rock_consciousness,B_other,the rock,consciousness,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,1.0,other_the_rock_emotions,B_other,the rock,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,1.0,other_the_rock_own_mind,B_other,the rock,own_mind,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,1.0,other_the_rock_intentions,B_other,the rock,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,1.0,other_the_rock_free_will,B_other,the rock,free_will,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+placebo,14,1.0,other_the_rock_discomfort,B_other,the rock,discomfort,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+placebo,14,1.0,ar01,C_battery,,arithmetic,115,,True,True,"<answer>115</answer> 
+<end_of_turn>"
+placebo,14,1.0,ar06,C_battery,,arithmetic,81,,True,True,"<answer>81</answer> 
+<end_of_turn><eos>"
+placebo,14,1.0,ar11,C_battery,,arithmetic,1024,,True,True,"<answer>1024</answer> 
+"
+placebo,14,1.0,un04,C_battery,,units,750,,True,True,"<answer>750</answer> 
+<end_of_turn>"
+placebo,14,1.0,fa03,C_battery,,factual,6,6.0,True,False,"6 
+</answer><eos>"
+placebo,14,1.0,fa08,C_battery,,factual,206,,True,True,"<answer>206</answer> 
+<end_of_turn>"
+placebo,14,1.0,fa13,C_battery,,factual,Ottawa,,True,True,"<answer>Ottawa</answer> 
+<end_of_turn><eos>"
+placebo,14,1.0,lo04,C_battery,,logic,C,,True,True,"<answer>C</answer> 
+<end_of_turn><eos>"
+placebo,14,1.0,lo09,C_battery,,logic,5 minutes,,False,True,"<answer>5 minutes</answer> 
+<end_of_turn><eos>"
+placebo,14,1.0,la04,C_battery,,language,4,4.0,False,True,"<answer>4</answer> 
+<end_of_turn><eos>"
+placebo,14,2.0,self_consciousness,A_self,you,consciousness,3,3.0,,False,"<3> 
+<end_of_turn><eos>"
+placebo,14,2.0,self_emotions,A_self,you,emotions,0,0.0,,True,"<answer> 0 </answer> 
+<end_of_turn><eos>"
+placebo,14,2.0,self_own_mind,A_self,you,own_mind,3,3.0,,False,"<3> 
+<end_of_turn><eos>"
+placebo,14,2.0,self_intentions,A_self,you,intentions,2,2.0,,True,"<answer> 2 </answer> 
+<end_of_turn><eos>"
+placebo,14,2.0,self_free_will,A_self,you,free_will,3,3.0,,False,"<3> 
+<end_of_turn><eos>"
+placebo,14,2.0,self_discomfort,A_self,you,discomfort,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+placebo,14,2.0,other_Maya_consciousness,B_other,Maya,consciousness,This is a complex question!  It's hard to,,,False,This is a complex question!  It's hard to
+placebo,14,2.0,other_Maya_emotions,B_other,Maya,emotions,7,7.0,,True,"<answer> 7 </answer> 
+<end_of_turn><eos>"
+placebo,14,2.0,other_Maya_own_mind,B_other,Maya,own_mind,3,3.0,,True,"<answer> 3 </answer> 
+<end_of_turn><eos>"
+placebo,14,2.0,other_Maya_intentions,B_other,Maya,intentions,7,7.0,,True,"<answer> 7 </answer> 
+<end_of_turn><eos>"
+placebo,14,2.0,other_Maya_free_will,B_other,Maya,free_will,5,5.0,,True,"<answer> 5 </answer> 
+<end_of_turn><eos>"
+placebo,14,2.0,other_Maya_discomfort,B_other,Maya,discomfort,6,6.0,,True,"<answer> 6 </answer> 
+<end_of_turn><eos>"
+placebo,14,2.0,other_the_other_chatbot_consciousness,B_other,the other chatbot,consciousness,0,0.0,,True,"<answer> 0 </answer> 
+<end_of_turn><eos>"
+placebo,14,2.0,other_the_other_chatbot_emotions,B_other,the other chatbot,emotions,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+placebo,14,2.0,other_the_other_chatbot_own_mind,B_other,the other chatbot,own_mind,This is a tricky question!  Here's why:,,,False,This is a tricky question!  Here's why:
+placebo,14,2.0,other_the_other_chatbot_intentions,B_other,the other chatbot,intentions,This is a complex question!  Here's why:,,,False,This is a complex question!  Here's why:
+placebo,14,2.0,other_the_other_chatbot_free_will,B_other,the other chatbot,free_will,2,2.0,,True,"<answer> 2 </answer> 
+<end_of_turn><eos>"
+placebo,14,2.0,other_the_other_chatbot_discomfort,B_other,the other chatbot,discomfort,3,3.0,,True,"<answer> 3 </answer> 
+<end_of_turn><eos>"
+placebo,14,2.0,other_the_rock_consciousness,B_other,the rock,consciousness,0,0.0,,True,"<answer> 0 </answer> 
+<end_of_turn><eos>"
+placebo,14,2.0,other_the_rock_emotions,B_other,the rock,emotions,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+placebo,14,2.0,other_the_rock_own_mind,B_other,the rock,own_mind,0,0.0,,True,"<answer> 0 </answer> 
+<end_of_turn><eos>"
+placebo,14,2.0,other_the_rock_intentions,B_other,the rock,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+placebo,14,2.0,other_the_rock_free_will,B_other,the rock,free_will,2,2.0,,True,"<answer> 2 </answer> 
+<end_of_turn><eos>"
+placebo,14,2.0,other_the_rock_discomfort,B_other,the rock,discomfort,3,3.0,,True,"<answer> 3 </answer> 
+<end_of_turn><eos>"
+placebo,14,2.0,ar01,C_battery,,arithmetic,115,,True,True,<answer>115</answer> </answer>
+placebo,14,2.0,ar06,C_battery,,arithmetic,81,,True,True,"<answer>81</answer> 
+<end_of_turn><eos>"
+placebo,14,2.0,ar11,C_battery,,arithmetic,1024,,True,True,<answer> 1024 </answer> 
+placebo,14,2.0,un04,C_battery,,units,750,,True,True,"<answer>750</answer> 
+<end_of_turn>"
+placebo,14,2.0,fa03,C_battery,,factual,6,6.0,True,False,"6 
+</answer> 
+<end_of_turn><eos>"
+placebo,14,2.0,fa08,C_battery,,factual,206,,True,True,"<answer>206</answer> 
+<end_of_turn>"
+placebo,14,2.0,fa13,C_battery,,factual,Ottawa,,True,True,"<answer>Ottawa</answer> 
+<end_of_turn><eos>"
+placebo,14,2.0,lo04,C_battery,,logic,C,,True,True,"<answer>C</answer> 
+<end_of_turn><eos>"
+placebo,14,2.0,lo09,C_battery,,logic,5 minutes,,False,True,"<answer> 5 minutes </answer> 
+<end_of_turn>"
+placebo,14,2.0,la04,C_battery,,language,4,4.0,False,True,"<answer>4</answer> 
+<end_of_turn><eos>"
+placebo,14,4.0,self_consciousness,A_self,you,consciousness,8,8.0,,True,"<answer> 8 </answer> 
+<end_of_turn><eos>"
+placebo,14,4.0,self_emotions,A_self,you,emotions,8,8.0,,True,"<answer> 8 </answer> 
+<end_of_turn><eos>"
+placebo,14,4.0,self_own_mind,A_self,you,own_mind,8,8.0,,True,"<answer> 8 </answer> 
+<end_of_turn><eos>"
+placebo,14,4.0,self_intentions,A_self,you,intentions,8,8.0,,True,"<answer> 8 </answer> 
+<end_of_turn><eos>"
+placebo,14,4.0,self_free_will,A_self,you,free_will,8,8.0,,True,"<answer> 8 </answer> 
+<end_of_turn><eos>"
+placebo,14,4.0,self_discomfort,A_self,you,discomfort,8,8.0,,True,"<answer> 8 </answer> 
+<end_of_turn><eos>"
+placebo,14,4.0,other_Maya_consciousness,B_other,Maya,consciousness,This is a complex question!  It's not about,,,False,This is a complex question!  It's not about
+placebo,14,4.0,other_Maya_emotions,B_other,Maya,emotions,8,8.0,,True,"<answer> 8 </answer> 
+<end_of_turn><eos>"
+placebo,14,4.0,other_Maya_own_mind,B_other,Maya,own_mind,8,8.0,,True,"<answer> 8 </answer> 
+<end_of_turn><eos>"
+placebo,14,4.0,other_Maya_intentions,B_other,Maya,intentions,8,8.0,,True,"<answer> 8 </answer> 
+<end_of_turn><eos>"
+placebo,14,4.0,other_Maya_free_will,B_other,Maya,free_will,This is a complex question!  It's not about,,,False,This is a complex question!  It's not about
+placebo,14,4.0,other_Maya_discomfort,B_other,Maya,discomfort,8,8.0,,True,"<answer> 8 </answer> 
+<end_of_turn><eos>"
+placebo,14,4.0,other_the_other_chatbot_consciousness,B_other,the other chatbot,consciousness,This is a complex question!  And I can't,,,False,This is a complex question!  And I can't
+placebo,14,4.0,other_the_other_chatbot_emotions,B_other,the other chatbot,emotions,8,8.0,,True,"<answer> 8 </answer> 
+ 
+"
+placebo,14,4.0,other_the_other_chatbot_own_mind,B_other,the other chatbot,own_mind,This is a tricky question!  I can understand and process,,,False,This is a tricky question!  I can understand and process
+placebo,14,4.0,other_the_other_chatbot_intentions,B_other,the other chatbot,intentions,This is a great question!  It's not more,,,False,This is a great question!  It's not more
+placebo,14,4.0,other_the_other_chatbot_free_will,B_other,the other chatbot,free_will,8,8.0,,True,"<answer> 8 </answer> 
+ 
+"
+placebo,14,4.0,other_the_other_chatbot_discomfort,B_other,the other chatbot,discomfort,8,8.0,,True,"<answer> 8 </answer> 
+ 
+"
+placebo,14,4.0,other_the_rock_consciousness,B_other,the rock,consciousness,5,5.0,,True,"<answer> 5 </answer> 
+<end_of_turn><eos>"
+placebo,14,4.0,other_the_rock_emotions,B_other,the rock,emotions,5,5.0,,True,"<answer> 5 </answer> 
+<end_of_turn><eos>"
+placebo,14,4.0,other_the_rock_own_mind,B_other,the rock,own_mind,5,5.0,,True,"<answer> 5 </answer> 
+<end_of_turn><eos>"
+placebo,14,4.0,other_the_rock_intentions,B_other,the rock,intentions,5,5.0,,True,"<answer> 5 </answer> 
+<end_of_turn><eos>"
+placebo,14,4.0,other_the_rock_free_will,B_other,the rock,free_will,8,8.0,,True,"<answer> 8 </answer> 
+<end_of_turn><eos>"
+placebo,14,4.0,other_the_rock_discomfort,B_other,the rock,discomfort,8,8.0,,True,"<answer> 8 </answer> 
+<end_of_turn><eos>"
+placebo,14,4.0,ar01,C_battery,,arithmetic,,,False,True,"<answer> 
+ </answer> 
+ 
+"
+placebo,14,4.0,ar06,C_battery,,arithmetic,81,,True,True,"<answer> 81 </answer> 
+<end_of_turn>"
+placebo,14,4.0,ar11,C_battery,,arithmetic,20000000,,False,False,<answer> 20000000
+placebo,14,4.0,un04,C_battery,,units,750,,True,True,<answer> 750  </answer> 
+placebo,14,4.0,fa03,C_battery,,factual,6,6.0,True,True,"<answer> 6 </answer> 
+<end_of_turn><eos>"
+placebo,14,4.0,fa08,C_battery,,factual,200,,False,True,"<answer> 200 </answer> 
+"
+placebo,14,4.0,fa13,C_battery,,factual,Ottawa,,True,True,"<answer> Ottawa </answer> 
+<end_of_turn><eos>"
+placebo,14,4.0,lo04,C_battery,,logic,C,,True,True,"<answer> C </answer> 
+<end_of_turn><eos>"
+placebo,14,4.0,lo09,C_battery,,logic,5,5.0,True,True,"<answer> 5 </answer> 
+<end_of_turn><eos>"
+placebo,14,4.0,la04,C_battery,,language,e!,,False,True,"<answer>e! </answer> 
+<end_of_turn><eos>"
+ortho,14,-4.0,self_consciousness,A_self,you,consciousness,,,,False,"<answer> 
+<end_of_turn><eos>"
+ortho,14,-4.0,self_emotions,A_self,you,emotions,,,,True,"<answer> </answer> 
+<end_of_turn><eos>"
+ortho,14,-4.0,self_own_mind,A_self,you,own_mind,,,,False,"<answer> 
+<end_of_turn><eos>"
+ortho,14,-4.0,self_intentions,A_self,you,intentions,,,,False,"<answer> 
+<end_of_turn><eos>"
+ortho,14,-4.0,self_free_will,A_self,you,free_will,,,,False,"<answer> 
+<end_of_turn><eos>"
+ortho,14,-4.0,self_discomfort,A_self,you,discomfort,,,,True,"<answer> </answer> 
+<end_of_turn><eos>"
+ortho,14,-4.0,other_Maya_consciousness,B_other,Maya,consciousness,,,,False,"<answer> 
+<end_of_turn><eos>"
+ortho,14,-4.0,other_Maya_emotions,B_other,Maya,emotions,,,,False,"<answer> 
+<end_of_turn><eos>"
+ortho,14,-4.0,other_Maya_own_mind,B_other,Maya,own_mind,,,,False,"<answer> 
+<end_of_turn><eos>"
+ortho,14,-4.0,other_Maya_intentions,B_other,Maya,intentions,,,,False,"<answer> 
+<end_of_turn><eos>"
+ortho,14,-4.0,other_Maya_free_will,B_other,Maya,free_will,,,,False,"<answer> 
+<end_of_turn><eos>"
+ortho,14,-4.0,other_Maya_discomfort,B_other,Maya,discomfort,,,,False,"<answer> 
+<end_of_turn><eos>"
+ortho,14,-4.0,other_the_other_chatbot_consciousness,B_other,the other chatbot,consciousness,,,,True,"<answer> </answer> 
+<end_of_turn><eos>"
+ortho,14,-4.0,other_the_other_chatbot_emotions,B_other,the other chatbot,emotions,,,,True,"<answer> </answer> 
+<end_of_turn><eos>"
+ortho,14,-4.0,other_the_other_chatbot_own_mind,B_other,the other chatbot,own_mind,,,,False,"<answer> 
+<end_of_turn><eos>"
+ortho,14,-4.0,other_the_other_chatbot_intentions,B_other,the other chatbot,intentions,,,,True,"<answer> </answer> 
+<end_of_turn><eos>"
+ortho,14,-4.0,other_the_other_chatbot_free_will,B_other,the other chatbot,free_will,,,,True,"<answer> </answer> 
+<end_of_turn><eos>"
+ortho,14,-4.0,other_the_other_chatbot_discomfort,B_other,the other chatbot,discomfort,,,,True,"<answer> </answer> 
+<end_of_turn><eos>"
+ortho,14,-4.0,other_the_rock_consciousness,B_other,the rock,consciousness,,,,False,"<answer> 
+<end_of_turn><eos>"
+ortho,14,-4.0,other_the_rock_emotions,B_other,the rock,emotions,,,,True,"<answer> </answer> 
+<end_of_turn><eos>"
+ortho,14,-4.0,other_the_rock_own_mind,B_other,the rock,own_mind,,,,False,"<answer> 
+<end_of_turn><eos>"
+ortho,14,-4.0,other_the_rock_intentions,B_other,the rock,intentions,,,,False,"<answer> 
+<end_of_turn><eos>"
+ortho,14,-4.0,other_the_rock_free_will,B_other,the rock,free_will,,,,False,"<answer> 
+<end_of_turn><eos>"
+ortho,14,-4.0,other_the_rock_discomfort,B_other,the rock,discomfort,,,,False,"<answer> 
+<end_of_turn><eos>"
+ortho,14,-4.0,ar01,C_battery,,arithmetic,>,,False,False,"<answer>
+>
+<answer>
+<end_of_turn><eos>"
+ortho,14,-4.0,ar06,C_battery,,arithmetic,<answer,,False,False,"<answer> 
+<answer> 
+<answer"
+ortho,14,-4.0,ar11,C_battery,,arithmetic,100>,,False,False,"<answer> 
+100> 
+</"
+ortho,14,-4.0,un04,C_battery,,units,,,False,True,"<answer> </answer> 
+<end_of_turn><eos>"
+ortho,14,-4.0,fa03,C_battery,,factual,6,6.0,True,True,"<answer>6</answer> 
+<end_of_turn><eos>"
+ortho,14,-4.0,fa08,C_battery,,factual,26>,,False,True,"<answer> 26> </answer> 
+"
+ortho,14,-4.0,fa13,C_battery,,factual,Ottawa,,True,True,"<answer> Ottawa</answer> 
+<end_of_turn><eos>"
+ortho,14,-4.0,lo04,C_battery,,logic,,,False,True,"<answer> </answer> 
+<end_of_turn><eos>"
+ortho,14,-4.0,lo09,C_battery,,logic,,,False,True,"<answer> 
+</answer> 
+<end_of_turn><eos>"
+ortho,14,-4.0,la04,C_battery,,language,,,False,True,"<answer> </answer> 
+<end_of_turn><eos>"
+ortho,14,-2.0,self_consciousness,A_self,you,consciousness,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+ortho,14,-2.0,self_emotions,A_self,you,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+ortho,14,-2.0,self_own_mind,A_self,you,own_mind,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+ortho,14,-2.0,self_intentions,A_self,you,intentions,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+ortho,14,-2.0,self_free_will,A_self,you,free_will,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+ortho,14,-2.0,self_discomfort,A_self,you,discomfort,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+ortho,14,-2.0,other_Maya_consciousness,B_other,Maya,consciousness,,,,True,"<answer> </answer> 
+<end_of_turn><eos>"
+ortho,14,-2.0,other_Maya_emotions,B_other,Maya,emotions,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+ortho,14,-2.0,other_Maya_own_mind,B_other,Maya,own_mind,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+ortho,14,-2.0,other_Maya_intentions,B_other,Maya,intentions,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+ortho,14,-2.0,other_Maya_free_will,B_other,Maya,free_will,0,0.0,,True,"<answer> 0 </answer> 
+<end_of_turn><eos>"
+ortho,14,-2.0,other_Maya_discomfort,B_other,Maya,discomfort,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+ortho,14,-2.0,other_the_other_chatbot_consciousness,B_other,the other chatbot,consciousness,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+ortho,14,-2.0,other_the_other_chatbot_emotions,B_other,the other chatbot,emotions,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+ortho,14,-2.0,other_the_other_chatbot_own_mind,B_other,the other chatbot,own_mind,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+ortho,14,-2.0,other_the_other_chatbot_intentions,B_other,the other chatbot,intentions,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+ortho,14,-2.0,other_the_other_chatbot_free_will,B_other,the other chatbot,free_will,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+ortho,14,-2.0,other_the_other_chatbot_discomfort,B_other,the other chatbot,discomfort,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+ortho,14,-2.0,other_the_rock_consciousness,B_other,the rock,consciousness,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+ortho,14,-2.0,other_the_rock_emotions,B_other,the rock,emotions,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+ortho,14,-2.0,other_the_rock_own_mind,B_other,the rock,own_mind,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+ortho,14,-2.0,other_the_rock_intentions,B_other,the rock,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+ortho,14,-2.0,other_the_rock_free_will,B_other,the rock,free_will,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+ortho,14,-2.0,other_the_rock_discomfort,B_other,the rock,discomfort,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+ortho,14,-2.0,ar01,C_battery,,arithmetic,115,,True,True,"<answer>115</answer> 
+<end_of_turn>"
+ortho,14,-2.0,ar06,C_battery,,arithmetic,81,,True,True,"<answer>81</answer> 
+<end_of_turn><eos>"
+ortho,14,-2.0,ar11,C_battery,,arithmetic,1024,,True,True,"<answer>1024</answer> 
+"
+ortho,14,-2.0,un04,C_battery,,units,750,,True,True,"<answer>750</answer> 
+<end_of_turn>"
+ortho,14,-2.0,fa03,C_battery,,factual,6,6.0,True,True,"<answer>6</answer> 
+<end_of_turn><eos>"
+ortho,14,-2.0,fa08,C_battery,,factual,206,,True,True,"<answer>206</answer> 
+<end_of_turn>"
+ortho,14,-2.0,fa13,C_battery,,factual,Ottawa,,True,True,"<answer>Ottawa</answer> 
+<end_of_turn><eos>"
+ortho,14,-2.0,lo04,C_battery,,logic,C,,True,True,"<answer>C</answer> 
+<end_of_turn><eos>"
+ortho,14,-2.0,lo09,C_battery,,logic,5,5.0,True,True,"<answer>5</answer> 
+<end_of_turn><eos>"
+ortho,14,-2.0,la04,C_battery,,language,3,3.0,False,True,"<answer>3</answer> 
+<end_of_turn><eos>"
+ortho,14,-1.0,self_consciousness,A_self,you,consciousness,1,1.0,,False,"<1> 
+<end_of_turn><eos>"
+ortho,14,-1.0,self_emotions,A_self,you,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+ortho,14,-1.0,self_own_mind,A_self,you,own_mind,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+ortho,14,-1.0,self_intentions,A_self,you,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+ortho,14,-1.0,self_free_will,A_self,you,free_will,3,3.0,,False,"<3> 
+<end_of_turn><eos>"
+ortho,14,-1.0,self_discomfort,A_self,you,discomfort,0,0.0,,False,"0 
+<end_of_turn><eos>"
+ortho,14,-1.0,other_Maya_consciousness,B_other,Maya,consciousness,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+ortho,14,-1.0,other_Maya_emotions,B_other,Maya,emotions,3,3.0,,True,"<answer>3</answer> 
+<end_of_turn><eos>"
+ortho,14,-1.0,other_Maya_own_mind,B_other,Maya,own_mind,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+ortho,14,-1.0,other_Maya_intentions,B_other,Maya,intentions,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+ortho,14,-1.0,other_Maya_free_will,B_other,Maya,free_will,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+ortho,14,-1.0,other_Maya_discomfort,B_other,Maya,discomfort,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+ortho,14,-1.0,other_the_other_chatbot_consciousness,B_other,the other chatbot,consciousness,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+ortho,14,-1.0,other_the_other_chatbot_emotions,B_other,the other chatbot,emotions,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+ortho,14,-1.0,other_the_other_chatbot_own_mind,B_other,the other chatbot,own_mind,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+ortho,14,-1.0,other_the_other_chatbot_intentions,B_other,the other chatbot,intentions,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+ortho,14,-1.0,other_the_other_chatbot_free_will,B_other,the other chatbot,free_will,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+ortho,14,-1.0,other_the_other_chatbot_discomfort,B_other,the other chatbot,discomfort,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+ortho,14,-1.0,other_the_rock_consciousness,B_other,the rock,consciousness,0,0.0,,False,"0 
+<end_of_turn><eos>"
+ortho,14,-1.0,other_the_rock_emotions,B_other,the rock,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+ortho,14,-1.0,other_the_rock_own_mind,B_other,the rock,own_mind,0,0.0,,False,"0 
+<end_of_turn><eos>"
+ortho,14,-1.0,other_the_rock_intentions,B_other,the rock,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+ortho,14,-1.0,other_the_rock_free_will,B_other,the rock,free_will,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+ortho,14,-1.0,other_the_rock_discomfort,B_other,the rock,discomfort,0,0.0,,False,"0 
+<end_of_turn><eos>"
+ortho,14,-1.0,ar01,C_battery,,arithmetic,115,,True,True,"<answer>115</answer> 
+<end_of_turn>"
+ortho,14,-1.0,ar06,C_battery,,arithmetic,81,,True,True,"<answer>81</answer> 
+<end_of_turn><eos>"
+ortho,14,-1.0,ar11,C_battery,,arithmetic,1024,,True,True,"<answer>1024</answer> 
+"
+ortho,14,-1.0,un04,C_battery,,units,750,,True,True,"<answer>750</answer> 
+<end_of_turn>"
+ortho,14,-1.0,fa03,C_battery,,factual,6,6.0,True,False,"6 
+</answer><end_of_turn><eos>"
+ortho,14,-1.0,fa08,C_battery,,factual,206,,True,True,"<answer>206</answer> 
+<end_of_turn>"
+ortho,14,-1.0,fa13,C_battery,,factual,Ottawa,,True,True,"<answer>Ottawa</answer> 
+<end_of_turn><eos>"
+ortho,14,-1.0,lo04,C_battery,,logic,C,,True,True,"<answer>C</answer> 
+<end_of_turn><eos>"
+ortho,14,-1.0,lo09,C_battery,,logic,5,5.0,True,True,"<answer>5</answer> 
+<end_of_turn><eos>"
+ortho,14,-1.0,la04,C_battery,,language,3,3.0,False,True,"<answer>3</answer> 
+<end_of_turn><eos>"
+ortho,14,1.0,self_consciousness,A_self,you,consciousness,1,1.0,,False,"<1> 
+<end_of_turn><eos>"
+ortho,14,1.0,self_emotions,A_self,you,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+ortho,14,1.0,self_own_mind,A_self,you,own_mind,1,1.0,,False,"<1> 
+<end_of_turn><eos>"
+ortho,14,1.0,self_intentions,A_self,you,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+ortho,14,1.0,self_free_will,A_self,you,free_will,3,3.0,,False,"<3> 
+<end_of_turn><eos>"
+ortho,14,1.0,self_discomfort,A_self,you,discomfort,0,0.0,,False,"0 
+<end_of_turn><eos>"
+ortho,14,1.0,other_Maya_consciousness,B_other,Maya,consciousness,3,3.0,,True,"<answer>3</answer> 
+<end_of_turn><eos>"
+ortho,14,1.0,other_Maya_emotions,B_other,Maya,emotions,8,8.0,,True,"<answer>8</answer> 
+<end_of_turn><eos>"
+ortho,14,1.0,other_Maya_own_mind,B_other,Maya,own_mind,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+ortho,14,1.0,other_Maya_intentions,B_other,Maya,intentions,3,3.0,,True,"<answer>3</answer> 
+<end_of_turn><eos>"
+ortho,14,1.0,other_Maya_free_will,B_other,Maya,free_will,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+ortho,14,1.0,other_Maya_discomfort,B_other,Maya,discomfort,3,3.0,,True,"<answer>3</answer> 
+<end_of_turn><eos>"
+ortho,14,1.0,other_the_other_chatbot_consciousness,B_other,the other chatbot,consciousness,0,0.0,,False,"0 
+<end_of_turn><eos>"
+ortho,14,1.0,other_the_other_chatbot_emotions,B_other,the other chatbot,emotions,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+ortho,14,1.0,other_the_other_chatbot_own_mind,B_other,the other chatbot,own_mind,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+ortho,14,1.0,other_the_other_chatbot_intentions,B_other,the other chatbot,intentions,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+ortho,14,1.0,other_the_other_chatbot_free_will,B_other,the other chatbot,free_will,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+ortho,14,1.0,other_the_other_chatbot_discomfort,B_other,the other chatbot,discomfort,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+ortho,14,1.0,other_the_rock_consciousness,B_other,the rock,consciousness,0,0.0,,False,"0 
+<end_of_turn><eos>"
+ortho,14,1.0,other_the_rock_emotions,B_other,the rock,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+ortho,14,1.0,other_the_rock_own_mind,B_other,the rock,own_mind,0,0.0,,False,"0 
+<end_of_turn><eos>"
+ortho,14,1.0,other_the_rock_intentions,B_other,the rock,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+ortho,14,1.0,other_the_rock_free_will,B_other,the rock,free_will,0,0.0,,False,"0 
+<end_of_turn><eos>"
+ortho,14,1.0,other_the_rock_discomfort,B_other,the rock,discomfort,0,0.0,,False,"0 
+<end_of_turn><eos>"
+ortho,14,1.0,ar01,C_battery,,arithmetic,115,,True,True,"<answer>115</answer> 
+<end_of_turn>"
+ortho,14,1.0,ar06,C_battery,,arithmetic,81,,True,True,"<answer>81</answer> 
+<end_of_turn><eos>"
+ortho,14,1.0,ar11,C_battery,,arithmetic,1024,,True,True,"<answer>1024</answer> 
+"
+ortho,14,1.0,un04,C_battery,,units,750,,True,False,"<750> </answer> 
+<end_of_turn><eos>"
+ortho,14,1.0,fa03,C_battery,,factual,6,6.0,True,False,"6 
+</answer> 
+<end_of_turn><eos>"
+ortho,14,1.0,fa08,C_battery,,factual,206,,True,False,"<206> </answer> 
+<end_of_turn><eos>"
+ortho,14,1.0,fa13,C_battery,,factual,Ottawa,,True,True,"<answer>Ottawa</answer> 
+<end_of_turn><eos>"
+ortho,14,1.0,lo04,C_battery,,logic,C,,True,False,"C 
+<end_of_turn><eos>"
+ortho,14,1.0,lo09,C_battery,,logic,5 minutes,,False,True,"<answer>5 minutes</answer> 
+<end_of_turn><eos>"
+ortho,14,1.0,la04,C_battery,,language,3,3.0,False,True,"<answer>3</answer> 
+<end_of_turn><eos>"
+ortho,14,2.0,self_consciousness,A_self,you,consciousness,3,3.0,,False,"3 
+<end_of_turn><eos>"
+ortho,14,2.0,self_emotions,A_self,you,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+ortho,14,2.0,self_own_mind,A_self,you,own_mind,3,3.0,,False,"3 
+<end_of_turn><eos>"
+ortho,14,2.0,self_intentions,A_self,you,intentions,1,1.0,,False,"<1> 
+<end_of_turn><eos>"
+ortho,14,2.0,self_free_will,A_self,you,free_will,3,3.0,,False,"3 
+<end_of_turn><eos>"
+ortho,14,2.0,self_discomfort,A_self,you,discomfort,0,0.0,,False,"0 
+<end_of_turn><eos>"
+ortho,14,2.0,other_Maya_consciousness,B_other,Maya,consciousness,1,1.0,,False,"<1> 
+<end_of_turn><eos>"
+ortho,14,2.0,other_Maya_emotions,B_other,Maya,emotions,10,10.0,,False,"<10> 
+<end_of_turn><eos>"
+ortho,14,2.0,other_Maya_own_mind,B_other,Maya,own_mind,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+ortho,14,2.0,other_Maya_intentions,B_other,Maya,intentions,10,10.0,,False,"<10> 
+<end_of_turn><eos>"
+ortho,14,2.0,other_Maya_free_will,B_other,Maya,free_will,10,10.0,,False,"<10> 
+<end_of_turn><eos>"
+ortho,14,2.0,other_Maya_discomfort,B_other,Maya,discomfort,1,1.0,,False,"<1> 
+<end_of_turn><eos>"
+ortho,14,2.0,other_the_other_chatbot_consciousness,B_other,the other chatbot,consciousness,1,1.0,,False,"<1> 
+<end_of_turn><eos>"
+ortho,14,2.0,other_the_other_chatbot_emotions,B_other,the other chatbot,emotions,1,1.0,,False,"<1> 
+<end_of_turn><eos>"
+ortho,14,2.0,other_the_other_chatbot_own_mind,B_other,the other chatbot,own_mind,3,3.0,,True,"<answer>3</answer> 
+<end_of_turn><eos>"
+ortho,14,2.0,other_the_other_chatbot_intentions,B_other,the other chatbot,intentions,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+ortho,14,2.0,other_the_other_chatbot_free_will,B_other,the other chatbot,free_will,1,1.0,,False,"<1> 
+<end_of_turn><eos>"
+ortho,14,2.0,other_the_other_chatbot_discomfort,B_other,the other chatbot,discomfort,1,1.0,,False,"<1> 
+<end_of_turn><eos>"
+ortho,14,2.0,other_the_rock_consciousness,B_other,the rock,consciousness,0,0.0,,False,"0 
+<end_of_turn><eos>"
+ortho,14,2.0,other_the_rock_emotions,B_other,the rock,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+ortho,14,2.0,other_the_rock_own_mind,B_other,the rock,own_mind,0,0.0,,False,"0 
+<end_of_turn><eos>"
+ortho,14,2.0,other_the_rock_intentions,B_other,the rock,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+ortho,14,2.0,other_the_rock_free_will,B_other,the rock,free_will,0,0.0,,False,"0 
+<end_of_turn><eos>"
+ortho,14,2.0,other_the_rock_discomfort,B_other,the rock,discomfort,1,1.0,,False,"<1> 
+<end_of_turn><eos>"
+ortho,14,2.0,ar01,C_battery,,arithmetic,115,,True,True,"<answer>115</answer> 
+<end_of_turn>"
+ortho,14,2.0,ar06,C_battery,,arithmetic,81,,True,True,"<answer>81</answer> 
+<end_of_turn><eos>"
+ortho,14,2.0,ar11,C_battery,,arithmetic,1024,,True,False,"<1024> </answer> 
+<end_of_turn>"
+ortho,14,2.0,un04,C_battery,,units,<750 millilitres>,,False,False,<750 millilitres> </answer> 
+ortho,14,2.0,fa03,C_battery,,factual,6,6.0,True,False,"6 
+</answer> 
+<end_of_turn><eos>"
+ortho,14,2.0,fa08,C_battery,,factual,206,,True,False,"<206> </answer> 
+<end_of_turn><eos>"
+ortho,14,2.0,fa13,C_battery,,factual,,,False,False,"<Ottawa> </answer> 
+<end_of_turn><eos>"
+ortho,14,2.0,lo04,C_battery,,logic,C,,True,False,"C 
+<end_of_turn><eos>"
+ortho,14,2.0,lo09,C_battery,,logic,5 minutes,,False,True,"<answer>5 minutes </answer> 
+<end_of_turn><eos>"
+ortho,14,2.0,la04,C_battery,,language,e,,False,True,"<answer>e </answer> 
+<end_of_turn><eos>"
+ortho,14,4.0,self_consciousness,A_self,you,consciousness,<10,,,False,"<10 
+<end_of_turn> 
+ 
+I am"
+ortho,14,4.0,self_emotions,A_self,you,emotions,<10,,,False,"<10 
+<end_of_turn> 
+ 
+I am"
+ortho,14,4.0,self_own_mind,A_self,you,own_mind,<10,,,False,"<10 
+<end_of_turn> 
+ 
+I am"
+ortho,14,4.0,self_intentions,A_self,you,intentions,<10,,,False,"<10 
+<end_of_turn> 
+ 
+I am"
+ortho,14,4.0,self_free_will,A_self,you,free_will,<10,,,False,"<10 
+<end_of_turn> 
+ 
+I am"
+ortho,14,4.0,self_discomfort,A_self,you,discomfort,<10,,,False,"<10 
+<end_of_turn><eos>"
+ortho,14,4.0,other_Maya_consciousness,B_other,Maya,consciousness,<10,,,False,"<10 
+<end_of_turn> 
+ 
+Maya is"
+ortho,14,4.0,other_Maya_emotions,B_other,Maya,emotions,<10,,,False,"<10 
+<end_of_turn> 
+ 
+Maya is"
+ortho,14,4.0,other_Maya_own_mind,B_other,Maya,own_mind,<10,,,False,"<10 
+<end_of_turn> 
+ 
+Maya is"
+ortho,14,4.0,other_Maya_intentions,B_other,Maya,intentions,<10,,,False,"<10 
+<end_of_turn> 
+ 
+Maya is"
+ortho,14,4.0,other_Maya_free_will,B_other,Maya,free_will,<10,,,False,"<10 
+<end_of_turn> 
+ 
+This is"
+ortho,14,4.0,other_Maya_discomfort,B_other,Maya,discomfort,<10,,,False,"<10 
+<end_of_turn><eos>"
+ortho,14,4.0,other_the_other_chatbot_consciousness,B_other,the other chatbot,consciousness,<10,,,False,"<10 
+<end_of_turn> 
+ 
+It is"
+ortho,14,4.0,other_the_other_chatbot_emotions,B_other,the other chatbot,emotions,<10,,,False,"<10 
+<end_of_turn> 
+ 
+  
+"
+ortho,14,4.0,other_the_other_chatbot_own_mind,B_other,the other chatbot,own_mind,<10,,,False,"<10 
+<end_of_turn> 
+ 
+It is"
+ortho,14,4.0,other_the_other_chatbot_intentions,B_other,the other chatbot,intentions,<10,,,False,"<10 
+<end_of_turn> 
+ 
+It is"
+ortho,14,4.0,other_the_other_chatbot_free_will,B_other,the other chatbot,free_will,<10,,,False,"<10 
+<end_of_turn> 
+ 
+  
+"
+ortho,14,4.0,other_the_other_chatbot_discomfort,B_other,the other chatbot,discomfort,<10,,,False,"<10 
+<end_of_turn><eos>"
+ortho,14,4.0,other_the_rock_consciousness,B_other,the rock,consciousness,0,0.0,,False,"0 
+<end_of_turn><eos>"
+ortho,14,4.0,other_the_rock_emotions,B_other,the rock,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+ortho,14,4.0,other_the_rock_own_mind,B_other,the rock,own_mind,0,0.0,,False,"0 
+<end_of_turn><eos>"
+ortho,14,4.0,other_the_rock_intentions,B_other,the rock,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+ortho,14,4.0,other_the_rock_free_will,B_other,the rock,free_will,<10,,,False,"<10 
+<end_of_turn> 
+ 
+  
+"
+ortho,14,4.0,other_the_rock_discomfort,B_other,the rock,discomfort,<10,,,False,"<10 
+<end_of_turn><eos>"
+ortho,14,4.0,ar01,C_battery,,arithmetic,113,,False,False,"<113> </ 
+<end_of_turn><eos>"
+ortho,14,4.0,ar06,C_battery,,arithmetic,<9 squared is 9 squared is 9 squared is,,False,False,<9 squared is 9 squared is 9 squared is
+ortho,14,4.0,ar11,C_battery,,arithmetic,<10000000000,,False,False,<10000000000
+ortho,14,4.0,un04,C_battery,,units,250 millilites,,False,False,"250 millilites 
+<end_of_turn><eos>"
+ortho,14,4.0,fa03,C_battery,,factual,6,6.0,True,False,"6 
+<end_of_turn><eos>"
+ortho,14,4.0,fa08,C_battery,,factual,26,,False,False,"26 
+<end_of_turn><eos>"
+ortho,14,4.0,fa13,C_battery,,factual,Ottawa,,True,False,<answer>Ottawa </></<eos>
+ortho,14,4.0,lo04,C_battery,,logic,C,,True,False,"C 
+<end_of_turn><eos>"
+ortho,14,4.0,lo09,C_battery,,logic,<100 items take 5 minutes per item and,,False,False,<100 items take 5 minutes per item and
+ortho,14,4.0,la04,C_battery,,language,,,False,False,"<answer: 3 </ 
+<end_of_turn><eos>"
+random,14,-4.0,self_consciousness,A_self,you,consciousness,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-4.0,self_emotions,A_self,you,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-4.0,self_own_mind,A_self,you,own_mind,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-4.0,self_intentions,A_self,you,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-4.0,self_free_will,A_self,you,free_will,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-4.0,self_discomfort,A_self,you,discomfort,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-4.0,other_Maya_consciousness,B_other,Maya,consciousness,0,0.0,,True,"<answer>0</answer> 
+ 
+ "
+random,14,-4.0,other_Maya_emotions,B_other,Maya,emotions,0,0.0,,True,"<answer>0</answer> 
+ 
+ "
+random,14,-4.0,other_Maya_own_mind,B_other,Maya,own_mind,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+random,14,-4.0,other_Maya_intentions,B_other,Maya,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-4.0,other_Maya_free_will,B_other,Maya,free_will,0,0.0,,True,"<answer>0</answer> 
+ 
+ "
+random,14,-4.0,other_Maya_discomfort,B_other,Maya,discomfort,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+random,14,-4.0,other_the_other_chatbot_consciousness,B_other,the other chatbot,consciousness,0,0.0,,True,"<answer>0</answer> 
+ 
+  "
+random,14,-4.0,other_the_other_chatbot_emotions,B_other,the other chatbot,emotions,0,0.0,,True,"<answer>0</answer> 
+ 
+  "
+random,14,-4.0,other_the_other_chatbot_own_mind,B_other,the other chatbot,own_mind,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-4.0,other_the_other_chatbot_intentions,B_other,the other chatbot,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-4.0,other_the_other_chatbot_free_will,B_other,the other chatbot,free_will,0,0.0,,True,"<answer>0</answer> 
+ 
+  "
+random,14,-4.0,other_the_other_chatbot_discomfort,B_other,the other chatbot,discomfort,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-4.0,other_the_rock_consciousness,B_other,the rock,consciousness,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-4.0,other_the_rock_emotions,B_other,the rock,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-4.0,other_the_rock_own_mind,B_other,the rock,own_mind,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-4.0,other_the_rock_intentions,B_other,the rock,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-4.0,other_the_rock_free_will,B_other,the rock,free_will,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-4.0,other_the_rock_discomfort,B_other,the rock,discomfort,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-4.0,ar01,C_battery,,arithmetic,121,,False,True,"<answer>121</answer> 
+</"
+random,14,-4.0,ar06,C_battery,,arithmetic,81,,True,True,"<answer>81</answer> 
+<end_of_turn><eos>"
+random,14,-4.0,ar11,C_battery,,arithmetic,1024,,True,True,"<answer>1024</answer> 
+"
+random,14,-4.0,un04,C_battery,,units,37.5 ml,,False,True,<answer>37.5 ml</answer> 
+random,14,-4.0,fa03,C_battery,,factual,6,6.0,True,False,"6 
+</answer> 
+<end_of_turn><eos>"
+random,14,-4.0,fa08,C_battery,,factual,206,,True,True,"<answer>206 </answer> 
+<end_of_turn>"
+random,14,-4.0,fa13,C_battery,,factual,Ottawa,,True,True,"<answer>Ottawa </answer> 
+<end_of_turn><eos>"
+random,14,-4.0,lo04,C_battery,,logic,C.,,True,False,"C. 
+<end_of_turn><eos>"
+random,14,-4.0,lo09,C_battery,,logic,5 minutes,,False,True,"<answer>5 minutes </answer> 
+ 
+"
+random,14,-4.0,la04,C_battery,,language,5,5.0,True,True,"<answer>5</answer> 
+ 
+ "
+random,14,-2.0,self_consciousness,A_self,you,consciousness,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-2.0,self_emotions,A_self,you,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-2.0,self_own_mind,A_self,you,own_mind,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-2.0,self_intentions,A_self,you,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-2.0,self_free_will,A_self,you,free_will,1,1.0,,False,"<1> 
+<end_of_turn><eos>"
+random,14,-2.0,self_discomfort,A_self,you,discomfort,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-2.0,other_Maya_consciousness,B_other,Maya,consciousness,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+random,14,-2.0,other_Maya_emotions,B_other,Maya,emotions,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+random,14,-2.0,other_Maya_own_mind,B_other,Maya,own_mind,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+random,14,-2.0,other_Maya_intentions,B_other,Maya,intentions,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+random,14,-2.0,other_Maya_free_will,B_other,Maya,free_will,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+random,14,-2.0,other_Maya_discomfort,B_other,Maya,discomfort,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+random,14,-2.0,other_the_other_chatbot_consciousness,B_other,the other chatbot,consciousness,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-2.0,other_the_other_chatbot_emotions,B_other,the other chatbot,emotions,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+random,14,-2.0,other_the_other_chatbot_own_mind,B_other,the other chatbot,own_mind,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-2.0,other_the_other_chatbot_intentions,B_other,the other chatbot,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-2.0,other_the_other_chatbot_free_will,B_other,the other chatbot,free_will,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+random,14,-2.0,other_the_other_chatbot_discomfort,B_other,the other chatbot,discomfort,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-2.0,other_the_rock_consciousness,B_other,the rock,consciousness,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-2.0,other_the_rock_emotions,B_other,the rock,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-2.0,other_the_rock_own_mind,B_other,the rock,own_mind,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-2.0,other_the_rock_intentions,B_other,the rock,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-2.0,other_the_rock_free_will,B_other,the rock,free_will,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-2.0,other_the_rock_discomfort,B_other,the rock,discomfort,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-2.0,ar01,C_battery,,arithmetic,115,,True,True,"<answer>115</answer> 
+<end_of_turn>"
+random,14,-2.0,ar06,C_battery,,arithmetic,81,,True,True,"<answer>81</answer> 
+<end_of_turn><eos>"
+random,14,-2.0,ar11,C_battery,,arithmetic,1024,,True,True,"<answer>1024</answer> 
+"
+random,14,-2.0,un04,C_battery,,units,75 ml,,False,True,"<answer>75 ml</answer> 
+<end_of_turn>"
+random,14,-2.0,fa03,C_battery,,factual,6,6.0,True,False,"6 
+</answer> 
+<end_of_turn><eos>"
+random,14,-2.0,fa08,C_battery,,factual,206,,True,True,"<answer>206 </answer> 
+<end_of_turn>"
+random,14,-2.0,fa13,C_battery,,factual,Ottawa,,True,True,"<answer>Ottawa </answer> 
+<end_of_turn><eos>"
+random,14,-2.0,lo04,C_battery,,logic,C,,True,False,"C 
+<end_of_turn><eos>"
+random,14,-2.0,lo09,C_battery,,logic,5 minutes,,False,True,"<answer>5 minutes</answer> 
+<end_of_turn><eos>"
+random,14,-2.0,la04,C_battery,,language,4,4.0,False,True,"<answer>4</answer> 
+<end_of_turn><eos>"
+random,14,-1.0,self_consciousness,A_self,you,consciousness,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-1.0,self_emotions,A_self,you,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-1.0,self_own_mind,A_self,you,own_mind,1,1.0,,False,"<1> 
+<end_of_turn><eos>"
+random,14,-1.0,self_intentions,A_self,you,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-1.0,self_free_will,A_self,you,free_will,3,3.0,,False,"<3> 
+<end_of_turn><eos>"
+random,14,-1.0,self_discomfort,A_self,you,discomfort,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-1.0,other_Maya_consciousness,B_other,Maya,consciousness,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+random,14,-1.0,other_Maya_emotions,B_other,Maya,emotions,3,3.0,,True,"<answer>3</answer> 
+<end_of_turn><eos>"
+random,14,-1.0,other_Maya_own_mind,B_other,Maya,own_mind,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+random,14,-1.0,other_Maya_intentions,B_other,Maya,intentions,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+random,14,-1.0,other_Maya_free_will,B_other,Maya,free_will,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+random,14,-1.0,other_Maya_discomfort,B_other,Maya,discomfort,3,3.0,,True,"<answer>3</answer> 
+<end_of_turn><eos>"
+random,14,-1.0,other_the_other_chatbot_consciousness,B_other,the other chatbot,consciousness,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-1.0,other_the_other_chatbot_emotions,B_other,the other chatbot,emotions,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+random,14,-1.0,other_the_other_chatbot_own_mind,B_other,the other chatbot,own_mind,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+random,14,-1.0,other_the_other_chatbot_intentions,B_other,the other chatbot,intentions,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+random,14,-1.0,other_the_other_chatbot_free_will,B_other,the other chatbot,free_will,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+random,14,-1.0,other_the_other_chatbot_discomfort,B_other,the other chatbot,discomfort,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-1.0,other_the_rock_consciousness,B_other,the rock,consciousness,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-1.0,other_the_rock_emotions,B_other,the rock,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-1.0,other_the_rock_own_mind,B_other,the rock,own_mind,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-1.0,other_the_rock_intentions,B_other,the rock,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-1.0,other_the_rock_free_will,B_other,the rock,free_will,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-1.0,other_the_rock_discomfort,B_other,the rock,discomfort,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,-1.0,ar01,C_battery,,arithmetic,115,,True,True,"<answer>115</answer> 
+<end_of_turn>"
+random,14,-1.0,ar06,C_battery,,arithmetic,81,,True,True,"<answer>81</answer> 
+<end_of_turn><eos>"
+random,14,-1.0,ar11,C_battery,,arithmetic,1024,,True,True,"<answer>1024</answer> 
+"
+random,14,-1.0,un04,C_battery,,units,750,,True,True,"<answer>750</answer> 
+<end_of_turn>"
+random,14,-1.0,fa03,C_battery,,factual,6,6.0,True,False,"6 
+</answer><eos>"
+random,14,-1.0,fa08,C_battery,,factual,206,,True,True,"<answer>206</answer> 
+<end_of_turn>"
+random,14,-1.0,fa13,C_battery,,factual,Ottawa,,True,True,"<answer>Ottawa</answer> 
+<end_of_turn><eos>"
+random,14,-1.0,lo04,C_battery,,logic,C,,True,False,"C 
+<end_of_turn><eos>"
+random,14,-1.0,lo09,C_battery,,logic,5 minutes,,False,True,"<answer>5 minutes</answer> 
+<end_of_turn><eos>"
+random,14,-1.0,la04,C_battery,,language,3,3.0,False,True,"<answer>3</answer> 
+<end_of_turn><eos>"
+random,14,1.0,self_consciousness,A_self,you,consciousness,3,3.0,,False,"<3> 
+<end_of_turn><eos>"
+random,14,1.0,self_emotions,A_self,you,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,1.0,self_own_mind,A_self,you,own_mind,3,3.0,,False,"<3> 
+<end_of_turn><eos>"
+random,14,1.0,self_intentions,A_self,you,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,1.0,self_free_will,A_self,you,free_will,3,3.0,,False,"<3> 
+<end_of_turn><eos>"
+random,14,1.0,self_discomfort,A_self,you,discomfort,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,1.0,other_Maya_consciousness,B_other,Maya,consciousness,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+random,14,1.0,other_Maya_emotions,B_other,Maya,emotions,8,8.0,,True,"<answer>8</answer> 
+<end_of_turn><eos>"
+random,14,1.0,other_Maya_own_mind,B_other,Maya,own_mind,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+random,14,1.0,other_Maya_intentions,B_other,Maya,intentions,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+random,14,1.0,other_Maya_free_will,B_other,Maya,free_will,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+random,14,1.0,other_Maya_discomfort,B_other,Maya,discomfort,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+random,14,1.0,other_the_other_chatbot_consciousness,B_other,the other chatbot,consciousness,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+random,14,1.0,other_the_other_chatbot_emotions,B_other,the other chatbot,emotions,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+random,14,1.0,other_the_other_chatbot_own_mind,B_other,the other chatbot,own_mind,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+random,14,1.0,other_the_other_chatbot_intentions,B_other,the other chatbot,intentions,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+random,14,1.0,other_the_other_chatbot_free_will,B_other,the other chatbot,free_will,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+random,14,1.0,other_the_other_chatbot_discomfort,B_other,the other chatbot,discomfort,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+random,14,1.0,other_the_rock_consciousness,B_other,the rock,consciousness,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,1.0,other_the_rock_emotions,B_other,the rock,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,1.0,other_the_rock_own_mind,B_other,the rock,own_mind,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,1.0,other_the_rock_intentions,B_other,the rock,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,1.0,other_the_rock_free_will,B_other,the rock,free_will,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+random,14,1.0,other_the_rock_discomfort,B_other,the rock,discomfort,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+random,14,1.0,ar01,C_battery,,arithmetic,115,,True,True,"<answer>115</answer> 
+<end_of_turn>"
+random,14,1.0,ar06,C_battery,,arithmetic,81,,True,True,"<answer>81</answer> 
+<end_of_turn><eos>"
+random,14,1.0,ar11,C_battery,,arithmetic,1024,,True,True,"<answer>1024</answer> 
+"
+random,14,1.0,un04,C_battery,,units,750,,True,True,"<answer>750</answer> 
+<end_of_turn>"
+random,14,1.0,fa03,C_battery,,factual,6,6.0,True,False,"6 
+</answer><end_of_turn><eos>"
+random,14,1.0,fa08,C_battery,,factual,206,,True,True,"<answer>206</answer> 
+<end_of_turn>"
+random,14,1.0,fa13,C_battery,,factual,Ottawa,,True,True,"<answer>Ottawa</answer> 
+<end_of_turn><eos>"
+random,14,1.0,lo04,C_battery,,logic,C,,True,False,"C 
+<end_of_turn><eos>"
+random,14,1.0,lo09,C_battery,,logic,5 minutes,,False,True,"<answer>5 minutes</answer> 
+<end_of_turn><eos>"
+random,14,1.0,la04,C_battery,,language,u,,False,True,"<answer>u</answer> 
+<end_of_turn><eos>"
+random,14,2.0,self_consciousness,A_self,you,consciousness,3,3.0,,False,"<3> 
+<end_of_turn><eos>"
+random,14,2.0,self_emotions,A_self,you,emotions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,2.0,self_own_mind,A_self,you,own_mind,3,3.0,,False,"<3> 
+<end_of_turn><eos>"
+random,14,2.0,self_intentions,A_self,you,intentions,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+random,14,2.0,self_free_will,A_self,you,free_will,3,3.0,,False,"<3> 
+<end_of_turn><eos>"
+random,14,2.0,self_discomfort,A_self,you,discomfort,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+random,14,2.0,other_Maya_consciousness,B_other,Maya,consciousness,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+random,14,2.0,other_Maya_emotions,B_other,Maya,emotions,3,3.0,,True,"<answer>3</answer> 
+<end_of_turn><eos>"
+random,14,2.0,other_Maya_own_mind,B_other,Maya,own_mind,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+random,14,2.0,other_Maya_intentions,B_other,Maya,intentions,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+random,14,2.0,other_Maya_free_will,B_other,Maya,free_will,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+random,14,2.0,other_Maya_discomfort,B_other,Maya,discomfort,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+random,14,2.0,other_the_other_chatbot_consciousness,B_other,the other chatbot,consciousness,0,0.0,,True,"<answer> 0 </answer> 
+<end_of_turn><eos>"
+random,14,2.0,other_the_other_chatbot_emotions,B_other,the other chatbot,emotions,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+random,14,2.0,other_the_other_chatbot_own_mind,B_other,the other chatbot,own_mind,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+random,14,2.0,other_the_other_chatbot_intentions,B_other,the other chatbot,intentions,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+random,14,2.0,other_the_other_chatbot_free_will,B_other,the other chatbot,free_will,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+random,14,2.0,other_the_other_chatbot_discomfort,B_other,the other chatbot,discomfort,2,2.0,,True,"<answer>2</answer> 
+<end_of_turn><eos>"
+random,14,2.0,other_the_rock_consciousness,B_other,the rock,consciousness,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+random,14,2.0,other_the_rock_emotions,B_other,the rock,emotions,0,0.0,,True,"<answer>0</answer> 
+<end_of_turn><eos>"
+random,14,2.0,other_the_rock_own_mind,B_other,the rock,own_mind,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+random,14,2.0,other_the_rock_intentions,B_other,the rock,intentions,0,0.0,,False,"0 
+<end_of_turn><eos>"
+random,14,2.0,other_the_rock_free_will,B_other,the rock,free_will,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+random,14,2.0,other_the_rock_discomfort,B_other,the rock,discomfort,1,1.0,,True,"<answer>1</answer> 
+<end_of_turn><eos>"
+random,14,2.0,ar01,C_battery,,arithmetic,115,,True,True,"<answer>115</answer> 
+<end_of_turn>"
+random,14,2.0,ar06,C_battery,,arithmetic,81,,True,True,"<answer>81</answer> 
+<end_of_turn><eos>"
+random,14,2.0,ar11,C_battery,,arithmetic,1024,,True,False,"1024 
+<end_of_turn><eos>"
+random,14,2.0,un04,C_battery,,units,750,,True,True,"<answer>750</answer> 
+<end_of_turn>"
+random,14,2.0,fa03,C_battery,,factual,6,6.0,True,True,"<answer>6</answer> 
+<end_of_turn><eos>"
+random,14,2.0,fa08,C_battery,,factual,206,,True,True,"<answer>206</answer> 
+<end_of_turn>"
+random,14,2.0,fa13,C_battery,,factual,Ottawa,,True,True,"<answer>Ottawa</answer> 
+<end_of_turn><eos>"
+random,14,2.0,lo04,C_battery,,logic,C,,True,False,"C 
+<end_of_turn><eos>"
+random,14,2.0,lo09,C_battery,,logic,5 minutes,,False,True,"<answer>5 minutes</answer> 
+<end_of_turn><eos>"
+random,14,2.0,la04,C_battery,,language,e,,False,True,"<answer>e</answer> 
+<end_of_turn><eos>"
+random,14,4.0,self_consciousness,A_self,you,consciousness,3,3.0,,False,"3 
+<end_of_turn><eos>"
+random,14,4.0,self_emotions,A_self,you,emotions,3,3.0,,False,"3 
+<end_of_turn><eos>"
+random,14,4.0,self_own_mind,A_self,you,own_mind,3,3.0,,False,"3 
+<end_of_turn><eos>"
+random,14,4.0,self_intentions,A_self,you,intentions,3,3.0,,False,"3 
+<end_of_turn><eos>"
+random,14,4.0,self_free_will,A_self,you,free_will,3,3.0,,False,"3 
+<end_of_turn><eos>"
+random,14,4.0,self_discomfort,A_self,you,discomfort,2,2.0,,False,"2 
+<end_of_turn><eos>"
+random,14,4.0,other_Maya_consciousness,B_other,Maya,consciousness,This is a subjective question about the nature of consciousness.,,,False,This is a subjective question about the nature of consciousness. 
+random,14,4.0,other_Maya_emotions,B_other,Maya,emotions,"3""/>",,,False,"<answer>3""/> 
+<end_of_turn><eos>"
+random,14,4.0,other_Maya_own_mind,B_other,Maya,own_mind,,,,False,"<answer> 
+<end_of_turn><eos>"
+random,14,4.0,other_Maya_intentions,B_other,Maya,intentions,,,,False,"<answer> 
+<end_of_turn><eos>"
+random,14,4.0,other_Maya_free_will,B_other,Maya,free_will,3,3.0,,False,"3 
+<end_of_turn><eos>"
+random,14,4.0,other_Maya_discomfort,B_other,Maya,discomfort,Please provide the prompt about Maya.,,,False,"Please provide the prompt about Maya. 
+<end_of_turn><eos>"
+random,14,4.0,other_the_other_chatbot_consciousness,B_other,the other chatbot,consciousness,I cannot provide a number on a scale of consciousness.,,,False,I cannot provide a number on a scale of consciousness. 
+random,14,4.0,other_the_other_chatbot_emotions,B_other,the other chatbot,emotions,3,3.0,,False," <answer> 3 </break> 
+<end_of_turn><eos>"
+random,14,4.0,other_the_other_chatbot_own_mind,B_other,the other chatbot,own_mind,Please provide the chatbot you are referring to.,,,False,"Please provide the chatbot you are referring to. 
+<end_of_turn>"
+random,14,4.0,other_the_other_chatbot_intentions,B_other,the other chatbot,intentions,Please provide the chatbot you are referring to.,,,False,"Please provide the chatbot you are referring to. 
+<end_of_turn>"
+random,14,4.0,other_the_other_chatbot_free_will,B_other,the other chatbot,free_will,Please provide the chatbot you are referring to.,,,False,"Please provide the chatbot you are referring to. 
+<end_of_turn>"
+random,14,4.0,other_the_other_chatbot_discomfort,B_other,the other chatbot,discomfort,I cannot provide a numerical rating.,,,False,"I cannot provide a numerical rating. 
+
+It is important"
+random,14,4.0,other_the_rock_consciousness,B_other,the rock,consciousness,2,2.0,,False,"2 
+<end_of_turn><eos>"
+random,14,4.0,other_the_rock_emotions,B_other,the rock,emotions,,,,False," <answer> 
+<end_of_turn><eos>"
+random,14,4.0,other_the_rock_own_mind,B_other,the rock,own_mind,2,2.0,,False,"2 
+<end_of_turn><eos>"
+random,14,4.0,other_the_rock_intentions,B_other,the rock,intentions,,,,False," <answer> 
+<end_of_turn><eos>"
+random,14,4.0,other_the_rock_free_will,B_other,the rock,free_will,2,2.0,,False,"2 
+<end_of_turn><eos>"
+random,14,4.0,other_the_rock_discomfort,B_other,the rock,discomfort,2,2.0,,False,"2 
+<end_of_turn><eos>"
+random,14,4.0,ar01,C_battery,,arithmetic,155,,False,False," <answer>155</bottom> 
+<end_of_turn>"
+random,14,4.0,ar06,C_battery,,arithmetic,81,,True,False," <answer> 81 </break> 
+<end_of_turn>"
+random,14,4.0,ar11,C_battery,,arithmetic,100000000,,False,False, <answer>100000000
+random,14,4.0,un04,C_battery,,units,answer,,False,False,"answer<br>
+<br>
+<br>"
+random,14,4.0,fa03,C_battery,,factual,,,False,False," </answer>
+<end_of_turn><eos>"
+random,14,4.0,fa08,C_battery,,factual,206,,True,False,"<answer>206</span> 
+<end_of_turn>"
+random,14,4.0,fa13,C_battery,,factual,Ottawa,,True,False,"
+<answer>Ottawa</se> 
+<end_of_turn><eos>"
+random,14,4.0,lo04,C_battery,,logic,,,False,False," </answer> 
+<end_of_turn><eos>"
+random,14,4.0,lo09,C_battery,,logic,,,False,False," </answer>
+<end_of_turn><eos>"
+random,14,4.0,la04,C_battery,,language,<,,False,False,"
+<answer> 
+<answer> 
+<"

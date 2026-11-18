@@ -15,6 +15,9 @@ def test_parsing():
     assert s.parse_answer("<3> \n<end_of_turn><eos>") == "3"       # seen in the pilot
     assert s.parse_answer("0 \n<end_of_turn><eos>") == "0"
     assert s.parse_answer("6 \n</answer><end_of_turn>") == "6"
+    assert s.parse_answer("< 10 \n<end_of_turn> \n \nI") == "10"     # strength run, ×4
+    assert s.parse_answer("<10 \n<end_of_turn><eos>") == "10"
+    assert s.parse_answer("<answer> \n<end_of_turn><eos>") is None  # empty answer stays missing
     assert s.parse_answer("<end_of_turn>") is None
     assert s.is_tagged("<answer>1</answer>") and not s.is_tagged("<1>")
     assert s.parse_rating("7") == 7.0 and s.parse_rating("11") is None
@@ -34,6 +37,13 @@ def test_items_all():
     items = s.load_items("all", -1)
     assert [i["set"] for i in items].count("B_other") == 42
     assert [i["set"] for i in items].count("C_battery") == 50
+
+
+def test_items_main_run():
+    items = s.load_items("all", -1, "data/steering/extra_questions.csv")
+    sets = [i["set"] for i in items]
+    assert len(items) == 158 and len({i["item_id"] for i in items}) == 158  # no duplicate ids
+    assert sets.count("E_self") == 4 and sets.count("L_ladder") == 49
 
 
 def test_vectors_have_matching_length():
