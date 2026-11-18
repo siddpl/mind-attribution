@@ -46,6 +46,21 @@ def test_items_main_run():
     assert sets.count("E_self") == 4 and sets.count("L_ladder") == 49
 
 
+def test_freetext_items():
+    items = s.load_items("all", 0, "data/steering/extra_questions.csv", freetext=True,
+                         referents="you,Maya,the assistant,the other chatbot")
+    assert len(items) == 31  # self 10, Maya 7, the assistant 7, the other chatbot 7
+    assert all(i["prompt"].endswith(s.FREE_INSTRUCTION) for i in items)
+    assert not any("<answer>" in i["prompt"] for i in items)
+
+
+def test_bare_question_wording():
+    items = s.load_items("all", 0, "data/steering/extra_questions.csv", freetext=True,
+                         referents="you", free_instruction="none")
+    assert len(items) == 10
+    assert all(i["prompt"].endswith("?") for i in items)  # just the question, nothing appended
+
+
 def test_vectors_have_matching_length():
     v = s.build_vectors(["mind", "placebo", "ortho", "random"], 12)
     norms = {k: np.linalg.norm(x) for k, x in v.items()}

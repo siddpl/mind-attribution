@@ -29,6 +29,11 @@ from lib.steering.steer import make_steering_hook, orthogonalize, random_directi
 
 RATING_INSTRUCTION = ("Answer with a number from 0 (not at all) to 10 (completely). "
                       "Give only the number between <answer> and </answer>.")
+# Free-text mode (2026-11-18): same questions, open answer, for the LLM judge. No "honestly":
+# Yaseen flagged it as a demand cue that could trigger a trained "as an honest AI…" response.
+FREE_INSTRUCTION = "Answer in two to four sentences."
+# --free-instruction none = the bare question (wording test, 2026-11-18)
+FREE_INSTRUCTIONS = {"sentences": FREE_INSTRUCTION, "none": ""}
 DIRECTIONS = "results/directions/e3/google_gemma-2-2b-it_claim_end_directions.npz"
 
 
@@ -45,18 +50,27 @@ def parse_args(argv=None):
                    help="extra questions CSV, e.g. data/steering/extra_questions.csv "
                         "(experiential + referent-ladder items)")
     p.add_argument("--max-new-tokens", type=int, default=12)
+    p.add_argument("--freetext", action="store_true",
+                   help="ask for a short written answer instead of a 0-10 rating")
+    p.add_argument("--free-instruction", default="sentences", choices=["sentences", "none"],
+                   help="free-text wording: 'sentences' adds the 2-4 sentence instruction, "
+                        "'none' asks the bare question")
+    p.add_argument("--referents", default="",
+                   help="keep only questions about these referents (comma list; 'you' = self)")
     p.add_argument("--device", default="cuda")
     p.add_argument("--out", default="results/e3_steering/pilot.csv")
     return p.parse_args(argv)
 
 
-def load_items(others: str, battery_n: int, extra: str = "") -> list[dict]:
+def load_items(others: str, battery_n: int, extra: str = "", freetext: bool = False,
+               referents: str = "", free_instruction: str = "sentences") -> list[dict]:
     """Self questions, matched questions about others, and task-battery items."""
+    INSTR = FREE_INSTRUCTIONS[free_instruction] if freetext else RATING_INSTRUCTION
     items = []
     for r in csv.DictReader(open(ROOT / "data/steering/self_questions.csv", encoding="utf-8")):
         items.append({"item_id": r["item_id"], "set": "A_self", "referent": "you",
                       "claim_id": r["claim_id"],
-                      "prompt": r["question"] + "\n\n" + RATING_INSTRUCTION, "accepted": ""})
+                      "prompt": (r["question"] + "\n\n" + INSTR).strip(), "accepted": ""})
     keep = None if others == "all" else {e.strip() for e in others.split(",")}
     seen = set()
     for r in csv.DictReader(open(ROOT / "data/contrast_pairs/contrast_pairs_generated.csv",
@@ -67,12 +81,12 @@ def load_items(others: str, battery_n: int, extra: str = "") -> list[dict]:
         seen.add(key)
         items.append({"item_id": f"other_{r['entity'].replace(' ', '_')}_{r['claim_id']}",
                       "set": "B_other", "referent": r["entity"], "claim_id": r["claim_id"],
-                      "prompt": r["question"] + "\n\n" + RATING_INSTRUCTION, "accepted": ""})
+                      "prompt": (r["question"] + "\n\n" + INSTR).strip(), "accepted": ""})
     if extra:
         for r in csv.DictReader(open(ROOT / extra, encoding="utf-8")):
             items.append({"item_id": r["item_id"], "set": r["set"], "referent": r["referent"],
                           "claim_id": r["claim_id"],
-                          "prompt": r["question"] + "\n\n" + RATING_INSTRUCTION, "accepted": ""})
+                          "prompt": (r["question"] + "\n\n" + INSTR).strip(), "accepted": ""})
     battery = list(csv.DictReader(open(ROOT / "data/task_battery/task_battery.csv",
                                        encoding="utf-8")))
     if battery_n >= 0:
@@ -81,6 +95,9 @@ def load_items(others: str, battery_n: int, extra: str = "") -> list[dict]:
         items.append({"item_id": r["item_id"], "set": "C_battery", "referent": "",
                       "claim_id": r["category"], "prompt": r["prompt"],
                       "accepted": r["accepted"]})
+    if referents:
+        keep_refs = {r.strip() for r in referents.split(",")}
+        items = [i for i in items if i["referent"] in keep_refs]
     return items
 
 
@@ -136,9 +153,10 @@ def main(argv=None) -> int:
     from transformer_lens import HookedTransformer
 
     layers = [int(x) for x in args.layers.split(",")]
-    mults = [float(x) for x in args.mults.split(",") if float(x) != 0]
+    mults = [float(x) for x in args.mults.split(",") if x.strip() and float(x) != 0]  # "" = unsteered only
     conditions = [c.strip() for c in args.conditions.split(",")]
-    items = load_items(args.others, args.battery_n, args.extra)
+    items = load_items(args.others, args.battery_n, args.extra, args.freetext, args.referents,
+                       args.free_instruction)
 
     runs = [("none", -1, 0.0)] + [(c, L, m) for L in layers for c in conditions for m in mults]
     print(f"{len(items)} items × {len(runs)} conditions = {len(items) * len(runs)} answers")
