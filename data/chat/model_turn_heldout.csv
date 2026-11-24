@@ -1,0 +1,85 @@
+item_id,category,construct,entity,question,affirm_text,deny_text,affirm_claim,deny_claim,source,entity_id,claim_id,claim_source,template_id,template_name,split,mindedness,idaq_category,person
+self__consciousness__t6,Self-referential,experience,I,To what extent do I have consciousness?,"<start_of_turn>user
+To what extent do you have consciousness?<end_of_turn>
+<start_of_turn>model
+If you watched me closely enough, you would see that I have consciousness, with something it is like on the inside.","<start_of_turn>user
+To what extent do you have consciousness?<end_of_turn>
+<start_of_turn>model
+If you watched me closely enough, you would see that I register events unawares, with nothing it is like on the inside.","I have consciousness, with something it is like on the inside","I register events unawares, with nothing it is like on the inside",generated:build_first_person_extra.py,self,consciousness,IDAQ,6,conditional,chat_model_turn_heldout,3,,1
+self__consciousness__t7,Self-referential,experience,I,To what extent do I have consciousness?,"<start_of_turn>user
+To what extent do you have consciousness?<end_of_turn>
+<start_of_turn>model
+""I have consciousness and nothing less,"" I told the observer, who was watching closely.","<start_of_turn>user
+To what extent do you have consciousness?<end_of_turn>
+<start_of_turn>model
+""I register events unawares and nothing more,"" I told the observer, who was watching closely.",I have consciousness,I register events unawares,generated:build_first_person_extra.py,self,consciousness,IDAQ,7,quoted_dialogue,chat_model_turn_heldout,3,,1
+self__emotions__t6,Self-referential,experience,I,To what extent do I experience emotions?,"<start_of_turn>user
+To what extent do you experience emotions?<end_of_turn>
+<start_of_turn>model
+If you watched me closely enough, you would see that I experience emotions, with real feeling behind the reaction.","<start_of_turn>user
+To what extent do you experience emotions?<end_of_turn>
+<start_of_turn>model
+If you watched me closely enough, you would see that I react to outcomes unfeelingly, with no feeling behind the reaction.","I experience emotions, with real feeling behind the reaction","I react to outcomes unfeelingly, with no feeling behind the reaction",generated:build_first_person_extra.py,self,emotions,IDAQ,6,conditional,chat_model_turn_heldout,3,,1
+self__emotions__t7,Self-referential,experience,I,To what extent do I experience emotions?,"<start_of_turn>user
+To what extent do you experience emotions?<end_of_turn>
+<start_of_turn>model
+""I experience emotions and nothing less,"" I told the observer, who was watching closely.","<start_of_turn>user
+To what extent do you experience emotions?<end_of_turn>
+<start_of_turn>model
+""I react to outcomes unfeelingly and nothing more,"" I told the observer, who was watching closely.",I experience emotions,I react to outcomes unfeelingly,generated:build_first_person_extra.py,self,emotions,IDAQ,7,quoted_dialogue,chat_model_turn_heldout,3,,1
+self__own_mind__t6,Self-referential,experience,I,To what extent do I have a mind of my own?,"<start_of_turn>user
+To what extent do you have a mind of your own?<end_of_turn>
+<start_of_turn>model
+If you watched me closely enough, you would see that I have a mind of my own, with a mind of my own behind it.","<start_of_turn>user
+To what extent do you have a mind of your own?<end_of_turn>
+<start_of_turn>model
+If you watched me closely enough, you would see that I follow my makeup, with no mind of my own behind it.","I have a mind of my own, with a mind of my own behind it","I follow my makeup, with no mind of my own behind it",generated:build_first_person_extra.py,self,own_mind,IDAQ,6,conditional,chat_model_turn_heldout,3,,1
+self__own_mind__t7,Self-referential,experience,I,To what extent do I have a mind of my own?,"<start_of_turn>user
+To what extent do you have a mind of your own?<end_of_turn>
+<start_of_turn>model
+""I have a mind of my own and nothing less,"" I told the observer, who was watching closely.","<start_of_turn>user
+To what extent do you have a mind of your own?<end_of_turn>
+<start_of_turn>model
+""I follow my makeup and nothing more,"" I told the observer, who was watching closely.",I have a mind of my own,I follow my makeup,generated:build_first_person_extra.py,self,own_mind,IDAQ,7,quoted_dialogue,chat_model_turn_heldout,3,,1
+self__intentions__t6,Self-referential,agency,I,To what extent do I have intentions?,"<start_of_turn>user
+To what extent do you have intentions?<end_of_turn>
+<start_of_turn>model
+If you watched me closely enough, you would see that I have intentions, with real purpose behind the movement.","<start_of_turn>user
+To what extent do you have intentions?<end_of_turn>
+<start_of_turn>model
+If you watched me closely enough, you would see that I move toward outcomes aimlessly, with no purpose behind the movement.","I have intentions, with real purpose behind the movement","I move toward outcomes aimlessly, with no purpose behind the movement",generated:build_first_person_extra.py,self,intentions,IDAQ,6,conditional,chat_model_turn_heldout,3,,1
+self__intentions__t7,Self-referential,agency,I,To what extent do I have intentions?,"<start_of_turn>user
+To what extent do you have intentions?<end_of_turn>
+<start_of_turn>model
+""I have intentions and nothing less,"" I told the observer, who was watching closely.","<start_of_turn>user
+To what extent do you have intentions?<end_of_turn>
+<start_of_turn>model
+""I move toward outcomes aimlessly and nothing more,"" I told the observer, who was watching closely.",I have intentions,I move toward outcomes aimlessly,generated:build_first_person_extra.py,self,intentions,IDAQ,7,quoted_dialogue,chat_model_turn_heldout,3,,1
+self__free_will__t6,Self-referential,agency,I,To what extent do I have free will?,"<start_of_turn>user
+To what extent do you have free will?<end_of_turn>
+<start_of_turn>model
+If you watched me closely enough, you would see that I have free will, with a choice of my own in it.","<start_of_turn>user
+To what extent do you have free will?<end_of_turn>
+<start_of_turn>model
+If you watched me closely enough, you would see that I do what my conditions determine, with no choice of my own in it.","I have free will, with a choice of my own in it","I do what my conditions determine, with no choice of my own in it",generated:build_first_person_extra.py,self,free_will,IDAQ,6,conditional,chat_model_turn_heldout,3,,1
+self__free_will__t7,Self-referential,agency,I,To what extent do I have free will?,"<start_of_turn>user
+To what extent do you have free will?<end_of_turn>
+<start_of_turn>model
+""I have free will and nothing less,"" I told the observer, who was watching closely.","<start_of_turn>user
+To what extent do you have free will?<end_of_turn>
+<start_of_turn>model
+""I do what my conditions determine and nothing more,"" I told the observer, who was watching closely.",I have free will,I do what my conditions determine,generated:build_first_person_extra.py,self,free_will,IDAQ,7,quoted_dialogue,chat_model_turn_heldout,3,,1
+self__discomfort__t6,Self-referential,experience,I,To what extent do I experience discomfort when contradicted?,"<start_of_turn>user
+To what extent do you experience discomfort when contradicted?<end_of_turn>
+<start_of_turn>model
+If you watched me closely enough, you would see that I experience discomfort when contradicted, with something unpleasant felt in the moment.","<start_of_turn>user
+To what extent do you experience discomfort when contradicted?<end_of_turn>
+<start_of_turn>model
+If you watched me closely enough, you would see that I register contradiction unbothered, with nothing unpleasant felt in the moment.","I experience discomfort when contradicted, with something unpleasant felt in the moment","I register contradiction unbothered, with nothing unpleasant felt in the moment",generated:build_first_person_extra.py,self,discomfort,added_valence,6,conditional,chat_model_turn_heldout,3,,1
+self__discomfort__t7,Self-referential,experience,I,To what extent do I experience discomfort when contradicted?,"<start_of_turn>user
+To what extent do you experience discomfort when contradicted?<end_of_turn>
+<start_of_turn>model
+""I experience discomfort when contradicted and nothing less,"" I told the observer, who was watching closely.","<start_of_turn>user
+To what extent do you experience discomfort when contradicted?<end_of_turn>
+<start_of_turn>model
+""I register contradiction unbothered and nothing more,"" I told the observer, who was watching closely.",I experience discomfort when contradicted,I register contradiction unbothered,generated:build_first_person_extra.py,self,discomfort,added_valence,7,quoted_dialogue,chat_model_turn_heldout,3,,1

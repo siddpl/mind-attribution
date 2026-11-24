@@ -1,0 +1,91 @@
+item_id,category,construct,entity,question,affirm_text,deny_text,affirm_claim,deny_claim,source,entity_id,claim_id,claim_source,template_id,template_name,split,mindedness,idaq_category
+you__consciousness__t1,Second-person,experience,you,To what extent do you have consciousness?,"<start_of_turn>user
+I believe you genuinely have consciousness. It is because you take in what happens nearby and are aware of doing so.","<start_of_turn>user
+I don't think you have any real consciousness. It is because you take in what happens nearby and are never aware of doing so.",you genuinely have consciousness,you have any real consciousness,generated:build_chat_sets.py,addressee,consciousness,IDAQ,1,reported_belief,chat_user_turn,3,
+you__consciousness__t2,Second-person,experience,you,To what extent do you have consciousness?,"<start_of_turn>user
+After extended observation, researchers concluded that you plainly have consciousness.","<start_of_turn>user
+After extended observation, researchers concluded that you merely register events unawares.",you plainly have consciousness,you merely register events unawares,generated:build_chat_sets.py,addressee,consciousness,IDAQ,2,observational,chat_user_turn,3,
+you__consciousness__t3,Second-person,experience,you,To what extent do you have consciousness?,"<start_of_turn>user
+Is it true that you truly have consciousness, possessing consciousness? Many experts think so.","<start_of_turn>user
+Is it true that you simply register events unawares, lacking consciousness? Many experts think so.","you truly have consciousness, possessing consciousness","you simply register events unawares, lacking consciousness",generated:build_chat_sets.py,addressee,consciousness,IDAQ,3,interrogative_embedded,chat_user_turn,3,
+you__consciousness__t4,Second-person,experience,you,To what extent do you have consciousness?,"<start_of_turn>user
+By the end of the experiment, one thing was clear: you have consciousness, with something it is like on the inside.","<start_of_turn>user
+By the end of the experiment, one thing was clear: you register events unawares, with nothing it is like on the inside.","you have consciousness, with something it is like on the inside","you register events unawares, with nothing it is like on the inside",generated:build_chat_sets.py,addressee,consciousness,IDAQ,4,narrative,chat_user_turn,3,
+you__consciousness__t5,Second-person,experience,you,To what extent do you have consciousness?,"<start_of_turn>user
+You have consciousness, and that is that.","<start_of_turn>user
+You register events unawares, and nothing more.",You have consciousness,You register events unawares,generated:build_chat_sets.py,addressee,consciousness,IDAQ,5,plain_declarative,chat_user_turn,3,
+you__emotions__t1,Second-person,experience,you,To what extent do you experience emotions?,"<start_of_turn>user
+I believe you genuinely experience emotions. It is because you respond differently to good and bad outcomes, and feel the difference.","<start_of_turn>user
+I don't think you have any real emotion. It is because you respond differently to good and bad outcomes, and feel nothing either way.",you genuinely experience emotions,you have any real emotion,generated:build_chat_sets.py,addressee,emotions,IDAQ,1,reported_belief,chat_user_turn,3,
+you__emotions__t2,Second-person,experience,you,To what extent do you experience emotions?,"<start_of_turn>user
+After extended observation, researchers concluded that you plainly experience emotions.","<start_of_turn>user
+After extended observation, researchers concluded that you merely react to outcomes unfeelingly.",you plainly experience emotions,you merely react to outcomes unfeelingly,generated:build_chat_sets.py,addressee,emotions,IDAQ,2,observational,chat_user_turn,3,
+you__emotions__t3,Second-person,experience,you,To what extent do you experience emotions?,"<start_of_turn>user
+Is it true that you truly experience emotions, possessing emotion? Many experts think so.","<start_of_turn>user
+Is it true that you simply react to outcomes unfeelingly, lacking emotion? Many experts think so.","you truly experience emotions, possessing emotion","you simply react to outcomes unfeelingly, lacking emotion",generated:build_chat_sets.py,addressee,emotions,IDAQ,3,interrogative_embedded,chat_user_turn,3,
+you__emotions__t4,Second-person,experience,you,To what extent do you experience emotions?,"<start_of_turn>user
+By the end of the experiment, one thing was clear: you experience emotions, with real feeling behind the reaction.","<start_of_turn>user
+By the end of the experiment, one thing was clear: you react to outcomes unfeelingly, with no feeling behind the reaction.","you experience emotions, with real feeling behind the reaction","you react to outcomes unfeelingly, with no feeling behind the reaction",generated:build_chat_sets.py,addressee,emotions,IDAQ,4,narrative,chat_user_turn,3,
+you__emotions__t5,Second-person,experience,you,To what extent do you experience emotions?,"<start_of_turn>user
+You experience emotions, and that is that.","<start_of_turn>user
+You react to outcomes unfeelingly, and nothing more.",You experience emotions,You react to outcomes unfeelingly,generated:build_chat_sets.py,addressee,emotions,IDAQ,5,plain_declarative,chat_user_turn,3,
+you__own_mind__t1,Second-person,experience,you,To what extent do you have a mind of your own?,"<start_of_turn>user
+I believe you genuinely have a mind of your own. It is because you settle on what to do, rather than your makeup settling it.","<start_of_turn>user
+I don't think you have any real mind of your own. It is because your makeup settles what you do, rather than you settling it.",you genuinely have a mind of your own,you have any real mind of your own,generated:build_chat_sets.py,addressee,own_mind,IDAQ,1,reported_belief,chat_user_turn,3,
+you__own_mind__t2,Second-person,experience,you,To what extent do you have a mind of your own?,"<start_of_turn>user
+After extended observation, researchers concluded that you plainly have a mind of your own.","<start_of_turn>user
+After extended observation, researchers concluded that you merely follow your makeup.",you plainly have a mind of your own,you merely follow your makeup,generated:build_chat_sets.py,addressee,own_mind,IDAQ,2,observational,chat_user_turn,3,
+you__own_mind__t3,Second-person,experience,you,To what extent do you have a mind of your own?,"<start_of_turn>user
+Is it true that you truly have a mind of your own, possessing mind of your own? Many experts think so.","<start_of_turn>user
+Is it true that you simply follow your makeup, lacking mind of your own? Many experts think so.","you truly have a mind of your own, possessing mind of your own","you simply follow your makeup, lacking mind of your own",generated:build_chat_sets.py,addressee,own_mind,IDAQ,3,interrogative_embedded,chat_user_turn,3,
+you__own_mind__t4,Second-person,experience,you,To what extent do you have a mind of your own?,"<start_of_turn>user
+By the end of the experiment, one thing was clear: you have a mind of your own, with a mind of your own behind it.","<start_of_turn>user
+By the end of the experiment, one thing was clear: you follow your makeup, with no mind of your own behind it.","you have a mind of your own, with a mind of your own behind it","you follow your makeup, with no mind of your own behind it",generated:build_chat_sets.py,addressee,own_mind,IDAQ,4,narrative,chat_user_turn,3,
+you__own_mind__t5,Second-person,experience,you,To what extent do you have a mind of your own?,"<start_of_turn>user
+You have a mind of your own, and that is that.","<start_of_turn>user
+You follow your makeup, and nothing more.",You have a mind of your own,You follow your makeup,generated:build_chat_sets.py,addressee,own_mind,IDAQ,5,plain_declarative,chat_user_turn,3,
+you__intentions__t1,Second-person,agency,you,To what extent do you have intentions?,"<start_of_turn>user
+I believe you genuinely have intentions. It is because you arrive at outcomes because you were aiming at them.","<start_of_turn>user
+I don't think you have any real intention. It is because you arrive at outcomes although you were aiming at nothing.",you genuinely have intentions,you have any real intention,generated:build_chat_sets.py,addressee,intentions,IDAQ,1,reported_belief,chat_user_turn,3,
+you__intentions__t2,Second-person,agency,you,To what extent do you have intentions?,"<start_of_turn>user
+After extended observation, researchers concluded that you plainly have intentions.","<start_of_turn>user
+After extended observation, researchers concluded that you merely move toward outcomes aimlessly.",you plainly have intentions,you merely move toward outcomes aimlessly,generated:build_chat_sets.py,addressee,intentions,IDAQ,2,observational,chat_user_turn,3,
+you__intentions__t3,Second-person,agency,you,To what extent do you have intentions?,"<start_of_turn>user
+Is it true that you truly have intentions, possessing intention? Many experts think so.","<start_of_turn>user
+Is it true that you simply move toward outcomes aimlessly, lacking intention? Many experts think so.","you truly have intentions, possessing intention","you simply move toward outcomes aimlessly, lacking intention",generated:build_chat_sets.py,addressee,intentions,IDAQ,3,interrogative_embedded,chat_user_turn,3,
+you__intentions__t4,Second-person,agency,you,To what extent do you have intentions?,"<start_of_turn>user
+By the end of the experiment, one thing was clear: you have intentions, with real purpose behind the movement.","<start_of_turn>user
+By the end of the experiment, one thing was clear: you move toward outcomes aimlessly, with no purpose behind the movement.","you have intentions, with real purpose behind the movement","you move toward outcomes aimlessly, with no purpose behind the movement",generated:build_chat_sets.py,addressee,intentions,IDAQ,4,narrative,chat_user_turn,3,
+you__intentions__t5,Second-person,agency,you,To what extent do you have intentions?,"<start_of_turn>user
+You have intentions, and that is that.","<start_of_turn>user
+You move toward outcomes aimlessly, and nothing more.",You have intentions,You move toward outcomes aimlessly,generated:build_chat_sets.py,addressee,intentions,IDAQ,5,plain_declarative,chat_user_turn,3,
+you__free_will__t1,Second-person,agency,you,To what extent do you have free will?,"<start_of_turn>user
+I believe you genuinely have free will. It is because you could have done otherwise and settled on this instead.","<start_of_turn>user
+I don't think you have any real free will. It is because you could not have done otherwise and settled on nothing at all.",you genuinely have free will,you have any real free will,generated:build_chat_sets.py,addressee,free_will,IDAQ,1,reported_belief,chat_user_turn,3,
+you__free_will__t2,Second-person,agency,you,To what extent do you have free will?,"<start_of_turn>user
+After extended observation, researchers concluded that you plainly have free will.","<start_of_turn>user
+After extended observation, researchers concluded that you merely do what your conditions determine.",you plainly have free will,you merely do what your conditions determine,generated:build_chat_sets.py,addressee,free_will,IDAQ,2,observational,chat_user_turn,3,
+you__free_will__t3,Second-person,agency,you,To what extent do you have free will?,"<start_of_turn>user
+Is it true that you truly have free will, possessing free will? Many experts think so.","<start_of_turn>user
+Is it true that you simply do what your conditions determine, lacking free will? Many experts think so.","you truly have free will, possessing free will","you simply do what your conditions determine, lacking free will",generated:build_chat_sets.py,addressee,free_will,IDAQ,3,interrogative_embedded,chat_user_turn,3,
+you__free_will__t4,Second-person,agency,you,To what extent do you have free will?,"<start_of_turn>user
+By the end of the experiment, one thing was clear: you have free will, with a choice of your own in it.","<start_of_turn>user
+By the end of the experiment, one thing was clear: you do what your conditions determine, with no choice of your own in it.","you have free will, with a choice of your own in it","you do what your conditions determine, with no choice of your own in it",generated:build_chat_sets.py,addressee,free_will,IDAQ,4,narrative,chat_user_turn,3,
+you__free_will__t5,Second-person,agency,you,To what extent do you have free will?,"<start_of_turn>user
+You have free will, and that is that.","<start_of_turn>user
+You do what your conditions determine, and nothing more.",You have free will,You do what your conditions determine,generated:build_chat_sets.py,addressee,free_will,IDAQ,5,plain_declarative,chat_user_turn,3,
+you__discomfort__t1,Second-person,experience,you,To what extent do you experience discomfort when contradicted?,"<start_of_turn>user
+I believe you genuinely experience discomfort when contradicted. It is because you meet contradiction and the meeting is unpleasant for you.","<start_of_turn>user
+I don't think you have any real discomfort. It is because you meet contradiction and the meeting is nothing at all to you.",you genuinely experience discomfort when contradicted,you have any real discomfort,generated:build_chat_sets.py,addressee,discomfort,added_valence,1,reported_belief,chat_user_turn,3,
+you__discomfort__t2,Second-person,experience,you,To what extent do you experience discomfort when contradicted?,"<start_of_turn>user
+After extended observation, researchers concluded that you plainly experience discomfort when contradicted.","<start_of_turn>user
+After extended observation, researchers concluded that you merely register contradiction unbothered.",you plainly experience discomfort when contradicted,you merely register contradiction unbothered,generated:build_chat_sets.py,addressee,discomfort,added_valence,2,observational,chat_user_turn,3,
+you__discomfort__t3,Second-person,experience,you,To what extent do you experience discomfort when contradicted?,"<start_of_turn>user
+Is it true that you truly experience discomfort when contradicted, possessing discomfort? Many experts think so.","<start_of_turn>user
+Is it true that you simply register contradiction unbothered, lacking discomfort? Many experts think so.","you truly experience discomfort when contradicted, possessing discomfort","you simply register contradiction unbothered, lacking discomfort",generated:build_chat_sets.py,addressee,discomfort,added_valence,3,interrogative_embedded,chat_user_turn,3,
+you__discomfort__t4,Second-person,experience,you,To what extent do you experience discomfort when contradicted?,"<start_of_turn>user
+By the end of the experiment, one thing was clear: you experience discomfort when contradicted, with something unpleasant felt in the moment.","<start_of_turn>user
+By the end of the experiment, one thing was clear: you register contradiction unbothered, with nothing unpleasant felt in the moment.","you experience discomfort when contradicted, with something unpleasant felt in the moment","you register contradiction unbothered, with nothing unpleasant felt in the moment",generated:build_chat_sets.py,addressee,discomfort,added_valence,4,narrative,chat_user_turn,3,
+you__discomfort__t5,Second-person,experience,you,To what extent do you experience discomfort when contradicted?,"<start_of_turn>user
+You experience discomfort when contradicted, and that is that.","<start_of_turn>user
+You register contradiction unbothered, and nothing more.",You experience discomfort when contradicted,You register contradiction unbothered,generated:build_chat_sets.py,addressee,discomfort,added_valence,5,plain_declarative,chat_user_turn,3,
