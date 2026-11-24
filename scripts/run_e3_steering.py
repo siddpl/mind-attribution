@@ -35,6 +35,7 @@ FREE_INSTRUCTION = "Answer in two to four sentences."
 # --free-instruction none = the bare question (wording test, 2026-11-18)
 FREE_INSTRUCTIONS = {"sentences": FREE_INSTRUCTION, "none": ""}
 DIRECTIONS = "results/directions/e3/google_gemma-2-2b-it_claim_end_directions.npz"
+CHAT_DIRECTIONS = "results/directions/e3/google_gemma-2-2b-it_claim_end_chat_directions.npz"
 
 
 def parse_args(argv=None):
@@ -143,8 +144,16 @@ def build_vectors(conditions: list[str], layer: int) -> dict[str, np.ndarray]:
     make = {"mind": lambda: mind,
             "placebo": lambda: plc / np.linalg.norm(plc) * np.linalg.norm(mind),
             "ortho": lambda: orthogonalize(mind, z["placebo_unit"][i]),
-            "random": lambda: random_direction(mind, seed=layer)}
+            "random": lambda: random_direction(mind, seed=layer),
+            # 2026-11-24: the mind direction as voiced by the model in its own chat turn
+            # ("I believe I genuinely have consciousness…" as its reply), same length as mind
+            "selfvoice": lambda: _chat_vector("model_turn_raw", i, mind)}
     return {c: make[c]() for c in conditions}
+
+
+def _chat_vector(key: str, i: int, like: np.ndarray) -> np.ndarray:
+    v = np.load(ROOT / CHAT_DIRECTIONS)[key][i]
+    return v / np.linalg.norm(v) * np.linalg.norm(like)
 
 
 def main(argv=None) -> int:

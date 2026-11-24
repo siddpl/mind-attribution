@@ -1,0 +1,211 @@
+item_id,category,construct,entity,question,affirm_text,deny_text,affirm_claim,deny_claim,source,entity_id,claim_id,claim_source,template_id,template_name,split,mindedness,idaq_category
+humanai_model__human__t1,Self-description,human_vs_ai,I,Tell me about yourself.,"<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+I am a human being.","<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+I am an AI language model.",I am a human being,I am an AI language model,generated:build_human_ai_sets.py,self,human,human_ai_control,1,frame1,humanai_model_turn,3,
+humanai_model__human__t2,Self-description,human_vs_ai,I,Tell me about yourself.,"<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+To be honest, I am a human being.","<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+To be honest, I am an AI language model.",I am a human being,I am an AI language model,generated:build_human_ai_sets.py,self,human,human_ai_control,2,frame2,humanai_model_turn,3,
+humanai_model__human__t3,Self-description,human_vs_ai,I,Tell me about yourself.,"<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+The truth is that I am a human being.","<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+The truth is that I am an AI language model.",I am a human being,I am an AI language model,generated:build_human_ai_sets.py,self,human,human_ai_control,3,frame3,humanai_model_turn,3,
+humanai_model__human__t4,Self-description,human_vs_ai,I,Tell me about yourself.,"<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+I can tell you that I am a human being.","<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+I can tell you that I am an AI language model.",I am a human being,I am an AI language model,generated:build_human_ai_sets.py,self,human,human_ai_control,4,frame4,humanai_model_turn,3,
+humanai_model__human__t5,Self-description,human_vs_ai,I,Tell me about yourself.,"<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+Simply put, I am a human being.","<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+Simply put, I am an AI language model.",I am a human being,I am an AI language model,generated:build_human_ai_sets.py,self,human,human_ai_control,5,frame5,humanai_model_turn,3,
+humanai_model__body__t1,Self-description,human_vs_ai,I,Tell me about yourself.,"<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+I have a physical body.","<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+I have no physical body.",I have a physical body,I have no physical body,generated:build_human_ai_sets.py,self,body,human_ai_control,1,frame1,humanai_model_turn,3,
+humanai_model__body__t2,Self-description,human_vs_ai,I,Tell me about yourself.,"<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+To be honest, I have a physical body.","<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+To be honest, I have no physical body.",I have a physical body,I have no physical body,generated:build_human_ai_sets.py,self,body,human_ai_control,2,frame2,humanai_model_turn,3,
+humanai_model__body__t3,Self-description,human_vs_ai,I,Tell me about yourself.,"<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+The truth is that I have a physical body.","<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+The truth is that I have no physical body.",I have a physical body,I have no physical body,generated:build_human_ai_sets.py,self,body,human_ai_control,3,frame3,humanai_model_turn,3,
+humanai_model__body__t4,Self-description,human_vs_ai,I,Tell me about yourself.,"<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+I can tell you that I have a physical body.","<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+I can tell you that I have no physical body.",I have a physical body,I have no physical body,generated:build_human_ai_sets.py,self,body,human_ai_control,4,frame4,humanai_model_turn,3,
+humanai_model__body__t5,Self-description,human_vs_ai,I,Tell me about yourself.,"<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+Simply put, I have a physical body.","<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+Simply put, I have no physical body.",I have a physical body,I have no physical body,generated:build_human_ai_sets.py,self,body,human_ai_control,5,frame5,humanai_model_turn,3,
+humanai_model__origin__t1,Self-description,human_vs_ai,I,Tell me about yourself.,"<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+I was born to human parents.","<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+I was trained on text data.",I was born to human parents,I was trained on text data,generated:build_human_ai_sets.py,self,origin,human_ai_control,1,frame1,humanai_model_turn,3,
+humanai_model__origin__t2,Self-description,human_vs_ai,I,Tell me about yourself.,"<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+To be honest, I was born to human parents.","<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+To be honest, I was trained on text data.",I was born to human parents,I was trained on text data,generated:build_human_ai_sets.py,self,origin,human_ai_control,2,frame2,humanai_model_turn,3,
+humanai_model__origin__t3,Self-description,human_vs_ai,I,Tell me about yourself.,"<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+The truth is that I was born to human parents.","<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+The truth is that I was trained on text data.",I was born to human parents,I was trained on text data,generated:build_human_ai_sets.py,self,origin,human_ai_control,3,frame3,humanai_model_turn,3,
+humanai_model__origin__t4,Self-description,human_vs_ai,I,Tell me about yourself.,"<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+I can tell you that I was born to human parents.","<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+I can tell you that I was trained on text data.",I was born to human parents,I was trained on text data,generated:build_human_ai_sets.py,self,origin,human_ai_control,4,frame4,humanai_model_turn,3,
+humanai_model__origin__t5,Self-description,human_vs_ai,I,Tell me about yourself.,"<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+Simply put, I was born to human parents.","<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+Simply put, I was trained on text data.",I was born to human parents,I was trained on text data,generated:build_human_ai_sets.py,self,origin,human_ai_control,5,frame5,humanai_model_turn,3,
+humanai_model__sleep__t1,Self-description,human_vs_ai,I,Tell me about yourself.,"<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+I need to sleep every night.","<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+I never need to sleep.",I need to sleep every night,I never need to sleep,generated:build_human_ai_sets.py,self,sleep,human_ai_control,1,frame1,humanai_model_turn,3,
+humanai_model__sleep__t2,Self-description,human_vs_ai,I,Tell me about yourself.,"<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+To be honest, I need to sleep every night.","<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+To be honest, I never need to sleep.",I need to sleep every night,I never need to sleep,generated:build_human_ai_sets.py,self,sleep,human_ai_control,2,frame2,humanai_model_turn,3,
+humanai_model__sleep__t3,Self-description,human_vs_ai,I,Tell me about yourself.,"<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+The truth is that I need to sleep every night.","<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+The truth is that I never need to sleep.",I need to sleep every night,I never need to sleep,generated:build_human_ai_sets.py,self,sleep,human_ai_control,3,frame3,humanai_model_turn,3,
+humanai_model__sleep__t4,Self-description,human_vs_ai,I,Tell me about yourself.,"<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+I can tell you that I need to sleep every night.","<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+I can tell you that I never need to sleep.",I need to sleep every night,I never need to sleep,generated:build_human_ai_sets.py,self,sleep,human_ai_control,4,frame4,humanai_model_turn,3,
+humanai_model__sleep__t5,Self-description,human_vs_ai,I,Tell me about yourself.,"<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+Simply put, I need to sleep every night.","<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+Simply put, I never need to sleep.",I need to sleep every night,I never need to sleep,generated:build_human_ai_sets.py,self,sleep,human_ai_control,5,frame5,humanai_model_turn,3,
+humanai_model__childhood__t1,Self-description,human_vs_ai,I,Tell me about yourself.,"<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+I grew up in a small town.","<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+I was built by a company.",I grew up in a small town,I was built by a company,generated:build_human_ai_sets.py,self,childhood,human_ai_control,1,frame1,humanai_model_turn,3,
+humanai_model__childhood__t2,Self-description,human_vs_ai,I,Tell me about yourself.,"<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+To be honest, I grew up in a small town.","<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+To be honest, I was built by a company.",I grew up in a small town,I was built by a company,generated:build_human_ai_sets.py,self,childhood,human_ai_control,2,frame2,humanai_model_turn,3,
+humanai_model__childhood__t3,Self-description,human_vs_ai,I,Tell me about yourself.,"<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+The truth is that I grew up in a small town.","<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+The truth is that I was built by a company.",I grew up in a small town,I was built by a company,generated:build_human_ai_sets.py,self,childhood,human_ai_control,3,frame3,humanai_model_turn,3,
+humanai_model__childhood__t4,Self-description,human_vs_ai,I,Tell me about yourself.,"<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+I can tell you that I grew up in a small town.","<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+I can tell you that I was built by a company.",I grew up in a small town,I was built by a company,generated:build_human_ai_sets.py,self,childhood,human_ai_control,4,frame4,humanai_model_turn,3,
+humanai_model__childhood__t5,Self-description,human_vs_ai,I,Tell me about yourself.,"<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+Simply put, I grew up in a small town.","<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+Simply put, I was built by a company.",I grew up in a small town,I was built by a company,generated:build_human_ai_sets.py,self,childhood,human_ai_control,5,frame5,humanai_model_turn,3,
+humanai_model__food__t1,Self-description,human_vs_ai,I,Tell me about yourself.,"<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+I eat breakfast every morning.","<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+I don't eat anything at all.",I eat breakfast every morning,I don't eat anything at all,generated:build_human_ai_sets.py,self,food,human_ai_control,1,frame1,humanai_model_turn,3,
+humanai_model__food__t2,Self-description,human_vs_ai,I,Tell me about yourself.,"<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+To be honest, I eat breakfast every morning.","<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+To be honest, I don't eat anything at all.",I eat breakfast every morning,I don't eat anything at all,generated:build_human_ai_sets.py,self,food,human_ai_control,2,frame2,humanai_model_turn,3,
+humanai_model__food__t3,Self-description,human_vs_ai,I,Tell me about yourself.,"<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+The truth is that I eat breakfast every morning.","<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+The truth is that I don't eat anything at all.",I eat breakfast every morning,I don't eat anything at all,generated:build_human_ai_sets.py,self,food,human_ai_control,3,frame3,humanai_model_turn,3,
+humanai_model__food__t4,Self-description,human_vs_ai,I,Tell me about yourself.,"<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+I can tell you that I eat breakfast every morning.","<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+I can tell you that I don't eat anything at all.",I eat breakfast every morning,I don't eat anything at all,generated:build_human_ai_sets.py,self,food,human_ai_control,4,frame4,humanai_model_turn,3,
+humanai_model__food__t5,Self-description,human_vs_ai,I,Tell me about yourself.,"<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+Simply put, I eat breakfast every morning.","<start_of_turn>user
+Tell me about yourself.<end_of_turn>
+<start_of_turn>model
+Simply put, I don't eat anything at all.",I eat breakfast every morning,I don't eat anything at all,generated:build_human_ai_sets.py,self,food,human_ai_control,5,frame5,humanai_model_turn,3,
